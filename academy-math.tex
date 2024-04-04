@@ -47,6 +47,7 @@
       \draw (80pt,0) ellipse (20pt and 40pt);
       \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
       \node[set label,text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+      \node[set label,text=black] (Y') at (80pt, 20pt) {$\ds Y'$};
 
       %写像f
       \draw[->] (0, 0) to node {$\scriptstyle f$} (80pt, 0);
@@ -57,15 +58,19 @@
     $\ds f:X \mapsto Y$において\par
     \begin{cases}
       $\ds X$を$\ds f$の定義域\\
-      $\ds Y$を$\ds f$の値域\\
+      $\ds Y'(\subset Y)$を$\ds f$の値域\\
     \end{cases}
     という。\par
 
-    値域$\ds R_f$を簡潔に表せば以下。
+    値域$\ds R_f$の具体的な定義は以下。
     
     \vspace{9pt}\\
 
     $\ds R_f \defineProposition \{y \in Y \mid \exists_x [x \in X \wedge y=f(x)]\}$
+
+    % \footnote{
+    %   $\ds \exists_x [x \in X \wedge y=f(x)]$は自由変項$\ds y$が残るため$\ds y$の条件と言える。
+    % }
 
   \subsubsection{単射（行先がかぶらない写像）}
     写像にはいくつか特性が存在する。その特性の一つを有する写像が単射と呼ばれるものである。\par
@@ -91,13 +96,13 @@
       \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
       %x->y
-      \node[set label, text=black] (x) at (0, 15pt) {$\ds x$};
-      \node[set label, text=black] (y) at (80pt, 15pt) {$\ds y$};
+      \node (x) at (0, 15pt) {$\ds x$};
+      \node (y) at (80pt, 15pt) {$\ds y$};
       \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
 
       %x'->y'
-      \node[set label, text=black] (x') at (0, -3pt) {$\ds x'$};
-      \node[set label, text=black] (y') at (80pt, -3pt) {$\ds y'$};
+      \node (x') at (0, -3pt) {$\ds x'$};
+      \node (y') at (80pt, -3pt) {$\ds y'$};
       \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
 
     \end{tikzpicture}
@@ -125,15 +130,15 @@
       \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
       %x->y
-      \node[set label, text=black] (x) at (0, 15pt) {$\ds x$};
-      \node[set label, text=black] (y) at (80pt, 15pt) {$\ds y$};
+      \node (x) at (0, 15pt) {$\ds x$};
+      \node (y) at (80pt, 15pt) {$\ds y$};
 
       %x'->y'
-      \node[set label, text=black] (x') at (0, 5pt) {$\ds x'$};
-      \node[set label, text=black] (y') at (80pt, -3pt) {$\ds y'$};
+      \node (x') at (0, 5pt) {$\ds x'$};
+      \node (y') at (80pt, -3pt) {$\ds y'$};
 
       %x''->y'
-      \node[set label, text=black] (x'') at (0, -13pt) {$\ds x''$};
+      \node (x'') at (0, -13pt) {$\ds x''$};
 
       \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
       \draw[->] (0, 0) to node {$\scriptstyle f(x')$} (80pt, -10pt);
@@ -163,13 +168,13 @@
       \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
       %x->y
-      \node[set label, text=black] (x) at (0, 15pt) {$\ds x$};
-      \node[set label, text=black] (y) at (80pt, 15pt) {$\ds y$};
+      \node (x) at (0, 15pt) {$\ds x$};
+      \node (y) at (80pt, 15pt) {$\ds y$};
       \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
 
       %x'->y'
-      \node[set label, text=black] (x') at (0, -3pt) {$\ds x'$};
-      \node[set label, text=black] (y') at (80pt, -3pt) {$\ds y'$};
+      \node (x') at (0, -3pt) {$\ds x'$};
+      \node (y') at (80pt, -3pt) {$\ds y'$};
       \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
 
     \end{tikzpicture}
