@@ -3,6 +3,7 @@
 \usepackage{multicol}
 \usepackage{amsmath, amssymb, amsfonts} %数学系全般のパッケージ
 \usepackage{tikz}
+\usetikzlibrary{patterns}%斜線塗りを可能にする
 \usepackage{mhchem} %化学用パッケージ
 \usepackage{pxrubrica} %ルビを振れるようにする\rubyを追加するパッケージ
 \usetikzlibrary{calc}
@@ -49,6 +50,39 @@
         またある集合$\ds A$は他の集合$\ds B$と共通部分を持ったり、はたまたその集合$\ds A$自体が他の集合$\ds B$の一部分となるケースも考えられる。
         そのような場合順に「$\ds AとB$の共通部分」、「$\ds AはBの$部分集合」という。
 
+        \begin{tikzpicture}[auto]
+        
+          \def \circleRadius{1}
+          \def \leftCirclePoint{(0, 0)}
+          \def \rightCirclePoint{(1, 0)}
+          \def \centerPointOfShareArea{(0.5, 0)}
+          \def \leftCircleNamePoint{(0, 1)}
+          \def \rightCircleNamePoint{(1, 1)}
+
+          \scope
+            %Xのベン図
+            \clip \leftCirclePoint circle (\circleRadius);
+            \fill [fill=white] \rightCirclePoint circle (\circleRadius);
+          \endscope
+
+          \scope
+            %Yのベン図
+            \clip \rightCirclePoint circle (\circleRadius);
+            \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
+          \endscope
+
+          \draw \leftCirclePoint circle (\circleRadius);
+          \draw \rightCirclePoint circle (\circleRadius);
+          \node[set label, text=black] (A) at \leftCircleNamePoint {$\de A$}
+          \node[set label, text=black] (B) at \rightCircleNamePoint {$\de B$}
+
+          %共通部分ラベル
+          \draw[semithick, -, stealth] \centerPointOfShareArea--(0.5, -1.5);
+          \draw[semithick, -, stealth] (0.5, -1.5)--(-1, -1.5);
+          \node[set label, text=black] (CAP) at (-1, -1.5) {$\ds AとBの共通部分$};
+
+        \end{tikzpicture}
+
         \subsubsection{集合の例}
           例として「原子」という集合を考えてみよう。(ここでいう原子は化学の原子を指すものとする)\par
           原子には様々な種類があり、例えば水素原子\ce{_{1}H}や酸素原子\ce{_{8}O}などがある。
@@ -65,7 +99,7 @@
           ついでこの場合$\ds 1$は$\ds A$の要素であるから、これを$\ds 1 \in A$と書く。\par
           
           %強制的に改段
-          \columnbreak
+          %\columnbreak
           
           また、先ほどの集合の定義と同じ意味で\par
           $\ds A \define \{ n \in \mathbb{N} \mid 1 \leq n \leq 5 \}$と表すこともできる。
