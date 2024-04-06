@@ -784,12 +784,12 @@
 
         \begin{equation*}
           \begin{cases}
-            &$\ds \sigma_1(x_1, x_2, \cdots , x_n) = -\frac{a_2}{a_1}$\\
-            &$\ds \sigma_2(x_1, x_2, \cdots , x_n) = \frac{a_3}{a_1}$\\
+            &$\ds \sigma_1(x_1, x_2, \cdots , x_n) = -\frac{a_{n-1}}{a_n}$\\
+            &$\ds \sigma_2(x_1, x_2, \cdots , x_n) = \frac{a_{n-2}}{a_n}$\\
             &\vdots \\
-            &$\ds \sigma_l(x_1, x_2, \cdots , x_n) = (-1)^l \frac{a_{l+1}}{a_1}$\\
+            &$\ds \sigma_k(x_1, x_2, \cdots , x_n) = (-1)^k \frac{a_{n-k}}{a_n}$\\
             &\vdots \\
-            &$\ds \sigma_n(x_1, x_2, \cdots , x_n) = (-1)^n \frac{a_{n+1}}{a_1}$\\
+            &$\ds \sigma_n(x_1, x_2, \cdots , x_n) = (-1)^n \frac{a_0}{a_n}$\\
           \end{cases}
         \end{equation*}
 
@@ -821,6 +821,13 @@
             \end{cases}\\
           \end{split}
         \end{equation*}
+
+        \footnote{
+          \begin{cases}
+            &$\ds P_1(x)$\\
+            &$\ds P_2(x)$\\
+          \end{cases}は$\ds P_1(x) \vee P_2(x)$の意味
+        }
 
         例えば多項式$\ds f(x_1, x_2, \cdots , x_n), g(x_1, x_2, \cdots , x_n)$において
         
