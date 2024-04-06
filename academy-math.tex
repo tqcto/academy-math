@@ -1,7 +1,7 @@
 \documentclass[a4j, 9pt]{ltjsarticle}
 
 \usepackage{multicol}
-\usepackage{amsmath, amssymb, amsfonts} %数学系全般のパッケージ
+\usepackage{amsmath, amssymb, amsfonts, mathtools} %数学系全般のパッケージ
 \usepackage{tikz}
 \usetikzlibrary{patterns}%斜線塗りを可能にする
 \usepackage{mhchem} %化学用パッケージ
@@ -15,6 +15,9 @@
 \def\ldef{\coloneqq}
 \def\define{\stackrel{\mathrm{def}}{=}}
 \def\defineProposition{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+
+%式番号付与
+\def \addFormulaName{ \newtagform{bbracket}[\textbf]{[}{]} \usetagform{bbracket} \numberwithin{equation}{section} }
 
 %ディスプレイスタイル
 \def\ds{\displaystyle}
@@ -570,5 +573,270 @@
         \end{tikzpicture}
 
     \end{multicols}
+
+  \section{基本対称式}
+    対称式とは変数を入れ替えても形が変わらない多項式のことである。まず多項式がどんなものか確認して、次に対称式の性質や対称式の基本定理について議論しよう。  
+
+    \begin{multicols*}{2}
+      
+      \subsection{多項式・整式の定義}
+        多項式(整式)とは「数」と「変数」を和と積によって作られる
+          (線形結合\footnote{
+            線形結合の具体的な定義は
+            「体$\ds \mathbb{F}$上の線形空間\boldsymbol{V}に対する$\ds \boldsymbol{v_1}, \boldsymbol{v_2}, \cdots , \boldsymbol{v_n} \in \boldsymbol{V}$の線形結合とは
+            $\ds c_1 \boldsymbol{v_1} + c_2 \boldsymbol{v_2} + \cdots + c_n \boldsymbol{v_n} (c_1, c_2, \cdots , c_n \in \mathbb{F})$で表されるベクトルのこと」
+          }と言ったりする)
+        式のことである。\par
+        たとえば$\ds 3x^3 + 5x^2 - x + 10$は$\ds x$を変数とする多項式である。
+        また、多項式は変数を複数持つ場合も言う。\par
+        変数が$\ds 1$つの場合の多項式の一般形を書くと
+
+        \begin{equation*}
+          \begin{split}
+            $\ds a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 ( = \sum_{k=0}^n a_k x^k )$\\
+          \end{split}
+        \end{equation*}
+
+        ここに各々の$\ds x_k$において$\ds a_k x^k$のようにして積で結ばれる。この積で結ばれた塊を項と呼び、$\ds a_k$を$\ds x^k$の係数と呼ぶ。
+        特に$\ds 0$次の項を定数項と呼ぶ。\par
+        また、一般には和を持たない多項式(例えば$\ds 4x^2$など)も存在し、それらを単項式と呼ぶ。\par
+        ゆえに$\ds 単項式 \subset 多項式 = 整式$である。
+
+        \subsubsection{多項式・整式でないもの}
+          紛らわしいものに次のようなものがある。
+
+          \begin{equation*}
+            \begin{split}
+              &・$\ds \frac{1}{x} = x^{-1}$\\
+              &・$\ds x^\frac{1}{2} = \sqrt{x}$\\
+              &・$\ds \sum_{n=0}^\infty x^n = 1 + x + x^2 + \cdots$\\
+            \end{split}
+          \end{equation*}
+
+          これらはすべて多項式・整式ではない。(ゆえに単項式でもない)\par
+          これらはx上から順に「有利式・分数式」、(名前なし)、「級数」という。
+      
+      \columnbreak
+
+      \subsection{対称式の定義}
+        先に述べたように対称式とは変数を入れ替えても変わらない多項式のことである。
+        例えば次のような$\ds 2$変数の多項式のようなものをいう。
+
+        %\addFormulaName
+        % \begin{equation}
+        \begin{equation*}
+          \begin{split}
+            % $\ds f(x, y) \ldef x^2 + xy + y^2$ \label{sym_1}\\
+            $\ds f(x, y) \ldef x^2 + xy + y^2$\\
+          \end{split}
+        % \end{equation}
+        \end{equation*}
+
+        この式で$\ds x, y$を入れ替えてみても次の通り
+
+        %\addFormulaName
+        % \begin{equation}
+        \begin{equation*}
+          \begin{split}
+            % $\ds f(y, x) = y^2 + yx + x^2$ \label{sym_2}\\
+            $\ds f(y, x) $  &$\ds = y^2 + yx + x^2$\\
+                            &$\ds = f(x, y)$\\
+          \end{split}
+        % \end{equation}
+        \end{equation*}
+
+        % \eqref{sym_1}と\eqref{sym_2}は全く同じ多項式である。
+        これらは全く同じ多項式である。\par
+        今見たものは$\ds 2$変数のものであったが、さらには例として次のような$\ds n$変数の対称式を考えられる。
+
+        \begin{equation*}
+          \begin{split}
+            $\ds f(x_1, x_2, \cdots , x_n) \ldef \sum_{k=1}^n x_k^7$\\
+          \end{split}
+        \end{equation*}
+
+        これも任意の$\ds x_k (1 \leq k \leq n)$を任意の分だけ入れ変えてもすべての場合で同じ多項式となる。\par
+        例えば$\ds x_2$と$\ds x_n$を入れ替えてみても
+
+        \begin{equation*}
+          \begin{split}
+            $\ds f(x_1, x_n, \cdots , x_2) $  & $\ds = x_1^7 + x_n^7 + \sum_{k=3}^{n-1} x_k^7 + x_2^7$\\
+                                              & $\ds = x_1^7 + x_2^7 + \sum_{k=3}^{n-1} x_k^7 + x_n^7$\\
+                                              & $\ds = \sum_{k=1}^{n} x_k^7$\\
+                                              & $\ds = f(x_1, x_2, \cdots , x_n)$
+          \end{split}
+        \end{equation*}
+
+        のように成立する。
+
+      \columnbreak
+
+      \subsection{基本対称式の定義}
+        基本対称式とは$\ds n$個の変数$\ds x_1, x_2, \cdots , x_n$らを要素にもつ集合$\ds X$、つまり$\ds X \ldef \{ x_k \mid k \in \mathbb{N} \wedge 1 \leq k \leq n \}$なる集合$\ds X$から
+        $\ds 1 \leq k \leq n$を満たす異なる$\ds k$個の変数を掛け合わせたものをすべての場合で作り、それらの和をとってできる対称式のことをいう。
+        この基本対称式は後に議論する「対称式の基本定理」に登場し、対称式に関してとても重要な役割を果たすため天から降ってきたようなやり方だがここでとりあえず定義しておく。\par
+        この$\ds k$個の変数の場合の基本対称式を$\ds \sigma_k(x_1, x_2, \cdots , x_n)$とすると以下すべてが該当する。
+
+        \begin{equation*}
+          \begin{cases}
+            & $\ds \sigma_1(x_1, x_2, \cdots , x_n) = x_1 + x_2 + \cdots + x_n = \sum_{k=1}^n x_k$\\
+            &\begin{split}
+              & $\ds \sigma_2(x_1, x_2, \cdots , x_n) = x_1 x_2 + x_1 x_3 + $&\\
+              & \quad \cdots $\ds + x_1 x_n + x_2 x_3 + x_2 x_4 + \cdots + x_{n-1} x_n$\\
+            \end{split}\\
+            &\begin{split}
+              & $\ds \sigma_3(x_1, x_2, \cdots , x_n) = x_1 x_2 x_3 + x_1 x_2 x_4 + $&\\
+              & \quad \cdots $\ds + x_{n-2} x_{n-1} x_n$\\
+            \end{split}\\
+            & \vdots \\
+            & $\ds \sigma_n(x_1, x_2, \cdots , x_n) = x_1 x_2 x_3 \cdots x_n = \prod_{k=1}^n x_k$\\
+          \end{cases}
+        \end{equation*}
+
+        \subsubsection{基本対称式の具体例}
+          これだけ見てもピンとこないだろうから簡単に$\ds n=2$の場合を見てみよう。
+
+          \paragraph{具体例$\ds 1$}\mbox{}\\
+            対称式の説明をしたときと照らせ合わせるように$\ds x_1 = x, x_2 = y$とすると
+
+            \begin{equation*}
+              \begin{cases}
+                &$\ds \sigma_1(x, y) = x + y$\\
+                &$\ds \sigma_2(x, y) = xy$\\
+              \end{cases}
+            \end{equation*}
+
+            確かにこれらは対称式である。
+
+            \subparagraph{類似: $\ds 2$次方程式の解と係数の関係}
+
+              \begin{equation*}
+                \begin{split}
+                  $\ds 2$次方程式$\ds ax^2 + bx + c = 0 (\Longleftrightarrow x^2 + \frac{b}{a}x + \frac{c}{a} = 0)$\\
+                \end{split}
+              \end{equation*}
+              
+              の$\ds 2$解を$\ds x= \alpha, \beta$としたとき、解と係数の関係として
+
+              \begin{equation*}
+                \begin{split}
+                  $\ds \alpha + \beta = - \frac{b}{a} \wedge \alpha \beta = \frac{c}{a} \Longleftrightarrow x^2 + \frac{b}{a}x + \frac{c}{a} = 0$\\
+                \end{split}
+              \end{equation*}
+
+              が成立する。
+
+          \columnbreak
+
+          \paragraph{具体例$\ds 2$}\mbox{}\\
+            次に$\ds n=3$の場合も同様に$\ds x_1 = x, x_2 = y, x_3 = z$として
+
+            \begin{equation*}
+              \begin{cases}
+                &$\ds \sigma_1(x, y, z) = x + y + z$\\
+                &$\ds \sigma_2(x, y, z) = xy + yz + zx$\\
+                &$\ds \sigma_3(x, y, z) = xyz$\\
+              \end{cases}
+            \end{equation*}
+
+            これも対称式であることが確認できた。
+
+            \subparagraph{類似: $\ds 3$次方程式の解と係数の関係}
+
+              \begin{equation*}
+                \begin{split}
+                  $\ds 3$次方程式$\ds ax^3 + bx^2 + cx + d = 0 (\Longleftrightarrow x^3 + \frac{b}{a}x^2 + \frac{c}{a}x + \frac{d}{a} = 0)$\\
+                \end{split}
+              \end{equation*}
+
+              の$\ds 3$解を$\ds x= \alpha, \beta, \gamma$としたとき、解と係数の関係として
+
+              \begin{equation*}
+                \begin{split}
+                  &$\ds \alpha + \beta + \gamma = - \frac{b}{a} \wedge \alpha \beta + \beta \gamma + \gamma \alpha = \frac{c}{a} \wedge \alpha \beta \gamma = \frac{d}{a}$\\
+                  &$\ds \quad \Longleftrightarrow x^3 + \frac{b}{a}x^2 + \frac{c}{a}x + \frac{d}{a} = 0$\\
+                \end{split}
+              \end{equation*}
+
+              が成立する。
+
+      \subsection{類似: 解と係数の関係と対称式}
+        具体例$\ds 1,2$の類似で見たように、$\ds 2$次方程式$\ds ax^2 + bx + c = 0$の$\ds 2$解を$\ds x = \alpha, \beta$としたとき
+
+        \begin{equation*}
+          \begin{cases}
+            &$\ds \sigma_1(\alpha, \beta) = -\frac{b}{a}$\\
+            &$\ds \sigma_2(\alpha, \beta) = \frac{c}{a}$\\
+          \end{cases}
+        \end{equation*}
+
+        同様に$\ds 3$次方程式$\ds ax^3 + bx^2 + cx + d = 0$の$\ds 3$解を$\ds x = \alpha, \beta, \gamma$としたとき
+
+        \begin{equation*}
+          \begin{cases}
+            &$\ds \sigma_1(\alpha, \beta, \gamma) = -\frac{b}{a}$\\
+            &$\ds \sigma_2(\alpha, \beta, \gamma) = \frac{c}{a}$\\
+            &$\ds \sigma_3(\alpha, \beta, \gamma) = -\frac{d}{a}$\\
+          \end{cases}
+        \end{equation*}
+
+        これを一般化すれば$\ds n ( \in \mathbb{N}$ ) 次方程式$\ds \sum_{k=0}^n a_k x^k = 0$の$\ds n$解を$\ds x = x_1, x_2, \cdots , x_n$とするとき
+
+        \begin{equation*}
+          \begin{cases}
+            &$\ds \sigma_1(x_1, x_2, \cdots , x_n) = -\frac{a_2}{a_1}$\\
+            &$\ds \sigma_2(x_1, x_2, \cdots , x_n) = \frac{a_3}{a_1}$\\
+            &\vdots \\
+            &$\ds \sigma_l(x_1, x_2, \cdots , x_n) = (-1)^l \frac{a_{l+1}}{a_1}$\\
+            &\vdots \\
+            &$\ds \sigma_n(x_1, x_2, \cdots , x_n) = (-1)^n \frac{a_{n+1}}{a_1}$\\
+          \end{cases}
+        \end{equation*}
+
+        が言える。
+
+      \subsection{多項式の辞書式順序の定義}
+        単項式$\ds X, Y$を
+
+        \begin{equation*}
+          \begin{cases}
+            &$\ds X \ldef A x_1^{p_1} x_2^{p_2} \cdots x_n^{p_n} = A \prod_{k=1}^n x_k^{p_k}$\\
+            &$\ds Y \ldef B x_1^{q_1} x_2^{q_2} \cdots x_n^{q_n} = B \prod_{k=1}^n x_k^{q_k}$\\
+          \end{cases}
+        \end{equation*}
+
+        と定義する。このとき次のような並べ方を辞書式順序と定義する。
+
+        \begin{equation*}
+          \begin{split}
+            &$\ds X$は$\ds Y$より強い($\ds Y$は$\ds X$より弱い)\\
+            &\defineProposition
+            \begin{cases}
+              &$\ds p_1 > q_1$\\
+              &$\ds p_1 = q_1 \wedge p_2 > q_2$\\
+              &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge p_3 > q_3$\\
+              &\vdots \\
+              &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge$\\
+              & \quad $\ds \cdots \wedge p_{n-1} = q_{n-1} \wedge p_n > q_n$\\
+            \end{cases}\\
+          \end{split}
+        \end{equation*}
+
+        例えば多項式$\ds f(x_1, x_2, \cdots , x_n), g(x_1, x_2, \cdots , x_n)$において
+        
+        \begin{equation*}
+          $\ds f$が$\ds g$より強い $\ds \Longleftrightarrow$
+          \begin{enumerate*}
+            \item $\ds f$&の項のうち最も強い項が
+            \item \quad $\ds g$の項のうち最も強い項より強い
+          \end{enumerate*}
+          
+          % \begin{cases}
+          %   $\ds f$&の項のうち最も強い項が\\
+          %   &$\ds g$の項のうち最も強い項より強い\\
+          % \end{cases}
+        \end{equation*}
+
+    \end{multicols*}
 
 \end{document}
