@@ -52,12 +52,21 @@
 
         \begin{tikzpicture}[auto]
         
+          %Ven diagram1
           \def \circleRadius{1}
           \def \leftCirclePoint{(0, 0)}
           \def \rightCirclePoint{(1, 0)}
           \def \centerPointOfShareArea{(0.5, 0)}
           \def \leftCircleNamePoint{(0, 1)}
           \def \rightCircleNamePoint{(1, 1)}
+
+          %Ven diagram2
+          \def \circleARadius{0.7}
+          \def \circleBRadius{1}
+          \def \circleAPoint{(4, -0.2)}
+          \def \circleBPoint{(4, 0)}
+          \def \circleANamePoint{(4, \circleARadius-0.2)}
+          \def \circleBNamePoint{(4, \circleBRadius)}
 
           \scope
             %Xのベン図
@@ -73,13 +82,20 @@
 
           \draw \leftCirclePoint circle (\circleRadius);
           \draw \rightCirclePoint circle (\circleRadius);
-          \node[set label, text=black] (A) at \leftCircleNamePoint {$\de A$}
-          \node[set label, text=black] (B) at \rightCircleNamePoint {$\de B$}
+          \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds A$};
+          \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds B$};
 
           %共通部分ラベル
           \draw[semithick, -, stealth] \centerPointOfShareArea--(0.5, -1.5);
           \draw[semithick, -, stealth] (0.5, -1.5)--(-1, -1.5);
           \node[set label, text=black] (CAP) at (-1, -1.5) {$\ds AとBの共通部分$};
+
+
+          \fill[pattern=north west lines] \circleAPoint circle (\circleARadius);
+          \draw                           \circleAPoint circle (\circleARadius);
+          \draw                           \circleBPoint circle (\circleBRadius);
+          \node[set label, text=black] (A') at \circleANamePoint {$\ds A$};
+          \node[set label, text=black] (B') at \circleBNamePoint {$\ds B$};
 
         \end{tikzpicture}
 
