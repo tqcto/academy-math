@@ -6,7 +6,20 @@
 \usetikzlibrary{patterns}%斜線塗りを可能にする
 \usepackage{mhchem} %化学用パッケージ
 \usepackage{pxrubrica} %ルビを振れるようにする\rubyを追加するパッケージ
+\usepackage{boites} %breakboxを利用可能にする
 \usetikzlibrary{calc}
+
+%インデント追加に\spind を利用可能にする
+\usepackage{xparse}
+\newcommand{\splitindent}{\phantom{{}={}}}
+\newcounter{CSplitIndent}
+\NewDocumentCommand{\spind}{ O{1} }{
+  \setcounter{CSplitIndent}{0}
+  \whiledo{\value{CSplitIndent}<#1}{
+    \splitindent
+    \addtocounter{CSplitIndent}{1}
+  }
+}
 
 %label属性のついたものの背景色を白で四角系で塗りつぶす
 \tikzset{set label/.style={fill=white,rectangle,inner sep=1}}
@@ -681,14 +694,25 @@
 
         \begin{equation*}
           \begin{cases}
-            & $\ds \sigma_1(x_1, x_2, \cdots , x_n) = x_1 + x_2 + \cdots + x_n = \sum_{k=1}^n x_k$\\
             &\begin{split}
-              & $\ds \sigma_2(x_1, x_2, \cdots , x_n) = x_1 x_2 + x_1 x_3 + $&\\
-              & \quad \cdots $\ds + x_1 x_n + x_2 x_3 + x_2 x_4 + \cdots + x_{n-1} x_n$\\
+              $\ds \sigma_1(x_1, x_2, \cdots , x_n)$ & $\ds = x_1 + x_2 + \cdots + x_n$\\
+              &$\ds = \sum_{k=1}^n x_k$
             \end{split}\\
             &\begin{split}
-              & $\ds \sigma_3(x_1, x_2, \cdots , x_n) = x_1 x_2 x_3 + x_1 x_2 x_4 + $&\\
+                $\ds \sigma_2(x_1, x_2, \cdots , x_n)$ & $\ds = x_1 x_2 + x_1 x_3 + $\\
+              & \quad \cdots $\ds + x_1 x_n + x_2 x_3 + x_2 x_4 +$\\
+              & \quad \quad \cdots $\ds + x_{n-1} x_n$\\
+              & $\ds = \sum_{k_1=1}^{n-1} \sum_{k_2=2}^{n} x_{k_1} x_{k_2}$
+            \end{split}\\
+            &\begin{split}
+              $\ds \sigma_3(x_1, x_2, \cdots , x_n)$ & $\ds = x_1 x_2 x_3 + x_1 x_2 x_4 + $\\
               & \quad \cdots $\ds + x_{n-2} x_{n-1} x_n$\\
+              & $\ds = \sum_{k_1=1}^{n-2} \sum_{k_2=2}^{n-1} \sum_{k_3=3}^{n} x_{k_1} x_{k_2} x_{k_3}$\\
+              & $\ds = \sum_{k_1=1}^{n-2} \sum_{k_2=2}^{n-1} \sum_{k_3=3}^{n} \prod_{m=1}^3 x_{k_m}$
+            \end{split}\\
+            & \vdots \\
+            &\begin{split}
+              $\ds \sigma_l(x_1, x_2, \cdots , x_n)$ & $\ds = \sum_{k_1=1}^{n-l+1} \cdots \sum_{k_{l-1}=l-1}^{n-1} \sum_{k_l=l}^n \prod_{m=1}^l x_{k_m}$
             \end{split}\\
             & \vdots \\
             & $\ds \sigma_n(x_1, x_2, \cdots , x_n) = x_1 x_2 x_3 \cdots x_n = \prod_{k=1}^n x_k$\\
@@ -809,20 +833,22 @@
 
         と定義する。このとき次のような並べ方を辞書式順序と定義する。
 
-        \begin{equation*}
-          \begin{split}
-            &$\ds X$は$\ds Y$より強い($\ds Y$は$\ds X$より弱い)\\
-            &\defineProposition
-            \begin{cases}
-              &$\ds p_1 > q_1$\\
-              &$\ds p_1 = q_1 \wedge p_2 > q_2$\\
-              &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge p_3 > q_3$\\
-              &\vdots \\
-              &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge$\\
-              & \quad $\ds \cdots \wedge p_{n-1} = q_{n-1} \wedge p_n > q_n$\\
-            \end{cases}\\
-          \end{split}
-        \end{equation*}
+        \begin{breakbox}
+          \begin{equation*}
+            \begin{split}
+              &$\ds X$は$\ds Y$より強い($\ds Y$は$\ds X$より弱い)\\
+              &\defineProposition
+              \begin{cases}
+                &$\ds p_1 > q_1$\\
+                &$\ds p_1 = q_1 \wedge p_2 > q_2$\\
+                &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge p_3 > q_3$\\
+                &\vdots \\
+                &$\ds p_1 = q_1 \wedge p_2 = q_2 \wedge$\\
+                & \quad $\ds \cdots \wedge p_{n-1} = q_{n-1} \wedge p_n > q_n$\\
+              \end{cases}\\
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
 
         \footnote{
           \begin{cases}
@@ -831,20 +857,78 @@
           \end{cases}は$\ds P_1(x) \vee P_2(x)$の意味
         }
 
-        例えば多項式$\ds f(x_1, x_2, \cdots , x_n), g(x_1, x_2, \cdots , x_n)$において
+        具体的には、多項式$\ds f(x_1, x_2, \cdots , x_n), g(x_1, x_2, \cdots , x_n)$において
         
         \begin{equation*}
-          $\ds f$が$\ds g$より強い $\ds \Longleftrightarrow$
-          \begin{enumerate*}
-            \item $\ds f$&の項のうち最も強い項が
-            \item \quad $\ds g$の項のうち最も強い項より強い
-          \end{enumerate*}
-          
-          % \begin{cases}
-          %   $\ds f$&の項のうち最も強い項が\\
-          %   &$\ds g$の項のうち最も強い項より強い\\
-          % \end{cases}
+          $\ds f$が$\ds g$より強い \quad $\ds \Longleftrightarrow$
+          \begin{matrix}
+            &$\ds f$の項のうち最も強い項が\\
+            & $\ds g$の項のうち最も強い項より強い
+          \end{matrix}
         \end{equation*}
+        
+      \subsection{対称式の基本定理}
+        対称式には次のような定理がある。
+
+        \begin{breakbox}
+          \begin{equation*}
+            \begin{split}
+              &$\ds x_1, x_2, \cdots , x_n$についての対称式$\ds f(x_1, x_2, \cdots , x_n)$は\\
+              &基本対称式$\ds \sigma_1, \sigma2, \cdots, \sigma_n$に関する多項式\\
+              &$\ds g(\sigma_1, \sigma_2, \cdots , \sigma_n)$として一意に表せる。
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        \subsubsection{対称式の基本定理を利用した具体例}
+          例えば$\ds x, y$に関する対称式$\ds x^2 + y^2$は
+
+          \begin{equation*}
+            \begin{split}
+              $\ds x^2 + y^2 $  &$\ds = (x + y)^2 - 2xy$\\
+                                &$\ds = \sigma_{1}^2 - 2\sigma_2$\\
+            \end{split}
+          \end{equation*}
+
+          また、$\ds \frac{y}{x} + \frac{x}{y}$の場合も
+
+          \begin{equation*}
+            \begin{split}
+              $\ds \frac{y}{x} + \frac{x}{y}$ &$\ds = \frac{x^2 + y^2}{xy}$\\
+                                              &$\ds = \frac{(x + y)^2 - 2xy}{xy}$\\
+                                              &$\ds = \frac{\sigma_{1}^2 - 2\sigma_2}{\sigma_2}$
+            \end{split}
+          \end{equation*}
+
+          と基本対称式で一意に表せた。
+
+        \subsubsection{対称式の基本定理の証明}
+          任意の対称式が基本対称式で一意に表せるのはなぜか。証明してみよう。\par
+          対称式$\ds f(x_1, x_2, \cdots , \x_n)$に関して先ほど定義した辞書式順序的に最も強い項を
+
+          \begin{equation*}
+            \begin{split}
+              $\ds A x_1^{p_1} x_2^{p_2} \cdots x_n^{p_n}$
+            \end{split}
+          \end{equation*}
+
+          とおく。辞書式順序の強弱の定義より
+
+          \begin{equation*}
+            \begin{split}
+              $\ds p_1 \geq p_2 \geq \cdots \geq p_n$
+            \end{split}
+          \end{equation*}
+
+          である。また、$\ds n$個の$\ds x$に関する基本対称式$\ds \sigma_1, \sigma_2, \cdots , \sigma_n$として
+
+          \begin{equation*}
+            \begin{split}
+              $\ds g_1(\sigma_1, \sigma_2, \cdots , \sigma_n)$  &$\ds \ldef A \sigma_{1}^{p_1-p_2} \sigma_{2}^{p_2-p_3} \cdots \sigma_{n}^{p_n}$\\
+                                                                &$\ds = A \left( \sum_{i=1}^n x_i \right)^{p_1-p_2} \left( \sum_{i=1}^{n-1} \sum_{j=2}^n x_i x_j \right)^{p_2 - p_3}$\\
+                                                                & \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad $\ds \cdots (x_1 x_2 \cdots x_n)^{p_n}$
+            \end{split}
+          \end{equation*}
 
     \end{multicols*}
 
