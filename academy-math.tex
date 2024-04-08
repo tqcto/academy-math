@@ -847,7 +847,7 @@
 
         これを一般化すれば$\ds n ( \in \mathbb{N}$ ) 次方程式$\ds \sum_{k=0}^n a_k x^k = 0$の$\ds n$解を$\ds x = x_1, x_2, \cdots , x_n$とするとき
 
-        \begin{equation*}
+        \begin{eqnarray}
           \begin{cases}
             &$\ds \sigma_1(x_1, x_2, \cdots , x_n) = -\frac{a_{n-1}}{a_n}$\\
             &$\ds \sigma_2(x_1, x_2, \cdots , x_n) = \frac{a_{n-2}}{a_n}$\\
@@ -855,8 +855,8 @@
             &$\ds \sigma_k(x_1, x_2, \cdots , x_n) = (-1)^k \frac{a_{n-k}}{a_n}$\\
             &\vdots \\
             &$\ds \sigma_n(x_1, x_2, \cdots , x_n) = (-1)^n \frac{a_0}{a_n}$\\
-          \end{cases}
-        \end{equation*}
+          \end{cases} \label{eq:solution-and-coefficients}
+        \end{eqnarray}
 
         が言える。
 
@@ -1042,6 +1042,40 @@
             $\ds h(x_1, x_2, \cdots , x_n) \ne 0$ & \label{eq:h-not-0} \\
             $\ds h(\sigma_1, \sigma_2, \cdots , \sigma_n) = 0$ & \label{eq:h-is-0}
           \end{numcases}
+
+          である。\par
+          一方で次のような$\ds \omega$の$\ds n$次方程式
+
+          \begin{equation*}
+            \begin{split}
+              $\ds \omega^n - x_1 \omega^{n-1} + x_2 \omega^{n-2} - \cdots + (-1)^n x_n = 0$
+            \end{split}
+          \end{equation*}
+
+          の解を$\ds \omega = \omega_1, \omega_2, \cdots , \omega_n$とすると解と係数の関係より
+
+          \begin{cases}
+            &$\ds \sigma_1(\omega_1, \omega_2, \cdots , \omega_n) = x_1$\\
+            &$\ds \sigma_2(\omega_1, \omega_2, \cdots , \omega_n) = x_2$\\
+            &\vdots \\
+            &$\ds \sigma_n(\omega_1, \omega_2, \cdots , \omega_n) = x_n$\\
+          \end{cases}
+          \begin{equation*}
+            \begin{split}
+              $\ds (\because \eqref{eq:solution-and-coefficients})$
+            \end{split}
+          \end{equation*}
+
+          これを\eqref{eq:h-is-0}に代入すると
+
+          \begin{equation*}
+            \begin{split}
+              $\ds h(\sigma_1, \sigma_2, \cdots , \sigma_n) = h(x_1, x_2, \cdots , x_n)$
+            \end{split}
+          \end{equation*}
+
+          となり、これは$\ds \eqref{eq:h-not-0} \wedge \eqref{eq:h-is-0}$に反する。\par
+          よって仮定\eqref{eq:assum-multiple-equations-exist}が誤りで$\ds f$を基本対称式で表す式は一意である。$\ds Q.E.D$
 
     \end{multicols*}
 
