@@ -6,7 +6,7 @@
 \usetikzlibrary{patterns}%斜線塗りを可能にする
 \usepackage{mhchem} %化学用パッケージ
 \usepackage{dotseqn}%式番号表示に詰まった点線を使えるようにする
-\usepackage{empheq}%場合分け内の各式に式番号を振れるようにする\begin{empheq}を追加する
+\usepackage{cases}%場合分け内の各式に式番号を振れるようにする\begin{numcases}を追加する
 \usepackage{pxrubrica} %ルビを振れるようにする\rubyを追加するパッケージ
 \usepackage{boites} %breakboxを利用可能にする
 \usetikzlibrary{calc}
@@ -1038,12 +1038,10 @@
           
           と置くと仮定より
 
-          \begin{subequations}  \label{eq:h-all}
-            \begin{empheq}[left = {\empheqlbrace \,}]{alignat = 2}
-              &$\ds h(x_1, x_2, \cdots , x_n) \ne 0$ \label{eq:h-not-0} \\
-              &$\ds h(\sigma_1, \sigma_2, \cdots , \sigma_n) = 0$ \label{eq:h-is-0} \\
-            \end{empheq}
-          \end{subequations}
+          \begin{numcases}
+            $\ds h(x_1, x_2, \cdots , x_n) \ne 0$ & \label{eq:h-not-0} \\
+            $\ds h(\sigma_1, \sigma_2, \cdots , \sigma_n) = 0$ & \label{eq:h-is-0}
+          \end{numcases}
 
     \end{multicols*}
 
