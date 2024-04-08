@@ -715,7 +715,10 @@
               $\ds \sigma_l(x_1, x_2, \cdots , x_n)$ & $\ds = \sum_{k_1=1}^{n-l+1} \cdots \sum_{k_{l-1}=l-1}^{n-1} \sum_{k_l=l}^n \prod_{m=1}^l x_{k_m}$
             \end{split}\\
             & \vdots \\
-            & $\ds \sigma_n(x_1, x_2, \cdots , x_n) = x_1 x_2 x_3 \cdots x_n = \prod_{k=1}^n x_k$\\
+            &\begin{split}
+              $\ds \sigma_n(x_1, x_2, \cdots , x_n)$ & $\ds = x_1 x_2 x_3 \cdots x_n$\\
+              & $\ds = \prod_{k=1}^n x_k$
+            \end{split}\\
           \end{cases}
         \end{equation*}
 
@@ -751,8 +754,6 @@
               \end{equation*}
 
               が成立する。
-
-          \columnbreak
 
           \paragraph{具体例$\ds 2$}\mbox{}\\
             次に$\ds n=3$の場合も同様に$\ds x_1 = x, x_2 = y, x_3 = z$として
@@ -906,11 +907,12 @@
           任意の対称式が基本対称式で一意に表せるのはなぜか。証明してみよう。\par
           対称式$\ds f(x_1, x_2, \cdots , \x_n)$に関して先ほど定義した辞書式順序的に最も強い項を
 
-          \begin{equation*}
+          \addFormulaName
+          \begin{equation}
             \begin{split}
-              $\ds A x_1^{p_1} x_2^{p_2} \cdots x_n^{p_n}$
+              $\ds A x_1^{p_1} x_2^{p_2} \cdots x_n^{p_n}$ \label{eq:strongest-paragraph}
             \end{split}
-          \end{equation*}
+          \end{equation}
 
           とおく。辞書式順序の強弱の定義より
 
@@ -920,7 +922,7 @@
             \end{split}
           \end{equation*}
 
-          である。また、$\ds n$個の$\ds x$に関する基本対称式$\ds \sigma_1, \sigma_2, \cdots , \sigma_n$として
+          である。また、$\ds n$個の$\ds x$に関する基本対称式を$\ds \sigma_1, \sigma_2, \cdots , \sigma_n$として\par
 
           \begin{equation*}
             \begin{split}
@@ -929,6 +931,10 @@
                                                                 & \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad $\ds \cdots (x_1 x_2 \cdots x_n)^{p_n}$
             \end{split}
           \end{equation*}
+
+          のようにして基本対称式より作られる対称式$\ds g_1$を定義する。\par
+          今、$\ds f$と$\ds g_1$を独立に定義した。ただ、どちらも$\ds x_1, x_2, \cdots , x_n$に関する対称式として定義しているので
+          両者とも最も強い項は\eqref{eq:strongest-paragraph}と表される項である。
 
     \end{multicols*}
 
