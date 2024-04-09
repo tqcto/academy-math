@@ -1254,17 +1254,27 @@
             \def \circleRadius{1}
             \def \leftCirclePoint{(0, 0)}
             \def \rightCirclePoint{(1, 0)}
-            \def \centerPointOfShareArea{(0.5, 0)}
             \def \leftCircleNamePoint{(0, 1)}
             \def \rightCircleNamePoint{(1, 1)}
   
-            %\fill[black!50!white] \leftCirclePoint circle (\circleRadius);
+            \fill[black!50!white] \leftCirclePoint circle (\circleRadius);
             %\fill[black!50!white] \rightCirclePoint circle (\circleRadius);
+            \scope
+              %Bのベン図
+              \clip \rightCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
+            \endscope
             \draw \leftCirclePoint circle (\circleRadius);
             \draw \rightCirclePoint circle (\circleRadius);
   
             \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds \mathbb{A}$};
             \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds \mathbb{B}$};
+
+            \fill[black!50!white] (2.6, 0.3) rectangle (3, 0.7);
+            \node[set label, text=black] (_A) at (4.2, 0.5) {事象$\ds A$が起こる};
+
+            \fill[pattern=north west lines] (2.6, -0.3) rectangle (3, -0.7);
+            \node[set label, text=black] (_B) at (4.55, -0.5) {事象$\ds A$も$\ds B$も起こる};
   
           \end{tikzpicture}
         \end{equation*}
