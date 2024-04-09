@@ -1260,7 +1260,10 @@
             \fill[black!50!white] \leftCirclePoint circle (\circleRadius);
             %\fill[black!50!white] \rightCirclePoint circle (\circleRadius);
             \scope
-              %Bのベン図
+              \clip \rightCirclePoint circle (\circleRadius);
+              \fill [white] \leftCirclePoint circle (\circleRadius);
+            \endscope
+            \scope
               \clip \rightCirclePoint circle (\circleRadius);
               \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
             \endscope
