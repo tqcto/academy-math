@@ -204,17 +204,17 @@
         \begin{tablehere}
             \centering
             \begin{tabular}{ll}
-                $\ds x \in X$                       & \cdots $\ds x$は$\ds X$の要素である\\
-                $\ds x \notin X$                    & \cdots $\ds x$は$\ds X$の要素でない\\
-                $\ds X \subset Y$                   & \cdots $\ds X$は$\ds Y$の部分集合である\\
-                $\ds X \not\subset Y$               & \cdots $\ds X$は$\ds Y$の部分集合でない\\
-                $\ds X \cap Y$                      & \cdots $\ds X$と$\ds Y$の共通部分\\
-                $\ds X \cup Y$                      & \cdots $\ds X$と$\ds Y$の和集合\\
-                $\ds \varnothing$                   & \cdots 空集合\\
-                $\ds | A |, \operatorname{Card}(A)$ & \cdots $\ds A$の要素数・濃度\\
-                $\ds A = B$                         & \cdots $\ds A$と$\ds B$は同じ集合\\
-                $\ds A \times B$                    & \cdots $\ds A$と$\ds B$の直積・デカルト積\\
-                $\ds A^n$                           & \cdots $\ds A$を自身で$\ds n$回直積をとったもの\\
+                $\ds x \in X$                             & \cdots $\ds x$は$\ds X$の要素である\\
+                $\ds x \notin X$                          & \cdots $\ds x$は$\ds X$の要素でない\\
+                $\ds X \subset Y$                         & \cdots $\ds X$は$\ds Y$の部分集合である\\
+                $\ds X \not\subset Y$                     & \cdots $\ds X$は$\ds Y$の部分集合でない\\
+                $\ds X \cap Y$                            & \cdots $\ds X$と$\ds Y$の共通部分\\
+                $\ds X \cup Y$                            & \cdots $\ds X$と$\ds Y$の和集合\\
+                $\ds \varnothing$                         & \cdots 空集合\\
+                $\ds | A |, \operatorname{Card}(A), n(A)$ & \cdots $\ds A$の要素数・濃度\\
+                $\ds A = B$                               & \cdots $\ds A$と$\ds B$は同じ集合\\
+                $\ds A \times B$                          & \cdots $\ds A$と$\ds B$の直積・デカルト積\\
+                $\ds A^n$                                 & \cdots $\ds A$を自身で$\ds n$回直積をとったもの\\
             \end{tabular}
         \end{tablehere}
 
@@ -588,7 +588,7 @@
           \node (x') at (0, 5pt) {$\ds x'$};
           \node (y') at (80pt, -3pt) {$\ds y'$};
 
-        %x''->y'
+          %x''->y'
           \node (x'') at (0, -13pt) {$\ds x''$};
 
           \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
@@ -1093,12 +1093,90 @@
         確率論では日常生活でも使われるような用語を用いることが多いが、数学上言葉の正しい意味を説明できなければ議論できない。\par
         ゆえにまずは言葉の定義を確認してゆくことにする。
 
-        \paragraph{試行}\mbox{}\\
-          試行とは、起こりうる結果がいくつかあり、そのどれか$\ds 1$つだけが\overdot{偶}\overdot{然}\overdot{起}\overdot{こ}\overdot{る}流れのことである。 
+        \subsubsection{試行と事象}
+          試行とは、同じ状態のもとで繰り返すことができ、その結果が\overdot{偶}\overdot{然}\overdot{に}\overdot{よ}\overdot{っ}\overdot{て}\overdot{決}\overdot{ま}\overdot{る}
+          実験や観測などのことである。\par
+          また、試行した結果起こる事柄を事象という。
+          さらに、事象の全体集合を全事象(標本空間)といい、要素を持たない事象を空事象という。\par
+          事象は一般に集合であり、必ずしも要素を指す言葉ではない。
+          各事象における要素のことは根元事象という。
 
-      \subsection{場合という言葉について}
-        「場合」という言葉は非常に曖昧な単語であり、それゆえ扱いづらい。\par
-        そこで数学上「場合」という言葉を「」
+          \begin{tikzpicture}[auto]
+        
+            %元のベン図
+            \draw (0,0) ellipse (15pt and 30pt);
+  
+            %全事象のベン図
+            \draw (80pt,0) ellipse (20pt and 40pt);
+            %事象のベン図
+            \fill[black!50!white] (80pt,0) ellipse (10pt and 20pt);
+            \node[set label, text=black] (All) at (80pt, 40pt) {$\ds 全事象$};
+  
+            %座標の定義
+            \coordinate (S) at (0, 0); %元
+            \coordinate (A) at (80pt, 30pt);
+            \coordinate (B) at (80pt, 10pt);
+            \coordinate (C) at (80pt, -10pt);
+            \coordinate (D) at (80pt, -30pt);
+
+            %対応矢印
+            \draw[->] (S) to node {} (78pt, 30pt);
+            \draw[->] (S) to node {} (78pt, 10pt);
+            \draw[->] (S) to node {} (78pt, -10pt);
+            \draw[->] (S) to node {} (78pt, -30pt);
+
+            %要素の点
+            \foreach \P  in {S, A, B, C, D} \fill[black] (\P) circle (0.06);
+
+            %試行ラベル
+            \draw[semithick, -, stealth] (39pt, -15pt)--(39pt, -2);%(39 = 78/2, -15 = -30/2)
+            \node[set label, text=black] () at (39pt, -2) {$\ds 試行$};
+
+            %事象ラベル
+            \draw[semithick, -, stealth] (80pt, 0)--(120pt, 0);
+            \node[set label, text=black] () at (120pt, 0) {$\ds 事象$};
+  
+            %根元事象ラベル
+            \draw[semithick, -, stealth] (C)--(100pt, -1);
+            \draw[semithick, -, stealth] (100pt, -1)--(140pt, -1);
+            \node[set label, text=black] () at (140pt, -1) {$\ds 根元事象$};
+
+          \end{tikzpicture}
+
+          \footnote{
+            試行は元の集合と全事象間の対応関係であるが、元から向かう先が一意に定まらないため写像ではない。
+          }
+
+          \begin{equation*}
+            \begin{split}
+              $\ds 根元事象 \subseteq 事象, $ & $\ds 事象 \subseteq 全事象$
+            \end{split}
+          \end{equation*}
+
+          \footnote{
+            $\ds A \subseteq B$の意味は、$\ds A$は$\ds B$の部分集合または$\ds A$と$\ds B$は同じ集合\par
+            つまり
+            \begin{equation*}
+              \begin{split}
+                $\ds A \subseteq B \defineProposition ( A \subset B \vee A = B )$
+              \end{split}
+            \end{equation*}
+            とするが、そもそも部分集合という言葉の定義が「イコールの場合」も包含しているので$\ds A = B$を論理和で組むことは論理的に無意味であり、
+            あくまでここではイコールの場合も存在することを強調するために使っている。
+          }
+
+        \subsubsection{場合という言葉について}
+          「場合」という言葉は非常に曖昧な単語であり、それゆえ扱いづらい。\par
+          そこで確率論では、しばしば「場合」という言葉を「これ以上分割できない場合」という意味を指すものとする。
+          つまり
+
+          \begin{equation*}
+            \begin{split}
+              場合 $\ds \defineProposition$ 根元事象
+            \end{split}
+          \end{equation*}
+
+          と定義できる。
 
       \subsection{場合の数の計算方法について}
         考える状況における、ある場合の数を計算するには「起こりうるすべての事象」を漏れなく数え上げることが大原則である。\par
@@ -1108,8 +1186,25 @@
         まずはそんな計算法則について議論する。
 
       \subsection{和の法則}
-        まず事象$\ds A, B$があるとき、$\ds A, B$が同時に起こらない場合を考えよう。\par
-        このとき事象$\ds A, B$に対するそれらの
+        まず事象$\ds A, B$があるとき、$\ds A, B$が同時に起こらない状況について、事象$\ds A$または$\ds B$が起こる各々の起こり方の総数を求めることをゴールに議論しよう。
+        事象$\ds A, B$の起こり方の総数とはつまり、事象$\ds A, B$の和集合の「根元事象の数」である。\par
+        つまり事象$\ds A, B$の根元事象の集合をそれぞれ$\ds \mathbb{A}, \mathbb{B}$とすると、
+        
+        \begin{equation*}
+          \begin{split}
+            事象$\ds A, B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$
+          \end{split}
+        \end{equation*}
+
+        であるから、事象$\ds A, B$の和集合$\ds \mathbb{A} \cup \mathbb{B}$の根元事象の数、つまり要素数は
+
+        \begin{equation*}
+          \begin{split}
+            $\ds n( \mathbb{A} \cup \mathbb{B} ) = n(\mathbb{A}) + n(\mathbb{B})$
+          \end{split}
+        \end{equation*}
+
+        である。
 
     \end{multicols*}
 
