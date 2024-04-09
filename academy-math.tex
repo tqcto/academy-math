@@ -1258,7 +1258,6 @@
             \def \rightCircleNamePoint{(1, 1)}
   
             \fill[black!50!white] \leftCirclePoint circle (\circleRadius);
-            %\fill[black!50!white] \rightCirclePoint circle (\circleRadius);
             \scope
               \clip \rightCirclePoint circle (\circleRadius);
               \fill [white] \leftCirclePoint circle (\circleRadius);
@@ -1310,6 +1309,73 @@
         となる。\par
         ちなみに、事象が$\ds A$ではないとき$\ds a = \varnothing$、$\ds B$ではないとき$\ds b = \varnothing$であり、
         それゆえどちらでもないとき$\ds (a, b) = (\varnothing, \varnothing)$と対応する。
+
+        ここで、事象$\ds A, B$が同時に起こる状況において、特に
+        
+        \begin{eqnarray}
+          \begin{split}
+            「事象$\ds A$のすべての場合で事象$\ds B$が一律$\ds b$通り起こるとき」\label{term:ab}
+          \end{split}
+        \end{eqnarray}
+        
+        を考えてみよう。\par
+        事象$\ds B$のうち$\ds b$通りを$\ds \mathbb{B'}$の部分集合$\ds \mathbb{C}$として表すと、この条件\eqref{term:ab}の下では$\ds \mathbb{A'}$は
+
+        \begin{eqnarray}
+          \begin{split}
+            $\ds \mathbb{A'} = \{ (a, b) \mid a \in \mathbb{A} \wedge a \ne \varnothing, b \in \mathbb{C} \wedge b \ne \varnothing \}$ \label{eq:equaltion-of-A'1}
+          \end{split}
+        \end{eqnarray}
+
+        と表される。これは集合の直積で表現すれば
+
+        \begin{eqnarray}
+          \begin{split}
+            $\ds \mathbb{A'} = \mathbb{A} \times \mathbb{C}$ \label{eq:equaltion-of-A'2}
+          \end{split}
+        \end{eqnarray}
+
+        \begin{equation*}
+          \centering
+          \begin{tikzpicture}
+          
+            \def \circleARadius{0.7}
+            \def \circleBRadius{1}
+            \def \circleAPoint{(4, -0.2)}
+            \def \circleBPoint{(4, 0)}
+            \def \circleANamePoint{(4, \circleARadius-0.2)}
+            \def \circleBNamePoint{(4, \circleBRadius)}
+
+            \fill[pattern=north west lines] \circleAPoint circle (\circleARadius);
+            \draw                           \circleAPoint circle (\circleARadius);
+            \draw                           \circleBPoint circle (\circleBRadius);
+            \node[set label, text=black] (A') at \circleANamePoint {$\ds \mathbb{A'}$};
+            \node[set label, text=black] (B') at \circleBNamePoint {$\ds \mathbb{B'}$};
+  
+          \end{tikzpicture}
+        \end{equation*}
+
+        \begin{eqnarray}
+          \begin{split}
+            & $\ds \therefore \mathbb{A'}\subset \mathbb{B'}$\\
+            & $\ds \therefore \mathbb{A'} \cap \mathbb{B'} = \mathbb{A'}$ \label{eq:A'-cap-B'}\\
+          \end{split}
+        \end{eqnarray}
+
+        よって「事象$\ds A$と$\ds B$が同時に起こる場合の数」は\eqref{eq:equaltion-of-A'1}と\eqref{eq:A'-cap-B'}より
+
+        \begin{equation*}
+          \begin{split}
+            $\ds n(\mathbb{A'} \cap \mathbb{B'})$ & $\ds = n(\mathbb{A'})$\\
+            & $\ds = n(\mathbb{A} \times \mathbb{C})$ \quad (\because \eqref{eq:equaltion-of-A'2})\\
+            & $\ds = n(\mathbb{A}) \times n(\mathbb{C})$\\
+            & \left(\because\begin{split}
+              & 事象$\ds A, B$は有限通りゆえ\\
+              & \quad \quad \quad 有限集合直積の濃度\\
+            \end{split}\right)\\
+            & $\ds = a \times b$
+          \end{split}
+        \end{equation*}
 
     \end{multicols*}
 
