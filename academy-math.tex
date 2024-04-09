@@ -127,13 +127,13 @@
           \def \circleBNamePoint{(4, \circleBRadius)}
 
           \scope
-            %Xのベン図
+            %Aのベン図
             \clip \leftCirclePoint circle (\circleRadius);
             \fill [fill=white] \rightCirclePoint circle (\circleRadius);
           \endscope
 
           \scope
-            %Yのベン図
+            %Bのベン図
             \clip \rightCirclePoint circle (\circleRadius);
             \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
           \endscope
@@ -1187,24 +1187,116 @@
 
       \subsection{和の法則}
         まず事象$\ds A, B$があるとき、$\ds A, B$が同時に起こらない状況について、事象$\ds A$または$\ds B$が起こる各々の起こり方の総数を求めることをゴールに議論しよう。
-        事象$\ds A, B$の起こり方の総数とはつまり、事象$\ds A, B$の和集合の「根元事象の数」である。\par
-        つまり事象$\ds A, B$の根元事象の集合をそれぞれ$\ds \mathbb{A}, \mathbb{B}$とすると、
+        事象$\ds A, B$の起こり方の総数とはつまり、事象$\ds A, B$の和集合$\ds =$全事象$\ds U$の「根元事象の数」である。\par
+        つまり事象$\ds A, B$の根元事象の集合をそれぞれ$\ds \mathbb{A}, \mathbb{B}$、全事象に対応する集合を$\ds \mathbb{U}$とすると、
         
-        \begin{equation*}
+        \begin{multline}
           \begin{split}
             事象$\ds A, B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$
-          \end{split}
-        \end{equation*}
+          \end{split}\\
+          \label{eq:not-happening-at-the-same-time}
+        \end{multline}
 
-        であるから、事象$\ds A, B$の和集合$\ds \mathbb{A} \cup \mathbb{B}$の根元事象の数、つまり要素数は
+        であるから、全根元事象数、つまり$\ds \mathbb{U}$の要素数は
+
+        \begin{equation*}
+          \centering
+          \begin{tikzpicture}
+          
+            %四角形
+            \draw (0,0) rectangle (1,1);
+            \draw (1,0) rectangle (2,1);
+  
+            %ラベル
+            \node[set label, text=black] () at (0.5, 1) {$\ds \mathbb{A}$};
+            \node[set label, text=black] () at (1.5, 1) {$\ds \mathbb{B}$};
+  
+          \end{tikzpicture}
+        \end{equation*}
 
         \begin{equation*}
           \begin{split}
-            $\ds n( \mathbb{A} \cup \mathbb{B} ) = n(\mathbb{A}) + n(\mathbb{B})$
+            $\ds n(\mathbb{U}) $ & $\ds = n(\mathbb{A}) + n(\mathbb{B}) - n(\mathbb{A \cap B})$\\
+            & $\ds = n(\mathbb{A}) + n(\mathbb{B}) \quad (\because \eqref{eq:not-happening-at-the-same-time})$
           \end{split}
         \end{equation*}
 
-        である。
+        である。\par
+        つまりまとめれば
+
+        \begin{breakbox}
+          \begin{equation*}
+            \begin{split}
+              &事象$\ds A, B$が同時に起こらない\\
+              &\begin{split}
+                \Longrightarrow $\ds A$または & $\ds B$のどちらかが起こる場合の数\\
+                & $\ds = A$の起こり方 $\ds + B$の起こり方\\
+              \end{split}\\
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        であり、これを和の法則という。
+      
+      \subsection{積の法則}
+        次に事象$\ds A, B$が同時に起こる状況について議論しよう。
+        事象$\ds A, B$に対応する集合は先ほど同様$\ds \mathbb{A}, \mathbb{B}$とし、全事象$\ds U$の集合を$\ds \mathbb{U}$とする。
+        つまり$\ds \mathbb{A} \cap \mathbb{B} \ne \varnothing$の状況を考える。\par
+        先ほどの$\ds A, B$が同時に起こらない状況では$\ds \mathbb{A} \cap \mathbb{B} = \varnothing$であったために事象$\ds A$を定める情報があれば事象$\ds B$の情報は含まずとも
+        $\ds n(\mathbb{U})$を定めることができた。
+        しかし同時に起こってしまう場合両者を定める情報がなくてはならない。\par
+        具体的には$\ds \mathbb{A} \cap \mathbb{B \ne \varnothing}$ゆえ、事象$\ds A$が起こるからと言って事象$\ds B$が起こらないとは限らないということである。\par
+
+        \begin{equation*}
+          \centering
+          \begin{tikzpicture}[auto]
+        
+            \def \circleRadius{1}
+            \def \leftCirclePoint{(0, 0)}
+            \def \rightCirclePoint{(1, 0)}
+            \def \centerPointOfShareArea{(0.5, 0)}
+            \def \leftCircleNamePoint{(0, 1)}
+            \def \rightCircleNamePoint{(1, 1)}
+  
+            %\fill[black!50!white] \leftCirclePoint circle (\circleRadius);
+            %\fill[black!50!white] \rightCirclePoint circle (\circleRadius);
+            \draw \leftCirclePoint circle (\circleRadius);
+            \draw \rightCirclePoint circle (\circleRadius);
+  
+            \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds \mathbb{A}$};
+            \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds \mathbb{B}$};
+  
+          \end{tikzpicture}
+        \end{equation*}
+
+        ここで議論が行き詰ってしまった原因は、事象$\ds A, B$に対する全事象の集合$\ds \mathbb{U}$の定義の仕方が悪かったことにある。
+        つまり、試行によって$\ds A$または$\ds B$の根元事象、つまり要素が$\ds 1$つ決まることに対応するように$\ds \mathbb{U}$を定義していなかったということである。\par
+        そこでこの定義を改善してみよう。\par
+        先ほどまでの定義では$\ds A$または$\ds B$の根元事象\overdot{１}\overdot{つ}\overdot{１}\overdot{つ}に対応させていなかったので、次のように$\ds U$の集合$\ds \mathbb{U'}$を再定義する。
+
+        \begin{breakbox}
+          $\ds a \in \mathbb{A}, b \in \mathbb{B}$とするとき$\ds (a, b) \in \mathbb{U'}$となるように定義する。\par
+          つまり
+          \begin{equation*}
+            \begin{split}
+              $\ds \mathbb{U'} \ldef \{ (a, b) \mid a \in \mathbb{A}, b \in \mathbb{B} \}$
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        また、事象$\ds A, B$に対応する集合をこの$\ds \mathbb{U'}$を用いて表すと
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \mathbb{A'}$ & $\ds \ldef \{ (a, b) \mid (a, b) \in \mathbb{U'} \wedge a \ne \varnothing \}$\\
+            $\ds \mathbb{B'}$ & $\ds \ldef \{ (a, b) \mid (a, b) \in \mathbb{U'} \wedge b \ne \varnothing \}$\\
+            $\ds \therefore$ & $\ds \mathbb{A'} \subset \mathbb{U'}, \mathbb{B'} \subset \mathbb{U'}$
+          \end{split}
+        \end{equation*}
+
+        となる。\par
+        ちなみに、事象が$\ds A$ではないとき$\ds a = \varnothing$、$\ds B$ではないとき$\ds b = \varnothing$であり、
+        それゆえどちらでもないとき$\ds (a, b) = (\varnothing, \varnothing)$と対応する。
 
     \end{multicols*}
 
