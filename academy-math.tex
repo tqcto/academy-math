@@ -346,102 +346,102 @@
       \columnbreak
 
       \subsection{実数平面や実数空間の表現}
-          実数全体の集合$\ds \mathbb{R}$は他の視点から見ると実数の数直線を表す集合と考えられる。\par
-          では実数平面や実数空間などは集合を使ってどのように表せるだろうか。
-          ここで次のような直積を考えてみる。
+        実数全体の集合$\ds \mathbb{R}$は他の視点から見ると実数の数直線を表す集合と考えられる。\par
+        では実数平面や実数空間などは集合を使ってどのように表せるだろうか。
+        ここで次のような直積を考えてみる。
 
-          \begin{equation*}
-            \begin{split}
-              $\ds \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
-            \end{split}
-          \end{equation*}
+        \begin{equation*}
+          \begin{split}
+            $\ds \mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+          \end{split}
+        \end{equation*}
 
-          これは幾何的に解釈すると、実数の数直線同士を平行でない向きに並べたときにできる平面のすべての点を要素に持つ集合である。
-          それはまさに実数平面のことである。
+        これは幾何的に解釈すると、実数の数直線同士を平行でない向きに並べたときにできる平面のすべての点を要素に持つ集合である。
+        それはまさに実数平面のことである。
 
+        \begin{tikzpicture}
+
+          \coordinate[label=below  left:O] (O) at (0,0); %原点O
+          \coordinate (XS) at (-1,0); %x軸最小
+          \coordinate (XL) at (1,0); %x軸最大
+          \coordinate (YS) at (0,-1); %y軸最小
+          \coordinate (YL) at (0,1); %y軸最大
+          \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$\mathbb{R}$}; %x軸
+          \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$\mathbb{R}$}; %y軸
+
+        \end{tikzpicture}
+        
+        このことを意識して直積を書き直すと
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \mathbb{R}^2 = \{ (x, y) \mid x \in \mathbb{R}, y \in \mathbb{R} \}$
+          \end{split}
+        \end{equation*}
+
+        と書ける。\par
+
+        \vspace{9pt}\\
+
+        同様の議論で実数空間($\ds 3$次元空間)も次のような直積で表せる。
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \mathbb{R}^3 = \{ (x, y, z) \mid x \in \mathbb{R}, y \in \mathbb{R}, z \in \mathbb{R} \}$
+          \end{split}
+        \end{equation*}
+
+        \begin{figurehere}
+          \centering
           \begin{tikzpicture}
 
+            \draw[-stealth](-1,0,0) -- (1,0,0) node[right]{$\mathbb{R}$};
+            
+            \draw[-stealth](0,-1,0) -- (0,1,0) node[above]{$\mathbb{R}$};
+            
+            \draw[-stealth](0,0,-1) -- (0,0,1) node[below]{$\mathbb{R}$};
+            
+            \draw (0,0,0) node[below right]{O};
+          
+          \end{tikzpicture}
+        \end{figurehere}
+
+        これを用いれば直積の交換法則が不成立な理由も次のように考えて直観的に理解できる。\par
+
+        \subsubsection{幾何的に直積の交換法則が不成立であることを確認してみる}
+          ある点$\ds (a, b)$を考えてみよう。(ただし$\ds a \ne b$とする。)\par
+          二次元平面上では$\ds a \ne b$ならば$\ds (a, b) \ne (b, a)$である。\par
+          これは順序対が反転すると幾何的に異なる量へ変化するためである。
+
+          \begin{tikzpicture}
+          
             \coordinate[label=below  left:O] (O) at (0,0); %原点O
-            \coordinate (XS) at (-1,0); %x軸最小
-            \coordinate (XL) at (1,0); %x軸最大
-            \coordinate (YS) at (0,-1); %y軸最小
-            \coordinate (YL) at (0,1); %y軸最大
-            \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$\mathbb{R}$}; %x軸
-            \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$\mathbb{R}$}; %y軸
+            \coordinate (XS) at (-0.5,0); %x軸最小
+            \coordinate (XL) at (3,0); %x軸最大
+            \coordinate (YS) at (0,-0.5); %y軸最小
+            \coordinate (YL) at (0,3); %y軸最大
+            \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$x$}; %x軸
+            \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$y$}; %y軸
+            
+            % (a, b)
+            \coordinate (P1) at (2,1.5); %右頂点
+            \fill (P1) circle (0.05); %点の塗りつぶし
+            \node (x) at (2.2, 1.7) {$\ds (a, b)$};%座標の可視化
+            
+            % (b, a)
+            \coordinate (P2) at (1.5,2); %右頂点
+            \fill (P2) circle (0.05); %点の塗りつぶし
+            \node (x) at (1.7, 2.2) {$\ds (b, a)$};%座標の可視化
+            
+            \draw[dashed] ($(XS)!(P1)!(XL)$)node[below]{$\ds a$}--(P1)--($(YS)!(P1)!(YL)$)node[left]{$\ds b$};
+            \draw[dashed] ($(XS)!(P2)!(XL)$)node[below]{$\ds b$}--(P2)--($(YS)!(P2)!(YL)$)node[left]{$\ds a$};
+              %右頂点から各軸への垂線
 
           \end{tikzpicture}
-          
-          このことを意識して直積を書き直すと
 
-          \begin{equation*}
-            \begin{split}
-              $\ds \mathbb{R}^2 = \{ (x, y) \mid x \in \mathbb{R}, y \in \mathbb{R} \}$
-            \end{split}
-          \end{equation*}
-
-          と書ける。\par
-
-          \vspace{9pt}\\
-
-          同様の議論で実数空間($\ds 3$次元空間)も次のような直積で表せる。
-
-          \begin{equation*}
-            \begin{split}
-              $\ds \mathbb{R}^3 = \{ (x, y, z) \mid x \in \mathbb{R}, y \in \mathbb{R}, z \in \mathbb{R} \}$
-            \end{split}
-          \end{equation*}
-
-          \begin{figurehere}
-            \centering
-            \begin{tikzpicture}
-
-              \draw[-stealth](-1,0,0) -- (1,0,0) node[right]{$\mathbb{R}$};
-              
-              \draw[-stealth](0,-1,0) -- (0,1,0) node[above]{$\mathbb{R}$};
-              
-              \draw[-stealth](0,0,-1) -- (0,0,1) node[below]{$\mathbb{R}$};
-              
-              \draw (0,0,0) node[below right]{O};
-            
-            \end{tikzpicture}
-          \end{figurehere}
-
-          これを用いれば直積の交換法則が不成立な理由も次のように考えて直観的に理解できる。\par
-
-          \subsubsection{幾何的に直積の交換法則が不成立であることを確認してみる}
-            ある点$\ds (a, b)$を考えてみよう。(ただし$\ds a \ne b$とする。)\par
-            二次元平面上では$\ds a \ne b$ならば$\ds (a, b) \ne (b, a)$である。\par
-            これは順序対が反転すると幾何的に異なる量へ変化するためである。
-
-            \begin{tikzpicture}
-            
-              \coordinate[label=below  left:O] (O) at (0,0); %原点O
-              \coordinate (XS) at (-0.5,0); %x軸最小
-              \coordinate (XL) at (3,0); %x軸最大
-              \coordinate (YS) at (0,-0.5); %y軸最小
-              \coordinate (YL) at (0,3); %y軸最大
-              \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$x$}; %x軸
-              \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$y$}; %y軸
-              
-              % (a, b)
-              \coordinate (P1) at (2,1.5); %右頂点
-              \fill (P1) circle (0.05); %点の塗りつぶし
-              \node (x) at (2.2, 1.7) {$\ds (a, b)$};%座標の可視化
-              
-              % (b, a)
-              \coordinate (P2) at (1.5,2); %右頂点
-              \fill (P2) circle (0.05); %点の塗りつぶし
-              \node (x) at (1.7, 2.2) {$\ds (b, a)$};%座標の可視化
-              
-              \draw[dashed] ($(XS)!(P1)!(XL)$)node[below]{$\ds a$}--(P1)--($(YS)!(P1)!(YL)$)node[left]{$\ds b$};
-              \draw[dashed] ($(XS)!(P2)!(XL)$)node[below]{$\ds b$}--(P2)--($(YS)!(P2)!(YL)$)node[left]{$\ds a$};
-                %右頂点から各軸への垂線
-  
-            \end{tikzpicture}
-
-            すなわちこれは幾何的に順序対が異なるものであることを説明しており、直積の順序で順序対が変化することが異なる量へ変化していることの根拠である。\par
-            実際このことは直積(特に順序対)の定義であった。
-            それに対しこの幾何的説明は、順序対が対の順序を考慮することの合理性を示していると考えられる。
+          すなわちこれは幾何的に順序対が異なるものであることを説明しており、直積の順序で順序対が変化することが異なる量へ変化していることの根拠である。\par
+          実際このことは直積(特に順序対)の定義であった。
+          それに対しこの幾何的説明は、順序対が対の順序を考慮することの合理性を示していると考えられる。
 
         \subsection{参考: ユークリッド空間}
           先ほど$\ds \mathbb{R}$の直積を積み立てることで$\ds 2, 3$次元空間を集合で表現することができた。
@@ -470,6 +470,68 @@
           ここに得られた集合$\ds \mathbb{R}^N$をユークリッド空間という。\par
           つまり任意の$\ds N \in \mathbb{N}$に対して呼ぶので$\ds \mathbb{R}^2$の$\ds 2$次元平面や$\ds \mathbb{R}^3$の$\ds 3$次元空間もユークリッド空間である。
       
+      \subsection{実数集合の最大値・最小値}
+        実数空間$\ds \mathbb{R}$上には「大小関係 $\ds \leq$」と呼ばれる二項関係が定義されており、これは全順序としての性質
+
+        \begin{numcases}
+          $\ds \forall_{x \in \mathbb{R}} [ x \leq x]$ & \label{ax:inequality-to-real-1} \\
+          $\ds \forall_{x, y \in \mathbb{R}} [ (x \leq y \wedge y \leq x) \Rightarrow x = y ]$ & \label{ax:inequality-to-real-2} \\
+          $\ds \forall_{x, y, z \in \mathbb{R}} [ (x \leq y \wedge y \leq z) \Rightarrow x \leq z ]$ & \label{ax:inequality-to-real-3} \\
+          $\ds \forall_{x, y \in \mathbb{R}} [ x \leq y \vee y \leq x ]$ & \label{ax:inequality-to-real-4}
+        \end{numcases}
+
+        を満たすことを公理として認める。\par
+        
+        \subsubsection{各公理の具体例}
+          \paragraph{\eqref{ax:inequality-to-real-1}} $\ds 0.999\cdots \leq 1$
+          \paragraph{\eqref{ax:inequality-to-real-2}} はさみうちの定理
+          \paragraph{\eqref{ax:inequality-to-real-3}} $\ds (1 \leq 1.1 \wedge 1.1 \leq 1.2) \Rightarrow 1 \leq 1.2$
+          \paragraph{\eqref{ax:inequality-to-real-4}} これは具体例よりも主張内容を説明したほうがわかりやすい。\par
+            任意の$\ds x, y \in \mathbb{R}$には必ず$\ds x \leq y$または$\ds y \leq x$が成立する。仮に$\ds x = y$であった場合も\eqref{ax:inequality-to-real-1}より成立する。\par
+
+        この下で、次のものを定義する。
+
+        \begin{breakbox}
+          任意の$\ds x, y \in \mathbb{R}$に対し、
+          \begin{equation*}
+            \begin{split}
+              $\ds x < y \defineProposition (x \leq y \land x \ne y)$
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        また、実数空間$\ds \mathbb{R}$の空でない部分集合$\ds A$があるとき、ある$\ds a \in A$が任意の$\ds x \in A$以上であるとき、この$\ds a$を$\ds A$の最大値(最大元)とよぶ。\par
+        つまり
+
+        \begin{breakbox}
+          \begin{equation*}
+            \begin{split}
+              $\ds \max A = a \defineProposition \exists_{a \in A} [ \forall_{x \in A} [ x \leq a ] ]$
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        \footnote{
+          定義に「以下 $\ds \leq$」を用いる理由は、任意の$\ds x \in A$としているため$\ds x = a$の場合もあるので、それを考慮しているためである。
+        }
+
+        次に、同様の状況$\ds A \subset \mathbb{R} \land A \ne \varnothing$において、ある$\ds a \in A$が任意の$\ds x \in A$以下であるとき、この$\ds a$を$\ds A$の最小値(最小元)とよぶ。\par
+        つまり
+
+        \begin{breakbox}
+          \begin{equation*}
+            \begin{split}
+              $\ds \min A = a \defineProposition \exists_{a \in A} [ \forall_{x \in A} [ a \leq x ] ]$
+            \end{split}
+          \end{equation*}
+        \end{breakbox}
+
+        \footnote{
+          今紹介したもの以外の話や詳しい議論は以下を参照\par
+          https://wiis.info/math/real-number/definition-of-real-number/magnitude-relation/\par
+          https://wiis.info/math/real-number/definition-of-real-number/maximu-value-and-minimum-value/
+        }
+
     \end{multicols}
 
   \newpage
@@ -1237,6 +1299,70 @@
         \end{breakbox}
 
         であり、これを和の法則という。
+
+        \subsubsection{和の法則の成立する例}
+          \begin{breakbox}
+            大小$\ds 2$個のさいころを投げる。このとき、出る目の和が$\ds 5$の倍数になる場合は何通りあるか求めよ。
+          \end{breakbox}
+
+          さいころは$\ds 1$つにつき目の数が$\ds 6$個しかないので書き出せば求められるが、ここでは集合論的に議論しよう。\par
+          まず、さいころの目の集合$\ds D$は
+
+          \begin{equation*}
+            \begin{split}
+              $\ds D \ldef \{ e \in \mathbb{N} \mid 1 \leq e \leq 6 \}$
+            \end{split}
+          \end{equation*}
+
+          であるので
+
+          \begin{equation*}
+            \begin{split}
+              $\ds \max D = 6$
+            \end{split}
+          \end{equation*}
+
+          である。ゆえに$\ds 2$つのさいころの目の和の最大値は
+
+          \begin{equation*}
+            \begin{split}
+              $\ds \max D + \max D$ & $\ds = 6 + 6$\\
+              & $\ds = 12$
+            \end{split}
+          \end{equation*}
+
+          であるから、考えうる目の和の$\ds 5$の倍数を要素に持つ集合$\ds F$は次のように定義される。
+
+          \begin{equation*}
+            \begin{split}
+              $\ds F$ & $\ds \ldef \{ f \in \mathbb{N} \mid \exists_{n \in \mathbb{N}} [ f = 5n ] \wedge f \leq (\max D + \max D) \}$\\
+              & $\ds = \{ f \in \mathbb{N} \mid \exists_{n \in \mathbb{N}} [ f = 5n ] \wedge f \leq 12 \}$\\
+              & $\ds = \{ 5, 10 \}$\\
+            \end{split}
+          \end{equation*}
+
+          ここで、和が$\ds 5$になるような各さいころの目の組を要素に持つ集合を$\ds A$、和が$\ds 10$になるような組の集合を$\ds B$とすると
+
+          \begin{equation*}
+            \begin{split}
+              $\ds A$ & $\ds = \{ (1, 4), (2, 3), (3, 2), (4, 1) \}$\\
+              $\ds B$ & $\ds = \{ (4, 6), (6, 4), (5, 5) \}$\\
+              & $\ds \therefore n(A) = 4, n(B) = 3$
+            \end{split}
+          \end{equation*}
+
+          となる。\par
+          ここに$\ds A$と$\ds B$は同時に起こりえないので、和の法則より
+
+          \begin{equation*}
+            \begin{split}
+              $\ds n(A \cup B)$ & $\ds = n(A) + n(B)$\\
+              & $\ds = 4 + 3$\\
+              & $\ds = 7$
+            \end{split}
+          \end{equation*}
+
+          よって求める場合の数は$\ds 7$通りである。
       
       \subsection{積の法則}
         次に事象$\ds A, B$が同時に起こる状況について議論しよう。
