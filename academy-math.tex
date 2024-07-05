@@ -171,73 +171,75 @@
     %\begin{multicols}{2} %*を用いれば真ん中の直線を最初から最大にできる
 
     \subsection{集合の定義}
-      集合とはその名の通り、いくつかのものをひとまとめにして考えた「ものの集まりのこと」である。
-      特に集合論では「もの」のことを要素という。\par
+      集合とはその名の通り、いくつかのものをひとまとめにして考えた\textbf{ものの集まりのこと}である。
+      特に集合論では\textbf{もの}のことを要素という。\par
       またある集合$\ds A$は他の集合$\ds B$と共通部分を持ったり、はたまたその集合$\ds A$自体が他の集合$\ds B$の一部分となるケースも考えられる。
-      そのような場合順に「$\ds AとB$の共通部分」、「$\ds AはBの$部分集合」という。
+      そのような場合順に\textbf{$\ds AとB$の共通部分}、\textbf{$\ds AはBの$部分集合}という。
 
-      \begin{tikzpicture}[auto]
-      
-        %Ven diagram1
-        \def \circleRadius{1}
-        \def \leftCirclePoint{(0, 0)}
-        \def \rightCirclePoint{(1, 0)}
-        \def \centerPointOfShareArea{(0.5, 0)}
-        \def \leftCircleNamePoint{(0, 1)}
-        \def \rightCircleNamePoint{(1, 1)}
+      \begin{center}
+        \begin{tikzpicture}[auto]
+        
+          %Ven diagram1
+          \def \circleRadius{1}
+          \def \leftCirclePoint{(0, 0)}
+          \def \rightCirclePoint{(1, 0)}
+          \def \centerPointOfShareArea{(0.5, 0)}
+          \def \leftCircleNamePoint{(0, 1)}
+          \def \rightCircleNamePoint{(1, 1)}
 
-        %Ven diagram2
-        \def \circleARadius{0.7}
-        \def \circleBRadius{1}
-        \def \circleAPoint{(4, -0.2)}
-        \def \circleBPoint{(4, 0)}
-        \def \circleANamePoint{(4, \circleARadius-0.2)}
-        \def \circleBNamePoint{(4, \circleBRadius)}
+          %Ven diagram2
+          \def \circleARadius{0.7}
+          \def \circleBRadius{1}
+          \def \circleAPoint{(4, -0.2)}
+          \def \circleBPoint{(4, 0)}
+          \def \circleANamePoint{(4, \circleARadius-0.2)}
+          \def \circleBNamePoint{(4, \circleBRadius)}
 
-        \scope
-          %Aのベン図
-          \clip \leftCirclePoint circle (\circleRadius);
-          \fill [fill=white] \rightCirclePoint circle (\circleRadius);
-        \endscope
+          \scope
+            %Aのベン図
+            \clip \leftCirclePoint circle (\circleRadius);
+            \fill [fill=white] \rightCirclePoint circle (\circleRadius);
+          \endscope
 
-        \scope
-          %Bのベン図
-          \clip \rightCirclePoint circle (\circleRadius);
-          \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
-        \endscope
+          \scope
+            %Bのベン図
+            \clip \rightCirclePoint circle (\circleRadius);
+            \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
+          \endscope
 
-        \draw \leftCirclePoint circle (\circleRadius);
-        \draw \rightCirclePoint circle (\circleRadius);
-        \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds A$};
-        \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds B$};
+          \draw \leftCirclePoint circle (\circleRadius);
+          \draw \rightCirclePoint circle (\circleRadius);
+          \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds A$};
+          \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds B$};
 
-        %共通部分ラベル
-        \draw[semithick, -, stealth] \centerPointOfShareArea--(0.5, -1.5);
-        \draw[semithick, -, stealth] (0.5, -1.5)--(-1, -1.5);
-        \node[set label, text=black] (CAP) at (-1, -1.5) {$\ds AとBの共通部分$};
+          %共通部分ラベル
+          \draw[semithick, -, stealth] \centerPointOfShareArea--(0.5, -1.5);
+          \draw[semithick, -, stealth] (0.5, -1.5)--(-1, -1.5);
+          \node[set label, text=black] (CAP) at (-1, -1.5) {$\ds AとBの共通部分$};
 
 
-        \fill[pattern=north west lines] \circleAPoint circle (\circleARadius);
-        \draw                           \circleAPoint circle (\circleARadius);
-        \draw                           \circleBPoint circle (\circleBRadius);
-        \node[set label, text=black] (A') at \circleANamePoint {$\ds A$};
-        \node[set label, text=black] (B') at \circleBNamePoint {$\ds B$};
+          \fill[pattern=north west lines] \circleAPoint circle (\circleARadius);
+          \draw                           \circleAPoint circle (\circleARadius);
+          \draw                           \circleBPoint circle (\circleBRadius);
+          \node[set label, text=black] (A') at \circleANamePoint {$\ds A$};
+          \node[set label, text=black] (B') at \circleBNamePoint {$\ds B$};
 
-      \end{tikzpicture}
+        \end{tikzpicture}
+      \end{center}
 
       \subsubsection{集合の例}
-        例として「原子」という集合を考えてみよう。(ここでいう原子は化学の原子を指すものとする)\par
+        例として「原子」という集合を考えてみよう。(ここでいう原子は量子論・化学における、物質を構成する原子を指すものとする)\par
         原子には様々な種類があり、例えば水素原子\ce{_{1}H}や酸素原子\ce{_{8}O}などがある。
         このとき\ce{_{1}H}や\ce{_{8}O}は原子集合の要素であるといえる。\par
         またさらに水素元素\ce{H}や酸素元素\ce{O}はそれぞれ水素原子\ce{_{1}H}の全同位体を含んだ集合、酸素原子\ce{_{8}O}の全同位体を含んだ集合ゆえ原子集合の部分集合である。
 
     \subsection{集合論の記号}
-      ここまでは言葉を用いて集合について少し語ってきた。しかしいちいち言葉で説明するのは少々面倒であり、しかも読みづらい。そこで記号を導入してみよう。
+      ここまでは言葉を用いて集合について少し論じた。しかしいちいち言葉で説明するのは少々面倒であり、しかも読みづらい。そこで記号を導入してみよう。
 
       \subsubsection{基本的な記法}
         例えば$\ds A$という集合を自然数$\ds 1 \thicksim 5$を要素に持つ集合として定義したい場合$\ds A \define \{ 1, 2, 3, 4, 5 \}$と書く。
         つまり要素を$\ds \{\}$で囲むことでそれらを要素に持つという意味を表すのである。
-        この記法を\ruby{外延的記法}{がい|えん|てき|き|ほう}という。\par
+        この記法を\textbf{\ruby{外延的記法}{がい|えん|てき|き|ほう}}という。\par
         ついでこの場合$\ds 1$は$\ds A$の要素であるから、これを$\ds 1 \in A$と書く。\par
         
         %強制的に改段
@@ -247,7 +249,7 @@
         $\ds A \define \{ n \in \mathbb{N} \mid 1 \leq n \leq 5 \}$と表すこともできる。
         この場合は具体的に要素を書き出すことをせずに、\par
         $\ds \{ n \in ($母体となる集合$\ds ) \mid n$が満たす条件$\ds \}$といった具合に条件を満たすもので集合を定義する記法である。
-        この記法は\ruby{内包的記法}{ない|ほう|てき|き|ほう}という。
+        この記法は\textbf{\ruby{内包的記法}{ない|ほう|てき|き|ほう}}という。
 
         \paragraph{内包的記法の例}
           例えば次のように偶数全体の集合として$\ds A$を定義してみる。\par
@@ -269,7 +271,8 @@
       以上の記号以外もまとめれば以下。
 
       %multicols上ではtableが使えないので代わりにtablehereを使う
-      \begin{tablehere}
+      \begin{center}
+        \begin{tablehere}
           \centering
           \begin{tabular}{ll}
               $\ds x \in X$                             & \cdots $\ds x$は$\ds X$の要素である\\
@@ -284,7 +287,8 @@
               $\ds A \times B$                          & \cdots $\ds A$と$\ds B$の直積・デカルト積\\
               $\ds A^n$                                 & \cdots $\ds A$を自身で$\ds n$回直積をとったもの\\
           \end{tabular}
-      \end{tablehere}
+        \end{tablehere}
+      \end{center}
 
       \footnote{
         要素を持たない集合を空集合という。
@@ -293,11 +297,11 @@
     \columnbreak
 
     \subsection{集合同士の積}
-      実数に積という演算があるのと同じように集合間にも積の演算がある。それを直積、またはデカルト積という。ここではそれについてみておこう。\par
+      実数に積という演算があるのと同じように集合間にも積の演算がある。それを\textbf{直積}、または\textbf{デカルト積}という。ここではそれについてみておこう。\par
 
       \subsubsection{直積の定義}
         $\ds A,B \ne \varnothing$なる集合に対し、それらの要素$\ds a \in A, b \in B$を対にとった集合$\ds (a, b)$を直積と定義する。
-        この対には「順序」があるため特に「順序対」という。
+        この対には\textbf{順序}があるため特に\textbf{順序対}という。
         式で定義すれば以下。\par
         
         \begin{equation*}
@@ -306,7 +310,7 @@
           \end{split}
         \end{equation*}
 
-        直積は「それぞれの要素を対にとった集合」として定義されているので、この演算には一般に交換法則が成立しないことがわかる。
+        直積は\textbf{それぞれの要素を対にとった集合}として定義されているので、この演算には一般に交換法則が成立しないことがわかる。
 
         \footnote{
           直積をとる集合の片方または両者が空集合の場合順序対の作りようがないためその結果は空集合として定義されている。\par
@@ -396,15 +400,17 @@
 
         \vspace{9pt}\\
 
-        \begin{tablehere}
-          \centering
-          \label{tab:hogehoge}
-          \begin{tabular}{c|ccc}
-                  & $\ds a$       & $\ds b$       & $\ds c$     \\ \hline
-              1   & $\ds (a, 1)$  & $\ds (b, 1)$  & $\ds (c, 1)$\\
-              2   & $\ds (a, 2)$  & $\ds (b, 2)$  & $\ds (c, 2)$\\
-          \end{tabular}
-        \end{tablehere}
+        \begin{center}
+          \begin{tablehere}
+            \centering
+            \label{tab:hogehoge}
+            \begin{tabular}{c|ccc}
+                    & $\ds a$       & $\ds b$       & $\ds c$     \\ \hline
+                1   & $\ds (a, 1)$  & $\ds (b, 1)$  & $\ds (c, 1)$\\
+                2   & $\ds (a, 2)$  & $\ds (b, 2)$  & $\ds (c, 2)$\\
+            \end{tabular}
+          \end{tablehere}
+        \end{center}
 
         \vspace{9pt}\\
 
@@ -435,17 +441,19 @@
       これは幾何的に解釈すると、実数の数直線同士を平行でない向きに並べたときにできる平面のすべての点を要素に持つ集合である。
       それはまさに実数平面のことである。
 
-      \begin{tikzpicture}
+      \begin{center}
+        \begin{tikzpicture}
 
-        \coordinate[label=below  left:O] (O) at (0,0); %原点O
-        \coordinate (XS) at (-1,0); %x軸最小
-        \coordinate (XL) at (1,0); %x軸最大
-        \coordinate (YS) at (0,-1); %y軸最小
-        \coordinate (YL) at (0,1); %y軸最大
-        \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$\mathbb{R}$}; %x軸
-        \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$\mathbb{R}$}; %y軸
+          \coordinate[label=below  left:O] (O) at (0,0); %原点O
+          \coordinate (XS) at (-1,0); %x軸最小
+          \coordinate (XL) at (1,0); %x軸最大
+          \coordinate (YS) at (0,-1); %y軸最小
+          \coordinate (YL) at (0,1); %y軸最大
+          \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$\mathbb{R}$}; %x軸
+          \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$\mathbb{R}$}; %y軸
 
-      \end{tikzpicture}
+        \end{tikzpicture}
+      \end{center}
       
       このことを意識して直積を書き直すと
 
@@ -467,20 +475,22 @@
         \end{split}
       \end{equation*}
 
-      \begin{figurehere}
-        \centering
-        \begin{tikzpicture}
+      \begin{center}
+        \begin{figurehere}
+          \centering
+          \begin{tikzpicture}
 
-          \draw[-stealth](-1,0,0) -- (1,0,0) node[right]{$\mathbb{R}$};
+            \draw[-stealth](-1,0,0) -- (1,0,0) node[right]{$\mathbb{R}$};
+            
+            \draw[-stealth](0,-1,0) -- (0,1,0) node[above]{$\mathbb{R}$};
+            
+            \draw[-stealth](0,0,-1) -- (0,0,1) node[below]{$\mathbb{R}$};
+            
+            \draw (0,0,0) node[below right]{O};
           
-          \draw[-stealth](0,-1,0) -- (0,1,0) node[above]{$\mathbb{R}$};
-          
-          \draw[-stealth](0,0,-1) -- (0,0,1) node[below]{$\mathbb{R}$};
-          
-          \draw (0,0,0) node[below right]{O};
-        
-        \end{tikzpicture}
-      \end{figurehere}
+          \end{tikzpicture}
+        \end{figurehere}
+      \end{center}
 
       これを用いれば直積の交換法則が不成立な理由も次のように考えて直観的に理解できる。\par
 
@@ -489,31 +499,33 @@
         二次元平面上では$\ds a \ne b$ならば$\ds (a, b) \ne (b, a)$である。\par
         これは順序対が反転すると幾何的に異なる量へ変化するためである。
 
-        \begin{tikzpicture}
-        
-          \coordinate[label=below  left:O] (O) at (0,0); %原点O
-          \coordinate (XS) at (-0.5,0); %x軸最小
-          \coordinate (XL) at (3,0); %x軸最大
-          \coordinate (YS) at (0,-0.5); %y軸最小
-          \coordinate (YL) at (0,3); %y軸最大
-          \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$x$}; %x軸
-          \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$y$}; %y軸
+        \begin{center}
+          \begin{tikzpicture}
           
-          % (a, b)
-          \coordinate (P1) at (2,1.5); %右頂点
-          \fill (P1) circle (0.05); %点の塗りつぶし
-          \node (x) at (2.2, 1.7) {$\ds (a, b)$};%座標の可視化
-          
-          % (b, a)
-          \coordinate (P2) at (1.5,2); %右頂点
-          \fill (P2) circle (0.05); %点の塗りつぶし
-          \node (x) at (1.7, 2.2) {$\ds (b, a)$};%座標の可視化
-          
-          \draw[dashed] ($(XS)!(P1)!(XL)$)node[below]{$\ds a$}--(P1)--($(YS)!(P1)!(YL)$)node[left]{$\ds b$};
-          \draw[dashed] ($(XS)!(P2)!(XL)$)node[below]{$\ds b$}--(P2)--($(YS)!(P2)!(YL)$)node[left]{$\ds a$};
-            %右頂点から各軸への垂線
+            \coordinate[label=below  left:O] (O) at (0,0); %原点O
+            \coordinate (XS) at (-0.5,0); %x軸最小
+            \coordinate (XL) at (3,0); %x軸最大
+            \coordinate (YS) at (0,-0.5); %y軸最小
+            \coordinate (YL) at (0,3); %y軸最大
+            \draw[semithick,->,>=stealth] (XS)--(XL) node[right] {$x$}; %x軸
+            \draw[semithick,->,>=stealth] (YS)--(YL) node[above] {$y$}; %y軸
+            
+            % (a, b)
+            \coordinate (P1) at (2,1.5); %右頂点
+            \fill (P1) circle (0.05); %点の塗りつぶし
+            \node (x) at (2.2, 1.7) {$\ds (a, b)$};%座標の可視化
+            
+            % (b, a)
+            \coordinate (P2) at (1.5,2); %右頂点
+            \fill (P2) circle (0.05); %点の塗りつぶし
+            \node (x) at (1.7, 2.2) {$\ds (b, a)$};%座標の可視化
+            
+            \draw[dashed] ($(XS)!(P1)!(XL)$)node[below]{$\ds a$}--(P1)--($(YS)!(P1)!(YL)$)node[left]{$\ds b$};
+            \draw[dashed] ($(XS)!(P2)!(XL)$)node[below]{$\ds b$}--(P2)--($(YS)!(P2)!(YL)$)node[left]{$\ds a$};
+              %右頂点から各軸への垂線
 
-        \end{tikzpicture}
+          \end{tikzpicture}
+        \end{center}
 
         すなわちこれは幾何的に順序対が異なるものであることを説明しており、直積の順序で順序対が変化することが異なる量へ変化していることの根拠である。\par
         実際このことは直積(特に順序対)の定義であった。
@@ -608,7 +620,7 @@
 
     \newpage
 
-    \subsection{実数の部分集合の有界性}
+    \subsection{実数集合の有界性}
       $\ds A \subset \mathbb{R}$なる$\ds A$に対し$\ds M \in \mathbb{R}$が
 
       \begin{equation*}
@@ -617,7 +629,7 @@
         \end{split}
       \end{equation*}
       
-      と取れるとき、"$\ds A$は上に有界である"という。
+      と取れるとき、\textbf{$\ds A$は上に有界である}という。
       少し範囲を広くして言えば、$\ds A (\subset \mathbb{R})$が最大値を持つならば$\ds A$は上に有界であるといえる。
       ここに注意として、"$\ds A$が最大値をもつことは$\ds A$が上に有界であることと同値ではない"である。\par
 
@@ -629,7 +641,7 @@
         \end{split}
       \end{equation*}
 
-      と取れるとき、"$\ds A$は下に有界である"という。
+      と取れるとき、\textbf{$\ds A$は下に有界である}という。
       これも少し範囲を広くして言えば、$\ds A (\subset \mathh{R})$が最小値を持つならば$\ds A$は下に有界であるといえる。
       これも先ほどと同様の注意を払おう。\par
 
@@ -660,7 +672,7 @@
         \end{split}
       \end{equation*}
 
-      と定義して、このような$\ds S$を"$\ds A$の上界"と言い、この上界の最小値$\ds \min S$を"$\ds A$の上限"と言い$\ds \sup A$と書く。
+      と定義して、このような$\ds S$を\textbf{$\ds A$の上界}と言い、この上界の最小値$\ds \min S$を\textbf{$\ds A$の上限}と言い$\ds \sup A$と書く。
 
       \vspace{9pt}\\
 
@@ -672,7 +684,7 @@
         \end{split}
       \end{equation*}
 
-      と定義して、このような$\ds I$を"$\ds A$の下界"と言い、この下界の最大値$\ds \max I$を"$\ds A$の下限"と言い$\ds \inf A$と書く。\par
+      と定義して、このような$\ds I$を\textbf{$\ds A$の下界}と言い、この下界の最大値$\ds \max I$を\textbf{$\ds A$の下限}と言い$\ds \inf A$と書く。\par
 
       \vspace{9pt}\\
 
@@ -686,52 +698,66 @@
     
     \subsection{写像の定義}
         $\ds X, Y$を空でない集合とする。\par
-        任意の$\ds x \in X$に対し、ある$\ds y \in Y$が一意に定まるとき、このような対応規則を「$\ds X$から$\ds Y$への写像」と呼ぶ。\par
-        また$\ds X, Y$が数を要素とする集合の場合特に関数と呼ぶ。つまり$\ds 関数 \subset 写像$である。\par
+        任意の$\ds x \in X$に対し、ある$\ds y \in Y$が一意に定まるとき、このような\textbf{対応規則}を\textbf{$\ds X$から$\ds Y$への写像}と呼ぶ。\par
+        また\textbf{$\ds X, Y$が数を要素とする集合}の場合特に\textbf{関数}と呼ぶ。つまり$\ds 関数 \subset 写像$である。\par
         簡潔に表現すれば以下。
 
-        \vspace{9pt}\\
+        \columnbreak
 
-        $\ds f:X \mapsto Y \defineProposition \forall_{x \in X} [\exists!_{y \in Y} [y = f(x)]]$
+        \begin{equation*}
+          \begin{split}
+            $\ds f:X \mapsto Y \defineProposition \forall_{x \in X} [\exists!_{y \in Y} [y = f(x)]]$
+          \end{split}
+        \end{equation*}
 
-        \begin{tikzpicture}[auto]
-        
-          %Xのベン図
-          \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-          \node[set label,text=black] (X) at (0, 40pt) {$\ds X$};
+        \begin{equation*}
+          \begin{tikzpicture}[auto]
+          
+            %Xのベン図
+            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
+            \node[set label,text=black] (X) at (0, 40pt) {$\ds X$};
 
-          %Yのベン図
-          \draw (80pt,0) ellipse (20pt and 40pt);
-          \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-          \node[set label,text=black] (Y) at (80pt, 40pt) {$\ds Y$};
-          \node[set label,text=black] (Y') at (80pt, 20pt) {$\ds Y'$};
+            %Yのベン図
+            \draw (80pt,0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label,text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            \node[set label,text=black] (Y') at (80pt, 20pt) {$\ds Y'$};
 
-          %写像f
-          \draw[->] (0, 0) to node {$\scriptstyle f$} (80pt, 0);
+            %写像f
+            \draw[->] (0, 0) to node {$\scriptstyle f$} (80pt, 0);
 
-        \end{tikzpicture}
+          \end{tikzpicture}
+        \end{equation*}
 
       \subsection{定義域・値域}
-        $\ds f:X \mapsto Y$において\par
+        $\ds f:X \mapsto Y$において
+
         \begin{cases}
-          $\ds X$を$\ds f$の定義域\\
-          $\ds Y'(\subset Y)$を$\ds f$の値域\\
+          $\ds X$を\textbf{$\ds f$の定義域}\\
+          $\ds Y'(\subset Y)$を\textbf{$\ds f$の値域}\\
         \end{cases}
+
         という。\par
+
+        \columnbreak
 
         値域$\ds R_f$の具体的な定義は以下。
       
-        \vspace{9pt}\\
+        \columnbreak
 
-        $\ds R_f \defineProposition \{y \in Y \mid \exists_x [x \in X \wedge y=f(x)]\}$
+        \begin{equation*}
+          \begin{split}
+            $\ds R_f \defineProposition \{y \in Y \mid \exists_x [x \in X \wedge y=f(x)]\}$
+          \end{split}
+        \end{equation*}
 
         % \footnote{
         %   $\ds \exists_x [x \in X \wedge y=f(x)]$は自由変項$\ds y$が残るため$\ds y$の条件と言える。
         % }
 
       \subsection{単射（行先がかぶらない写像）}
-        写像にはいくつか特性が存在する。その特性の一つを有する写像が単射と呼ばれるものである。\par
-        $\ds f:X \mapsto Y$が単射であるとは、任意の$x,x'\in X$に対して「$\ds x \ne x' \Longrightarrow f(x) \ne f(x')$」が成立することである。\par
+        写像にはいくつか特性が存在する。その特性の一つを有する写像が\textbf{単射}と呼ばれるものである。\par
+        \textbf{$\ds f:X \mapsto Y$が単射である}とは、\textbf{任意の$x,x'\in X$に対して「$\ds x \ne x' \Longrightarrow f(x) \ne f(x')$」が成立すること}である。\par
         つまり簡潔に表せば以下。
 
         \begin{equation*}
@@ -741,34 +767,34 @@
           \end{split}
         \end{equation*}
 
-        \begin{tikzpicture}[auto]
-        
-          %Xのベン図
-          \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-          \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+        \begin{equation*}
+          \begin{tikzpicture}[auto]
+          
+            %Xのベン図
+            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
+            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
 
-          %Yのベン図
-          \draw (80pt,0) ellipse (20pt and 40pt);
-          \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-          \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            %Yのベン図
+            \draw (80pt,0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
-          %x->y
-          \node (x) at (0, 15pt) {$\ds x$};
-          \node (y) at (80pt, 15pt) {$\ds y$};
-          \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
+            %x->y
+            \node (x) at (0, 15pt) {$\ds x$};
+            \node (y) at (80pt, 15pt) {$\ds y$};
+            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
 
-          %x'->y'
-          \node (x') at (0, -3pt) {$\ds x'$};
-          \node (y') at (80pt, -3pt) {$\ds y'$};
-          \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
+            %x'->y'
+            \node (x') at (0, -3pt) {$\ds x'$};
+            \node (y') at (80pt, -3pt) {$\ds y'$};
+            \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
 
-        \end{tikzpicture}
-
-      \newpage
+          \end{tikzpicture}
+        \end{equation*}
 
       \subsection{全射}
-        写像の特使の一つを有するものを単射と言った。他にも全射と呼ばれるものもある。\par
-        $\ds f:X \mapsto Y$が全射であるとは、任意の$y \in Y$に対して、ある$\ds x \in X$が存在し$\ds f(x)=y$となることである。\par
+        写像の特使の一つを有するものを単射と言った。他にも\textbf{全射}と呼ばれるものもある。\par
+        \textbf{$\ds f:X \mapsto Y$が全射である}とは、\textbf{任意の$y \in Y$に対して、ある$\ds x \in X$が存在し$\ds f(x)=y$となること}である。\par
         つまり簡潔に表せば以下。
 
         \begin{equation*}
@@ -777,65 +803,78 @@
           \end{split}
         \end{equation*}
 
-        \begin{tikzpicture}[auto]
-        
-          %Xのベン図
-          \draw (0,0) ellipse (20pt and 40pt);
-          \fill[color=black!50!white, draw=black] (0, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-          \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+        \begin{center}
+          \begin{tikzpicture}[auto]
+          
+            %Xのベン図
+            \draw (0,0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white, draw=black] (0, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
 
-          %Yのベン図
-          \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
-          \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            %Yのベン図
+            \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
+            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
-          %x->y
-          \node (x) at (0, 15pt) {$\ds x$};
-          \node (y) at (80pt, 15pt) {$\ds y$};
+            %x->y
+            \node (x) at (0, 15pt) {$\ds x$};
+            \node (y) at (80pt, 15pt) {$\ds y$};
 
-          %x'->y'
-          \node (x') at (0, 5pt) {$\ds x'$};
-          \node (y') at (80pt, -3pt) {$\ds y'$};
+            %x'->y'
+            \node (x') at (0, 5pt) {$\ds x'$};
+            \node (y') at (80pt, -3pt) {$\ds y'$};
 
-          %x''->y'
-          \node (x'') at (0, -13pt) {$\ds x''$};
+            %x''->y'
+            \node (x'') at (0, -13pt) {$\ds x''$};
 
-          \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
-          \draw[->] (0, 0) to node {$\scriptstyle f(x')$} (80pt, -10pt);
-          \draw[->] (0, -20pt) to node {$\scriptstyle f(x'')$} (80pt, -10pt);
+            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
+            \draw[->] (0, 0) to node {$\scriptstyle f(x')$} (80pt, -10pt);
+            \draw[->] (0, -20pt) to node {$\scriptstyle f(x'')$} (80pt, -10pt);
 
-        \end{tikzpicture}
+          \end{tikzpicture}
+        \end{center}
 
         \subsection{全単射（1対1対応、変換）}
-        既に写像の特性を持つものを2つ紹介したが、これらの特性を同時に有するものも存在する。それを全単射といい、単射と全射それぞれの定義から成る合成命題で定義される。\par
-        $\ds f:X \mapsto Y$が全単射であるとは、$\ds f$が単射かつ全射であるときをいう。\par
-        また、定義域と値域が等しいことよりこの対応を1対1対応とも呼び、さらに互いの集合間をすべての要素が行き来できることより変換とも呼ぶ。(ただし変換に関しては必ずしも1対1対応でなくてもよい。)\par
+        既に写像の特性を持つものを2つ紹介したが、これらの特性を同時に有するものも存在する。それを\textbf{全単射}といい、\textbf{単射と全射それぞれの定義から成る合成命題}で定義される。\par
+        つまり
+
+        \begin{equation*}
+          \begin{split}
+            \textbf{$\ds f:X \mapsto Y$が全単射である}とは、\textbf{$\ds f$が単射かつ全射であるとき}をいう。
+          \end{split}
+        \end{equation*}
+        
+        また、\textbf{定義域と値域が等しい}ことよりこの対応を\textbf{1対1対応}とも呼び、さらに\textbf{互いの集合間をすべての要素が行き来できる}ことより\textbf{変換}とも呼ぶ。(ただし変換に関しては必ずしも1対1対応でなくてもよい。)\par
         つまり簡潔に表せば以下。
 
-        \begin{multline*}
-          $\ds f:X \mapsto Yが全単射 \defineProposition \forall_{x,x'\in X} [f(x) = f(x') \Longrightarrow x = x'] \wedge \forall_{y\in Y} [\exists_{x\in X} [f(x) = y]]$
-        \end{multline*}
+        \begin{equation*}
+          \begin{split}
+            $\ds f:X \mapsto Yが全単射 \defineProposition \forall_{x,x'\in X} [f(x) = f(x') \Longrightarrow x = x'] \wedge \forall_{y\in Y} [\exists_{x\in X} [f(x) = y]]$
+          \end{split}
+        \end{equation*}
 
-        \begin{tikzpicture}[auto]
-        
-          %Xのベン図
-          \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-          \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+        \begin{equation*}
+          \begin{tikzpicture}[auto]
+          
+            %Xのベン図
+            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
+            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
 
-          %Yのベン図
-          \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
-          \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            %Yのベン図
+            \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
+            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
 
-          %x->y
-          \node (x) at (0, 15pt) {$\ds x$};
-          \node (y) at (80pt, 15pt) {$\ds y$};
-          \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
+            %x->y
+            \node (x) at (0, 15pt) {$\ds x$};
+            \node (y) at (80pt, 15pt) {$\ds y$};
+            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
 
-          %x'->y'
-          \node (x') at (0, -3pt) {$\ds x'$};
-          \node (y') at (80pt, -3pt) {$\ds y'$};
-          \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
+            %x'->y'
+            \node (x') at (0, -3pt) {$\ds x'$};
+            \node (y') at (80pt, -3pt) {$\ds y'$};
+            \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
 
-        \end{tikzpicture}
+          \end{tikzpicture}
+        \end{equation*}
 
         \newpage
 
@@ -843,7 +882,7 @@
     対称式とは変数を入れ替えても形が変わらない多項式のことである。まず多項式がどんなものか確認して、次に対称式の性質や対称式の基本定理について議論しよう。  
 
     \subsection{多項式・整式の定義}
-      多項式(整式)とは「数」と「変数」を和と積によって作られる
+      \textbf{多項式(整式)}とは「数」と「変数」を和と積によって作られる
         (線形結合\footnote{
           線形結合の具体的な定義は
           「体$\ds \mathbb{F}$上の線形空間\boldsymbol{V}に対する$\ds \boldsymbol{v_1}, \boldsymbol{v_2}, \cdots , \boldsymbol{v_n} \in \boldsymbol{V}$の線形結合とは
@@ -860,9 +899,9 @@
         \end{split}
       \end{equation*}
 
-      ここに各々の$\ds x_k$において$\ds a_k x^k$のようにして積で結ばれる。この積で結ばれた塊を項と呼び、$\ds a_k$を$\ds x^k$の係数と呼ぶ。
-      特に$\ds 0$次の項を定数項と呼ぶ。\par
-      また、一般には和を持たない多項式(例えば$\ds 4x^2$など)も存在し、それらを単項式と呼ぶ。\par
+      ここに各々の$\ds x_k$において$\ds a_k x^k$のようにして積で結ばれる。この積で結ばれた塊を\textbf{項}と呼び、$\ds a_k$を\textbf{$\ds x^k$の係数}と呼ぶ。
+      特に$\ds 0$次の項を\textbf{定数項}と呼ぶ。\par
+      また、一般には和を持たない多項式(例えば$\ds 4x^2$など)も存在し、それらを\textbf{単項式}と呼ぶ。\par
       ゆえに$\ds 単項式 \subset 多項式 = 整式$である。
 
       \subsubsection{多項式・整式でないもの}
@@ -1075,7 +1114,7 @@
         \end{cases}
       \end{equation*}
 
-      と定義する。このとき次のような並べ方を辞書式順序と定義する。
+      と定義する。このとき次のような並べ方を\textbf{辞書式順序}と定義する。
 
       \begin{breakbox}
         \begin{equation*}
@@ -1287,8 +1326,8 @@
 
   \section{場合の数}
     場合の数とは、ある状況下における起こりうる事象の数のことをいう。これは確率論と呼ばれる分野に包含された概念であるため、当節で論じる内容は確率論の内容の一部である。\par
-    ちなみに次節でも述べる確率論とは「偶然現象」に対して数学的なモデルを与え、解析する数学分野のことである。\par
-    ただ、確率論において「確率」を考えるにあたってはまず「場合の数」についての議論ができなければ話にならない。
+    ちなみに次節でも述べる確率論とは\textbf{偶然現象}に対して数学的なモデルを与え、解析する数学分野のことである。\par
+    ただ、確率論において\textbf{確率}を考えるにあたってはまず\textbf{場合の数}についての議論ができなければ話にならない。
     そのため確率については次節で述べることとして、ここではまず場合の数について論じよう。
 
     \subsection{用語の定義}
@@ -1296,64 +1335,63 @@
       ゆえにまずは言葉の定義を確認してゆくことにする。
 
       \subsubsection{試行と事象}
-        試行とは、同じ状態のもとで繰り返すことができ、その結果が\overdot{偶}\overdot{然}\overdot{に}\overdot{よ}\overdot{っ}\overdot{て}\overdot{決}\overdot{ま}\overdot{る}
-        実験や観測などのことである。\par
-        また、試行した結果起こる事柄を事象という。
-        さらに、事象の全体集合を全事象(標本空間)といい、要素を持たない事象を空事象という。\par
+        \textbf{試行}とは、同じ状態のもとで繰り返すことができ、その結果が\overdot{偶}\overdot{然}\overdot{に}\overdot{よ}\overdot{っ}\overdot{て}\overdot{決}\overdot{ま}\overdot{る}実験や観測などのことである。\par
+        また、\textbf{試行した結果起こる事柄}を\textbf{事象}という。
+        さらに、\textbf{事象の全体集合}を\textbf{全事象(標本空間)}といい、\textbf{要素を持たない事象}を\textbf{空事象}という。\par
         事象は一般に集合であり、必ずしも要素を指す言葉ではない。
-        各事象における要素のことは根元事象という。
+        \textbf{各事象における要素}のことは\textbf{根元事象}という。
 
-        \begin{tikzpicture}[auto]
-      
-          %元のベン図
-          \draw (0,0) ellipse (15pt and 30pt);
+        \begin{center}
+          \begin{tikzpicture}[auto]
+        
+            %元のベン図
+            \draw (0,0) ellipse (15pt and 30pt);
 
-          %全事象のベン図
-          \draw (80pt,0) ellipse (20pt and 40pt);
-          %事象のベン図
-          \fill[black!50!white] (80pt,0) ellipse (10pt and 20pt);
-          \node[set label, text=black] (All) at (80pt, 40pt) {$\ds 全事象$};
+            %全事象のベン図
+            \draw (80pt,0) ellipse (20pt and 40pt);
+            %事象のベン図
+            \fill[black!50!white] (80pt,0) ellipse (10pt and 20pt);
+            \node[set label, text=black] (All) at (80pt, 40pt) {$\ds 全事象$};
 
-          %座標の定義
-          \coordinate (S) at (0, 0); %元
-          \coordinate (A) at (80pt, 30pt);
-          \coordinate (B) at (80pt, 10pt);
-          \coordinate (C) at (80pt, -10pt);
-          \coordinate (D) at (80pt, -30pt);
+            %座標の定義
+            \coordinate (S) at (0, 0); %元
+            \coordinate (A) at (80pt, 30pt);
+            \coordinate (B) at (80pt, 10pt);
+            \coordinate (C) at (80pt, -10pt);
+            \coordinate (D) at (80pt, -30pt);
 
-          %対応矢印
-          \draw[->] (S) to node {} (78pt, 30pt);
-          \draw[->] (S) to node {} (78pt, 10pt);
-          \draw[->] (S) to node {} (78pt, -10pt);
-          \draw[->] (S) to node {} (78pt, -30pt);
+            %対応矢印
+            \draw[->] (S) to node {} (78pt, 30pt);
+            \draw[->] (S) to node {} (78pt, 10pt);
+            \draw[->] (S) to node {} (78pt, -10pt);
+            \draw[->] (S) to node {} (78pt, -30pt);
 
-          %要素の点
-          \foreach \P  in {S, A, B, C, D} \fill[black] (\P) circle (0.06);
+            %要素の点
+            \foreach \P  in {S, A, B, C, D} \fill[black] (\P) circle (0.06);
 
-          %試行ラベル
-          \draw[semithick, -, stealth] (39pt, -15pt)--(39pt, -2);%(39 = 78/2, -15 = -30/2)
-          \node[set label, text=black] () at (39pt, -2) {$\ds 試行$};
+            %試行ラベル
+            \draw[semithick, -, stealth] (39pt, -15pt)--(39pt, -2);%(39 = 78/2, -15 = -30/2)
+            \node[set label, text=black] () at (39pt, -2) {$\ds 試行$};
 
-          %事象ラベル
-          \draw[semithick, -, stealth] (80pt, 0)--(120pt, 0);
-          \node[set label, text=black] () at (120pt, 0) {$\ds 事象$};
+            %事象ラベル
+            \draw[semithick, -, stealth] (80pt, 0)--(120pt, 0);
+            \node[set label, text=black] () at (120pt, 0) {$\ds 事象$};
 
-          %根元事象ラベル
-          \draw[semithick, -, stealth] (C)--(100pt, -1);
-          \draw[semithick, -, stealth] (100pt, -1)--(140pt, -1);
-          \node[set label, text=black] () at (140pt, -1) {$\ds 根元事象$};
+            %根元事象ラベル
+            \draw[semithick, -, stealth] (C)--(100pt, -1);
+            \draw[semithick, -, stealth] (100pt, -1)--(140pt, -1);
+            \node[set label, text=black] () at (140pt, -1) {$\ds 根元事象$};
 
-        \end{tikzpicture}
+          \end{tikzpicture}
+        \end{center}
 
         \footnote{
           試行は元の集合と全事象間の対応関係であるが、元から向かう先が一意に定まらないため写像ではない。
         }
 
-        \begin{equation*}
-          \begin{split}
-            $\ds 根元事象 \subseteq 事象, $ & $\ds 事象 \subseteq 全事象$
-          \end{split}
-        \end{equation*}
+        \begin{center}
+          $\ds 根元事象 \subseteq 事象, $ & $\ds 事象 \subseteq 全事象$
+        \end{center}
 
         \footnote{
           $\ds A \subseteq B$の意味は、$\ds A$は$\ds B$の部分集合または$\ds A$と$\ds B$は同じ集合\par
@@ -1372,11 +1410,9 @@
         そこで確率論では、しばしば「場合」という言葉を「これ以上分割できない場合」という意味を指すものとする。
         つまり
 
-        \begin{equation*}
-          \begin{split}
-            場合 $\ds \defineProposition$ 根元事象
-          \end{split}
-        \end{equation*}
+        \begin{center}
+          場合 $\ds \defineProposition$ 根元事象
+        \end{center}
 
         と定義できる。
 
@@ -1394,16 +1430,15 @@
         事象$\ds A, B$の起こり方の総数とはつまり、事象$\ds A, B$の和集合$\ds =$全事象$\ds U$の「根元事象の数」である。\par
         つまり事象$\ds A, B$の根元事象の集合をそれぞれ$\ds \mathbb{A}, \mathbb{B}$、全事象に対応する集合を$\ds \mathbb{U}$とすると、
         
-        \begin{multline}
+        \begin{equation}
           \begin{split}
-            事象$\ds A, B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$
-          \end{split}\\
-          \label{eq:not-happening-at-the-same-time}
-        \end{multline}
+            事象$\ds A, B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$ \label{eq:not-happening-at-the-same-time}
+          \end{split}
+        \end{equation}
 
         であるから、全根元事象数、つまり$\ds \mathbb{U}$の要素数は
 
-        \begin{equation*}
+        \begin{center}
           \centering
           \begin{tikzpicture}
           
@@ -1416,7 +1451,7 @@
             \node[set label, text=black] () at (1.5, 1) {$\ds \mathbb{B}$};
 
           \end{tikzpicture}
-        \end{equation*}
+        \end{center}
 
         \begin{equation*}
           \begin{split}
@@ -1440,7 +1475,7 @@
           \end{equation*}
         \end{breakbox}
 
-        であり、これを和の法則という。
+        であり、これを\textbf{和の法則}という。
       \end{proof}
 
       \subsubsection{和の法則の成立する例}
@@ -1520,7 +1555,7 @@
         しかし同時に起こってしまう場合両者を定める情報がなくてはならない。\par
         具体的には$\ds \mathbb{A} \cap \mathbb{B \ne \varnothing}$ゆえ、事象$\ds A$が起こるからと言って事象$\ds B$が起こらないとは限らないということである。\par
 
-        \begin{equation*}
+        \begin{center}
           \centering
           \begin{tikzpicture}[auto]
         
@@ -1552,7 +1587,7 @@
             \node[set label, text=black] (_B) at (4.55, -0.5) {事象$\ds A$も$\ds B$も起こる};
 
           \end{tikzpicture}
-        \end{equation*}
+        \end{center}
 
         ここで議論が行き詰ってしまった原因は、事象$\ds A, B$に対する全事象の集合$\ds \mathbb{U}$の定義の仕方が悪かったことにある。
         つまり、試行によって$\ds A$または$\ds B$の根元事象、つまり要素が$\ds 1$つ決まることに対応するように$\ds \mathbb{U}$を定義していなかったということである。\par
@@ -1608,7 +1643,7 @@
           \end{split}
         \end{eqnarray}
 
-        \begin{equation*}
+        \begin{center}
           \centering
           \begin{tikzpicture}
           
@@ -1626,7 +1661,7 @@
             \node[set label, text=black] (B') at \circleBNamePoint {$\ds \mathbb{B'}$};
 
           \end{tikzpicture}
-        \end{equation*}
+        \end{center}
 
         \begin{eqnarray}
           \begin{split}
@@ -1664,7 +1699,7 @@
           \end{equation*}
         \end{breakbox}
 
-        であり、これを積の法則という。
+        であり、これを\textbf{積の法則}という。
       \end{proof}
 
 \end{document}
