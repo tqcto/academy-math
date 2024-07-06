@@ -152,6 +152,7 @@
         \end{equation*}
 
         この式は、数学的には方程式というが、論理学的にこの主張を見てやると$\ds x$という文字(数学的には変数と言う)の値次第で真偽が変わってしまう主張である。
+        例えば$\ds x = -3$のときこの式が成立するので真であり、この値をこの方程式の解というが、$\ds x = 1$のときこの式は成立しないので偽である。
         もちろんこれも命題の一つである事には変わりがない。
         このような文字を論理学では\textbf{変項}と呼ぶ。\par
         また、このような変項$\ds x$の値次第で真偽が変わってしまう命題のことを\textbf{変項$\ds x$についての条件}と言う。
@@ -185,9 +186,6 @@
       一般に、このような\textbf{複数の命題を演算子で合成した命題}を\textbf{合成命題}という。
       また、「ワンちゃんはかわいい」のような合成命題を構成する基本命題をその合成命題の\textbf{命題変項}または\textbf{命題変数}と呼ぶ。
       このように、命題に対して「かつ」のような演算子が作用して合成命題を成していることから論理式という言葉も納得である。
-      \footnote{
-        論理学においてはこの演算子を\textbf{論理演算子}、あるいは\textbf{論理結合子}と呼ぶ。
-      }
 
       \subsubsection{命題論理}
         今見たように、「かつ」のような演算子がある。
@@ -226,10 +224,14 @@
           \begin{table}[h]
             \centering
             \begin{tabular}{c|c||c|c|c|c}
-              \truthtable{A,B}{$A$,$B$}{A&B, A|B, >>(A;B), !A} {$A \land B, A \lor B, A \Rightarrow B, \lnot A$}{$1$}{$0$}
+              \truthtable{A,B}{$A$,$B$}{A&B, A|B, >>(A;B), !A} {$A \land B, A \lor B, A \Rightarrow B, \lnot A$}{$T$}{$F$}
             \end{tabular}
           \end{table}
         \end{center}
+        
+        \footnote{
+          Tが真(true)、Fが偽(false)である。
+        }
 
         この表のことを\textbf{真理表}と言う。\par
 
@@ -244,7 +246,7 @@
               \hline
               論理記号  & 英語文での意味  &  定義内容  \\
               \hline \hline
-                $\ds p \Longleftrightarrow q$ & $\ds p$ iff (if and only if) $\ds "q$ & $\ds "p \Rightarrow q" \land "p \Leftarrow q"$\\
+                $\ds p \Longleftrightarrow q$ & $\ds p$ iff (if and only if) $\ds q$ & $\ds "p \Rightarrow q" \land "p \Leftarrow q"$\\
             \end{tabular}
           \end{table}
         \end{center}
@@ -341,15 +343,15 @@
                 $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$                    & $\ds (\because \ref{longrightarrow-iff})$\\
                                             & $\ds \Longleftrightarrow "(\lnot p \lor p) \land (\lnot p \lor q)"$     & $\ds (\because 分配則)$\\
                                             & $\ds \Longleftrightarrow "\top \land (\lnot p \lor q)"$                 & $\ds (\because \lnot p \lor p は常に真)$\\
-                                            & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & \begin{tabular}{r}
-                                                                                                                          $\ds (\because 常に真である恒真命題$\ds "\lnot p \lor p" \Leftrightarrow \top$との論理積(and)は、\\
-                                                                                                                          $\ds \top$との論理積を省いても同じ主張であると言える)$\\
+                                            & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & \begin{tabular}{l}
+                                                                                                                          $\ds (\because$ 常に真である恒真命題$\ds "\lnot p \lor p" \Leftrightarrow \top$との論理積(and)は、\\
+                                                                                                                          これを省いても同じ主張であると言える)\\
                                                                                                                         \end{tabular}\\
 
               \end{tabular}
             \end{table}
           \end{center}
-          \footnote{\land で結ばれるものを論理積といい、\lor で結ばれるものを論理和という。}
+          \footnote{\land で結ばれるものを\textbf{論理積}といい、\lor で結ばれるものを\textbf{論理和}という。}
           よってまとめれば
           \begin{equation*}
             \begin{split}
