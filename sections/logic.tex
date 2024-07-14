@@ -4,6 +4,8 @@
 
 \begin{document}
 
+\section{論理学}
+
   数学では様々な議題を論証的に議論する。これには、\textbf{証明}が不可欠である。
   例えば次の主張
 
@@ -114,10 +116,7 @@
         \end{table}
       \end{center}
       
-      \footnote{
-        Tが真(true)、Fが偽(false)である。
-      }
-
+      Tが真(true)、Fが偽(false)である。
       この表のことを\textbf{真理表}と言う。\par
 
       \columnbreak
@@ -217,7 +216,8 @@
             \end{tabular}
           \end{table}
         \end{center}
-
+        
+      \paragraph{ならば文の基礎定理}
         また、特に名前はついていないが次の定理もある。
 
         \begin{center}
@@ -228,23 +228,23 @@
               $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$                    & $\ds (\because \ref{longrightarrow-iff})$\\
                                           & $\ds \Longleftrightarrow "(\lnot p \lor p) \land (\lnot p \lor q)"$     & $\ds (\because 分配則)$\\
                                           & $\ds \Longleftrightarrow "\top \land (\lnot p \lor q)"$                 & $\ds (\because \lnot p \lor p は常に真)$\\
-                                          & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & \begin{tabular}{l}
-                                                                                                                        $\ds (\because$ 常に真である恒真命題$\ds "\lnot p \lor p" \Leftrightarrow \top$との論理積(and)は、\\
-                                                                                                                        これを省いても同じ主張であると言える)\\
-                                                                                                                      \end{tabular}\\
+                                          & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & 
 
             \end{tabular}
           \end{table}
         \end{center}
         
+        \footnote{常に真である恒真命題$\ds "\lnot p \lor p" \Leftrightarrow \top$との論理積(and)は、これを省いても同じ主張であると言える}
         \footnote{\land で結ばれるものを\textbf{論理積}といい、\lor で結ばれるものを\textbf{論理和}という。}
         
         よってまとめれば
+
         \begin{equation*}
           \begin{split}
             $\ds "p \Longrightarrow q" \Longleftrightarrow "\lnot p \lor q"$
           \end{split}
         \end{equation*}
+
         である。
 
 \end{document}
