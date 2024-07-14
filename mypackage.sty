@@ -1,0 +1,107 @@
+\usepackage{multicol}
+\usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools} %数学系全般のパッケージ
+\usepackage{tikz}
+
+\usepackage{tcolorbox}    %数式をにコメントをつけられるようにする
+\tcbuselibrary{theorems,skins}  %上同様
+
+\usetikzlibrary{patterns}%斜線塗りを可能にする
+\usepackage{mhchem} %化学用パッケージ
+%\usepackage{dotseqn}%式番号表示に詰まった点線を使えるようにする
+\usepackage{cases}%場合分け内の各式に式番号を振れるようにする\begin{numcases}を追加する
+\usepackage{pxrubrica} %ルビを振れるようにする\rubyを追加するパッケージ
+\usepackage{boites} %breakboxを利用可能にする
+\usepackage{fancyhdr} %ヘッダ・フッタを利用可能にする
+\usetikzlibrary{calc}
+
+%インデント追加に\spind を利用可能にする
+\usepackage{xparse}
+
+%打消し線を定義
+\usepackage{ulem}
+\renewcommand{\reviewstrike}[1]{\sout{#1}}
+
+\usepackage{truthtable} %真理表自動生成
+
+\newcommand{\splitindent}{\phantom{{}={}}}
+\newcounter{CSplitIndent}
+\NewDocumentCommand{\spind}{ O{1} }{
+  \setcounter{CSplitIndent}{0}
+  \whiledo{\value{CSplitIndent}<#1}{
+    \splitindent
+    \addtocounter{CSplitIndent}{1}
+  }
+}
+
+%label属性のついたものの背景色を白で四角系で塗りつぶす
+\tikzset{set label/.style={fill=white,rectangle,inner sep=1}}
+
+%QEDを墓石記号にする
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%定義記号
+\def\ldef{\coloneqq}
+\def\define{\stackrel{\mathrm{def}}{=}}
+\def\defineProposition{\stackrel{\mathrm{def}}{\Longleftrightarrow}}
+
+%式番号表記の改善
+\makeatletter
+\@addtoreset{equation}{section}
+\@addtoreset{figure}{section}
+\@addtoreset{table}{section}
+\renewcommand{\theequation}{%
+  \ifnum\thesection>0
+    \thesection.\arabic{equation}%
+  \else
+    \arabic{equation}%
+  \fi
+}
+\renewcommand{\thefigure}{%
+  \ifnum\thesection>0
+    \thesection.\arabic{figure}%
+  \else
+    \arabic{figure}%
+  \fi
+}
+\renewcommand{\thetable}{%
+  \ifnum\thesection>0
+    \thesection.\arabic{table}%
+  \else
+    \arabic{table}%
+  \fi
+}
+\renewcommand{\appendix}{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \gdef\presectionname{\appendixname}%
+  \gdef\postsectionname{}%
+  \gdef\thesection{\presectionname\@Alph\c@section\postsectionname}%
+  \gdef\thesubsection{\@Alph\c@section.\@arabic\c@subsection}%
+  %% 追加
+  \renewcommand{\theequation}{\@Alph\c@section.\arabic{equation}}%
+  \renewcommand{\thefigure}{\@Alph\c@section.\arabic{figure}}%
+  \renewcommand{\thetable}{\@Alph\c@section.\arabic{table}}%
+}
+\makeatother
+
+%ディスプレイスタイル
+\def\ds{\displaystyle}
+
+%文字の上にアクセント
+\def\overdot#1{\overset{\text{\centerdot}}{#1}}
+
+\setlength{\columnsep}{5mm}
+\columnseprule=0.2mm
+
+%multicols上でtableの代わりにfigurehere, tablehereを使う
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
+\pagestyle{fancy}
+    \rfoot{\LaTeX　Takuto Maeno} %フッタ右
