@@ -282,5 +282,136 @@
         である。
         
     \subsubsection{述語論理}
+      命題論理の次で、第二のレベルで記述されるものを\textbf{述語論理}という。
+      具体的には以下に見る量化文がその典型である。
+
+      \vspace{9pt}\\
+
+      数は、自然数という概念がまず定義され、それを拡張したものが整数、有理数、実数、・・・と、数学基礎論と呼ばれる分野で議論される。
+      ここに、これらを論理的に定義してゆくには先ほど述べた「かつ」「または」「否定」などでは不完全である。
+      そこで$\ds x$についての条件$\ds p(x)$を用いて次の記号を導入しよう。
+
+      \begin{center}
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{lll}
+
+            $\ds \exists_x [ p(x) ]$  & $\defineProposition$      & $p(x)$を満たす$\ds x$が存在する\\
+            $\ds \forall_x [ p(x) ]$  & $\ds \defineProposition$  & 任意(すべて)の$\ds x$で$\ds p(x)$が成立する\\
+
+          \end{tabular}
+        \end{table}
+      \end{center}
+      \footnote{
+        $\ds \exists$はexistの頭文字を反転させたもの、$\ds \forall$はarbitrary(あるいはany, all)の頭文字を反転させたものだと考えられる。
+      }
+      \footnote{
+        任意の$\ds x$で$\ds p(x)$が成立することは、すべての$\ds x$で$\ds p(x)$が成立することと同じことであるのでどちらの表現を用いてもよい。
+      }
+
+      $\ds \forall$を\textbf{全称記号}あるいは\textbf{任意記号}と呼び、$\ds \exists$を\textbf{特称記号}あるいは\textbf{存在記号}と呼ぶ。
+      また、これらを表せて\textbf{量化記号}あるいは\textbf{量化子}と呼ぶ。
+      これら量化子を命題$\ds p(x)$にかぶせることを\textbf{量化する}といい、量化された文を\textbf{量化文}と呼ぶ。
+      \footnote{
+        量化という言葉は、哲学者アリストテレスが、命題が「質」と「量」の2つのカテゴリー、それぞれを否定と肯定、全称と特称に分類していたことに基づく表現である。
+      }
+
+      量化文の$\ds [　]$の部分をその量化子の\textbf{支配域}といい、
+      また量化文の添え字としてくっついている$\ds x$を\textbf{束縛変項}といい、
+      さらに束縛されていない変項がある場合それを\textbf{自由変項}という。
+
+      \paragraph{量化文の具体例}
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \exists_x [x^2 - 2x + a = 0]$
+          \end{split}
+        \end{equation*}
+
+        この主張において、$\ds x$が束縛変数、$\ds x^2 - 2x + a = 0$が支配域、$\ds a$は自由変項である。
+        したがって、これは全体で見れば変項は$\ds a$のみであるから$\ds a$の条件であることがわかる。
+        実際、この主張の意味を言葉にすると
+
+        \begin{equation*}
+          \begin{split}
+            「"$\ds x^2 - 2x + a = 0$を満たす$\ds x$が存在する"ような$\ds a$の条件」
+          \end{split}
+        \end{equation*}
+        
+        である。\par
+        また、この$\ds x$を実数に限定するとこの主張は方程式$\ds x^2 - 2x + a = 0$が実数解をもつための条件となり、このことを踏まえて$\ds x \in \mathbb{R}$を論理積で組み込んで
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \exists_x [x \in \mathbb{R} \land x^2 - 2x + a = 0]$
+          \end{split}
+        \end{equation*}
+
+        として、2次方程式が実数解を持つ条件へ言い換えることができ、解の公式より
+
+        \begin{equation*}
+          \begin{split}
+            $\ds x^2 - 2x + a = 0 \Longleftrightarrow x = \frac{2 \pm \sqrt{4 - 4a} }{2} = 1 \pm \sqrt{1 - a}$
+          \end{split}
+        \end{equation*}
+
+        であるから、これが実数であるための条件として
+
+        \begin{equation*}
+          \begin{split}
+            $\ds 1 - a \geq 0 \Longleftrightarrow 1 \geq a$
+          \end{split}
+        \end{equation*}
+
+        が得られた。\par
+        つまりまとめれば
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \exists_x [x \in \mathbb{R} \land x^2 - 2x + a = 0] \Longleftrightarrow 1 \geq a$
+          \end{split}
+        \end{equation*}
+
+        として量化記号を外すことができた。
+
+      今見た具体例では、$\ds x \in \mathbb{R}$であることを支配域に論理積で組み込んだが、これをより分かりやすい形で書き直して次のように書くことが多い。
+
+      \begin{equation*}
+        \begin{split}
+          $\ds \exists_{x \in \mathbb{R}} [ p(x) ]$
+        \end{split}
+      \end{equation*}
+
+      これを「$\ds p(x)$を満たす実数$\ds x$が存在する」と読む。\par
+      また、全称記号の場合も「任意の$\ds x \in \mathbb{R}$で$\ds p(x)$が成立する」を
+
+      \begin{equation*}
+        \begin{split}
+          $\ds \forall_{x \in \mathbb{R}} [ p(x) ]$
+        \end{split}
+      \end{equation*}
+
+      と書くが、元の論理式が少々異なる。\par
+      特称記号の場合と同じように、支配域に$\ds x \in \mathbb{R} \land p(x)$と書いてしまうと、量化記号が全称記号ゆえに$\ds x$が複素数の範囲であるとも考えられることから
+      $\ds x \notin \mathbb{R}$の場合支配域の主張が成立しないためおかしい。
+      そこで、正解としては次のように書く。
+
+      \begin{equation*}
+        \begin{split}
+          $\ds \forall_x [ x \in \mathbb{R} \Longrightarrow p(x) ]$
+        \end{split}
+      \end{equation*}
+
+      このように書けば、仮に$\ds x \notin \mathbb{R}$であったとしてもならば文の基礎定理より
+
+      \begin{equation*}
+        \begin{split}
+          $\ds "x \in \mathbb{R} \Longrightarrow p(x)"$ & $\ds \Longleftrightarrow \lnot(x \in \mathbb{R}) \lor p(x)$\\
+                                                        & $\ds \Longleftrightarrow x \notin \mathbb{R} \lor p(x)$\\
+        \end{split}
+      \end{equation*}
+
+      であるから確かに成立することがわかる。\par
+      ゆえに数学においては、$\ds \exists$の基本形は$\ds \exists_x [ p(x) \land q(x) ]$、$\ds \forall$の基本形は$\ds \forall_x [ p(x) \Longrightarrow q(x) ]$である。
 
 \end{document}
