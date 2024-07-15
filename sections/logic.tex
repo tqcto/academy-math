@@ -119,9 +119,52 @@
       Tが真(true)、Fが偽(false)である。
       この表のことを\textbf{真理表}と言う。\par
 
+      \paragraph{条件記号の曖昧さ}
+        数学では"かつ"を表したり、場合分けをするときにしばしば"\{"を用いる。
+        例えば$\ds x + y = 3$と$\ds x - y = 5$の2元1次連立方程式は
+
+        \begin{center}
+          \begin{cases}
+            $\ds x + y = 3$\\
+            $\ds x - y = 5$\\
+          \end{cases}
+        \end{center}
+
+        と書くが、これが表す論理式は
+
+        \begin{equation*}
+          \begin{split}
+            $\ds x + y = 3 \land x - y = 5$
+          \end{split}
+        \end{equation*}
+
+        である。\par
+        一方で$\ds x = |a|$の解は$\ds a$の符号によって変わるため
+
+        \begin{center}
+          $\ds x =$
+          \begin{cases}
+            $\ds a$   & if　$\ds a \geq 0$\\
+            $\ds -a$  & if　$\ds a < 0$\\
+          \end{cases}
+        \end{center}
+        \footnote{
+          あるいは$\ds \pm$や$\ds \mp$を用いて$\ds x = \pm a$とも書く。
+        }
+
+        のようにして書き、これが表す論理式は
+
+        \begin{equation*}
+          \begin{split}
+            $\ds x = a \lor x = -a$
+          \end{split}
+        \end{equation*}
+        である。
+        このように"\{"の表す論理式は、文脈によって変わってしまい少々曖昧であるので、本来は論理式で書くのがより確実である。
+
       \columnbreak
 
-      また、$\ds p, q$を命題変項として今定義した論理演算子を用いて次のような演算子が定義できる。
+      $\ds p, q$を命題変項として、先ほど定義した論理演算子を用いて次のような演算子が定義できる。
 
       \begin{center}
         \begin{table}[hbtp]
@@ -146,17 +189,6 @@
 
       と書く。
 
-      \paragraph{ならば文のより低いレベルでの表現}
-        通称ならば文$\ds p \Longrightarrow q$は、真理表に与えられていることにならえば、少々感覚とずれるが次のように$\ds \land, \lor, \lnot$を用いて表現できる。
-
-        \begin{equation}
-          \begin{split}
-            $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$\label{longrightarrow-iff}
-          \end{split}
-        \end{equation}
-
-      \columnbreak
-
       \paragraph{発展的な演算子}
         さらに発展的な演算子として次のものもある。
 
@@ -180,6 +212,8 @@
         \end{equation*}
 
         これらを上から順に\textbf{恒真命題(トートロジー)}、\textbf{恒偽命題(コントラディクション)}と呼ぶ。
+
+      \newpage
 
       \paragraph{よく用いられる恒真命題}
         以下に示す命題は、すべて常に成立する命題で、数学的議論をする上で大変便利でそれゆえ用いられる頻度が高いのでここで抑えておこう。
@@ -218,14 +252,14 @@
         \end{center}
         
       \paragraph{ならば文の基礎定理}
-        また、特に名前はついていないが次の定理もある。
+        通称ならば文$\ds p \Longrightarrow q$は、真理表に与えられていることにならえば、少々感覚とずれるが次のように$\ds \land, \lor, \lnot$を用いて表現できる。
 
         \begin{center}
           \begin{table}[h]
             \centering
             \begin{tabular}{lll}
 
-              $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$                    & $\ds (\because \ref{longrightarrow-iff})$\\
+              $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$                    & \\
                                           & $\ds \Longleftrightarrow "(\lnot p \lor p) \land (\lnot p \lor q)"$     & $\ds (\because 分配則)$\\
                                           & $\ds \Longleftrightarrow "\top \land (\lnot p \lor q)"$                 & $\ds (\because \lnot p \lor p は常に真)$\\
                                           & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & 
@@ -246,5 +280,7 @@
         \end{equation*}
 
         である。
+        
+    \subsubsection{述語論理}
 
 \end{document}
