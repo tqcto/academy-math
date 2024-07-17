@@ -374,6 +374,8 @@
 
         として量化記号を外すことができた。
 
+      \blank
+
       今見た具体例では、$\ds x \in \mathbb{R}$であることを支配域に論理積で組み込んだが、これをより分かりやすい形で書き直して次のように書くことが多い。
 
       \begin{equation*}
@@ -413,5 +415,119 @@
 
       であるから確かに成立することがわかる。\par
       ゆえに数学においては、$\ds \exists$の基本形は$\ds \exists_x [ p(x) \land q(x) ]$、$\ds \forall$の基本形は$\ds \forall_x [ p(x) \Longrightarrow q(x) ]$である。
+
+      \paragraph{量化文の命題論理を用いた表現}
+        "有限"集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対する、$\ds x$についての条件$\ds p(x)$に対する量化文は
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \exists_{x \in A} [ p(x) ]$ & $\ds \Longleftrightarrow  p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n)$\\
+            $\ds \forall_{x \in A} [ p(x) ]$ & $\ds \Longleftrightarrow  p(a_1) \land p(a_2) \land \cdots \land p(a_n)$\\
+          \end{split}
+        \end{equation*}
+
+        として表すことができる。\par        
+        これは$\ds A$が"有限集合"であるからこの様に書きあらわすことできるが、数学で実際に用いる集合の大半は"無限集合"であり、その場合はこう書くことはできない。
+        それこそ量化子を導入する意味があるものである。
+
+      \paragraph{全称記号と特称記号の論理関係}
+        今見た量化文の命題論理を用いた表現から、特称記号の否定を考えると
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{tabular}{lll}
+  
+              $\ds \lnot(\exists_{x \in A} [ p(x) ])$ & $\ds \Longleftrightarrow  \lnot(p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n))$                &\\
+                                                      & $\ds \Longleftrightarrow  \lnot p(a_1) \land \lnot p(a_2) \land \cdots \land \lnot p(a_n)$  & $\ds ( \because ド・モルガン則 )$\\
+                                                      & $\ds \Longleftrightarrow  \forall_{x \in A} [ \lnot p(x) ]$                                 &
+  
+            \end{tabular}
+          \end{table}
+        \end{center}
+
+        と表現できる。
+        同様に全称記号の否定も
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{tabular}{lll}
+  
+              $\ds \lnot(\forall_{x \in A} [ p(x) ])$ & $\ds \Longleftrightarrow  \lnot(p(a_1) \land p(a_2) \land \cdots \land p(a_n))$           &\\
+                                                      & $\ds \Longleftrightarrow  \lnot p(a_1) \lor \lnot p(a_2) \lor \cdots \lor \lnot p(a_n)$   & $\ds ( \because ド・モルガン則 )$\\
+                                                      & $\ds \Longleftrightarrow  \exists_{x \in A} [ \lnot p(x) ]$                               &
+  
+            \end{tabular}
+          \end{table}
+        \end{center}
+
+        とできる。
+        今有限集合の場合で議論をしたが、これは無限集合の場合にも論理積・論理和が表現できないだけで同様の変形ができることが確認できる。\par
+        よって一般に、任意の集合$\ds A$に対する$\ds x \in A$の条件$\ds p(x)$として
+
+        \begin{equation*}
+          \begin{split}
+            $\ds \lnot(\exists_{x \in A} [ p(x) ])$ & $\ds \Longleftrightarrow  \forall_{x \in A} [ \lnot p(x) ]$\\
+            $\ds \lnot(\forall_{x \in A} [ p(x) ])$ & $\ds \Longleftrightarrow  \exists_{x \in A} [ \lnot p(x) ]$\\
+          \end{split}
+        \end{equation*}
+
+        が成立する。
+
+      \blank
+
+      ところで、今論理の総和を$\ds p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n)$(、論理の相積も同様)のように表したが、少々長ったらしいので次のような記号を導入しよう。
+
+      \begin{equation*}
+        \begin{split}
+          $\ds \bigvee_{i=1}^n p(a_i)$ & $\ds \defineProposition p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n)$\\
+          $\ds \bigwedge_{i=1}^n p(a_i)$ & $\ds \defineProposition p(a_1) \land p(a_2) \land \cdots \land p(a_n)$\\
+        \end{split}
+      \end{equation*}
+
+      \paragraph{量化記号の分配則}
+        量化された命題の分配則はなかなか考えにくいが、上に見た命題論理に分解する考えから考えてみよう。\par
+        $\ds p(x), q(x)$をそれぞれ有限集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対して$\ds x \in A$に関する条件、$\ds r$を$\ds x$に関係のない命題とする。
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \caption*{特称記号の分配則：}
+              \begin{tabular}{llll}
+              
+                $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow$ & $\ds \bigvee_{i=1}^n \left( p(a_i) \lor q(a_i) \right)$                                                                         &\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n) \right) \lor \left( q(a_1) \lor q(a_2) \lor \cdots \lor q(a_n) \right)$  & $\ds (\because 交換則)$\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( \bigvee_{i=1}^n p(a_i) \right) \lor \left( \bigvee_{i=1}^n q(a_i) \right)$                                          &\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$                                                                    &\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{tabular}{lll}
+  
+              $\ds \exists_{x \in A} [p(x) \land q(x)]$   & $\ds \Longleftrightarrow$ & $\ds \bigl(p(a_1) \land q(a_1)\bigr) \lor \bigl(p(a_2) \land q(a_2)\bigr) \lor \bigl(p(a_3) \land q(a_3)\bigr) \lor \bigl(p(a_4) \land q(a_4)\bigr) \lor \cdots \lor \bigl(p(a_n) \land q(a_n)\bigr)$\\
+
+              分配則\longrightarrow                       & $\ds \Longleftrightarrow$ & \begin{tabular}{ll}
+                                                            & $\ds \biggl(\Bigl(p(a_1) \lor \bigl(p(a_2) \land q(a_2)\bigr)\Bigr) \land \Bigl(q(a_1) \lor \bigl(p(a_2) \land q(a_2)\bigr)\Bigr) \biggr) \lor$\\
+                                                            & $\ds  \quad \biggl(\Bigl(p(a_3) \lor \bigl(p(a_4) \land q(a_4)\bigr)\Bigr) \land \Bigl(q(a_3) \lor \bigl(p(a_4) \land q(a_4)\bigr)\Bigr) \biggr) \lor$\\
+                                                            & $\ds  \quad \quad \cdots \lor \biggl(\Bigl(p(a_{n-1}) \lor \bigl(p(a_n) \land q(a_n)\bigr)\Bigr) \land \Bigl(q(a_{n-1}) \lor \bigl(p(a_n) \land q(a_n)\bigr)\Bigr) \biggr)$\\
+                                                          \end{tabular}\\
+
+              分配則\longrightarrow                       & $\ds \Longleftrightarrow$ & \begin{tabular}{ll}
+                                                            & $\ds \biggl(\Bigl(\bigl(p(a_1) \lor p(a_2) \bigr) \land \bigl(p(a_1) \lor q(a_2) \bigr) \Bigr) \land \Bigl(\bigl(q(a_1) \lor p(a_2) \bigr) \land \bigl(q(a_1) \lor q(a_2) \bigr) \Bigr) \biggr) \lor$\\
+                                                            & $\ds  \quad \biggl(\Bigl(\bigl(p(a_3) \lor p(a_4) \bigr) \land \bigl(p(a_3) \lor q(a_4) \bigr) \Bigr) \land \Bigl(\bigl(q(a_3) \lor p(a_4) \bigr) \land \bigl(q(a_3) \lor q(a_4) \bigr) \Bigr) \biggr) \lor$\\
+                                                            & $\ds  \quad \quad \cdots \lor \biggl(\Bigl(\bigl(p(a_{n-1}) \lor p(a_n) \bigr) \land \bigl(p(a_{n-1}) \lor q(a_n) \bigr) \Bigr) \land \Bigl(\bigl(q(a_{n-1}) \lor p(a_n) \bigr) \land \bigl(q(a_{n-1}) \lor q(a_n) \bigr) \Bigr) \biggr)$\\
+                                                          \end{tabular}\\
+  
+            \end{tabular}
+          \end{table}
+        \end{center}
 
 \end{document}

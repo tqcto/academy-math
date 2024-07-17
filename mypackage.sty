@@ -14,6 +14,11 @@
 \usepackage{fancyhdr} %ヘッダ・フッタを利用可能にする
 \usetikzlibrary{calc}
 
+%table
+\usepackage{threeparttable}
+\usepackage{caption}
+\captionsetup[table]{labelsep=period, labelfont=bf, justification=raggedright, singlelinecheck=off}
+
 %インデント追加に\spind を利用可能にする
 \usepackage{xparse}
 
@@ -105,3 +110,5 @@
 
 \pagestyle{fancy}
     \rfoot{\LaTeX　Takuto Maeno} %フッタ右
+
+\def\blank{\vspace{9pt}}
