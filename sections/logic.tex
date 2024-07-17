@@ -490,17 +490,37 @@
         量化された命題の分配則はなかなか考えにくいが、上に見た命題論理に分解する考えから考えてみよう。\par
         $\ds p(x), q(x)$をそれぞれ有限集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対して$\ds x \in A$に関する条件、$\ds r$を$\ds x$に関係のない命題とする。
 
+        \begin{flushleft}
+          {特称記号の分配則1：}
+        \end{flushleft}
         \begin{center}
           \begin{table}[h]
             \centering
             \begin{threeparttable}
-              \caption*{特称記号の分配則：}
-              \begin{tabular}{llll}
+              %\caption*{特称記号の分配則1：}
+              \begin{tabular}{llllr}
               
-                $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow$ & $\ds \bigvee_{i=1}^n \left( p(a_i) \lor q(a_i) \right)$                                                                         &\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \left( p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n) \right) \lor \left( q(a_1) \lor q(a_2) \lor \cdots \lor q(a_n) \right)$  & $\ds (\because 交換則)$\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \left( \bigvee_{i=1}^n p(a_i) \right) \lor \left( \bigvee_{i=1}^n q(a_i) \right)$                                          &\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$                                                                    &\\
+                $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow$ & $\ds \bigvee_{i=1}^n \left( p(a_i) \lor q(a_i) \right)$&&\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n) \right) \lor \left( q(a_1) \lor q(a_2) \lor \cdots \lor q(a_n) \right)$  & $\ds (\because 交換則)$&\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( \bigvee_{i=1}^n p(a_i) \right) \lor \left( \bigvee_{i=1}^n q(a_i) \right)$&&\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$&&\begin{equation}  \label{exists:prop1}  \end{equation}\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        \begin{flushleft}
+          {特称記号の分配則2：}
+        \end{flushleft}
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \begin{tabular}{llllr}
+              
+                $\ds \exists_{x \in A} [p(x) \lor r]$ & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [r]$ & $\ds (\because \eqref{exists:prop1})$&\\
+                                                      & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor r$ &&\begin{equation}  \label{exists:prop2}  \end{equation}\\
 
               \end{tabular}
             \end{threeparttable}
