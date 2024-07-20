@@ -251,6 +251,22 @@
           \end{table}
         \end{center}
 
+        「交換則」、「結合測」、「分配則」、「二重否定則」、「ド・モルガン則」はすべて真理表での定義からのみ導かれる内容であるが、
+        「対偶則」に関しては「交換則」と後に見る「ならば文の基礎定理」(とそれを認めるための「分配則」)を認めることで次のようにも示せる。
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{tabular}{llll}
+
+              $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow$ & $\ds "\lnot p \lor q"$                  & $\ds (\because ならば文の基礎定理)$\\
+                                          & $\ds \Longleftrightarrow$ & $\ds "q \lor \lnot p"$                  & $\ds (\because 交換則)$\\
+                                          & $\ds \Longleftrightarrow$ & $\ds "\lnot q \Longrightarrow \lnot p"$ & $\ds (\because ならば文の基礎定理の逆)$\\
+
+            \end{tabular}
+          \end{table}
+        \end{center}
+
       \paragraph{同値文の対偶}
         同値文に対して対偶則を用いてみると
 
@@ -261,8 +277,8 @@
               \begin{tabular}{llll}
               
                 $\ds "p \Longleftrightarrow q"$ & $\ds \Longleftrightarrow$ & $\ds "(p \Longrightarrow q) \land (q \Longrightarrow p)"$                         & $\ds (\because 同値文の定義)$\\
-                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot q \Longrightarrow \lnot p) \land (\lnot p \Longrightarrow \lnot q)"$  & $\ds (\because 対偶則)$\\
-                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot p \Longrightarrow \lnot q) \land (\lnot q \Longrightarrow \lnot p)"$  & $\ds (\because 交換則)$\\
+                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot q \Longrightarrow \lnot p) \land (\lnot p \Longrightarrow \lnot q)"$ & $\ds (\because 対偶則)$\\
+                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot p \Longrightarrow \lnot q) \land (\lnot q \Longrightarrow \lnot p)"$ & $\ds (\because 交換則)$\\
                                                 & $\ds \Longleftrightarrow$ & $\ds "\lnot p \Longleftrightarrow \lnot q"$                                       &\\
 
               \end{tabular}
@@ -271,6 +287,7 @@
         \end{center}
 
         として、両辺否定をとっても同値であるという意外な事実が得られた。
+        これも対偶則と呼ぶ。
         
       \paragraph{ならば文の基礎定理}
         通称ならば文$\ds p \Longrightarrow q$は、真理表に与えられていることにならえば、少々感覚とずれるが次のように$\ds \land, \lor, \lnot$を用いて表現できる。
@@ -437,6 +454,8 @@
       であるから確かに成立することがわかる。\par
       ゆえに数学においては、$\ds \exists$の基本形は$\ds \exists_x [ p(x) \land q(x) ]$、$\ds \forall$の基本形は$\ds \forall_x [ p(x) \Longrightarrow q(x) ]$である。
 
+      \blank
+
       \paragraph{量化文の命題論理を用いた表現}
         "有限"集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対する、$\ds x$についての条件$\ds p(x)$に対する量化文は
 
@@ -497,6 +516,7 @@
         \end{equation*}
 
         が成立する。
+        これは結局ド・モルガン則に過ぎないことがわかるので、これもド・モルガン則のひとつとする。
 
       \blank
 
@@ -509,46 +529,114 @@
         \end{split}
       \end{equation*}
 
-      \paragraph{量化記号の分配則}
-        量化された命題の分配則はなかなか考えにくいが、上に見た命題論理に分解する考えから考えてみよう。\par
-        $\ds p(x), q(x)$をそれぞれ有限集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対して$\ds x \in A$に関する条件、$\ds r$を$\ds x$に関係のない命題とする。
+    \subsubsection{量化記号の分配則}
+      量化された命題の分配則はなかなか考えにくいが、今見た命題論理に分解する考えから考えてみよう。\par
+      $\ds p(x), q(x)$をそれぞれ有限集合$\ds A = \{ a_1, a_2, \cdots , a_n \}$に対して$\ds x \in A$に関する条件、$\ds r$を$\ds x$に関係のない命題とする。
 
-        \begin{flushleft}
-          {特称記号の分配則1：}
-        \end{flushleft}
+      \paragraph{特称記号の分配則1：}
         \begin{center}
           \begin{table}[h]
             \centering
             \begin{threeparttable}
               %\caption*{特称記号の分配則1：}
-              \begin{tabular}{llllr}
+              \begin{tabular}{llll}
               
-                $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow$ & $\ds \bigvee_{i=1}^n \left( p(a_i) \lor q(a_i) \right)$&&\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \left( p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n) \right) \lor \left( q(a_1) \lor q(a_2) \lor \cdots \lor q(a_n) \right)$  & $\ds (\because 交換則)$&\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \left( \bigvee_{i=1}^n p(a_i) \right) \lor \left( \bigvee_{i=1}^n q(a_i) \right)$&&\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$&&\begin{equation}  \label{exists:prop1}  \end{equation}\\
+                $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow$ & $\ds \bigvee_{i=1}^n \left( p(a_i) \lor q(a_i) \right)$&\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( p(a_1) \lor p(a_2) \lor \cdots \lor p(a_n) \right) \lor \left( q(a_1) \lor q(a_2) \lor \cdots \lor q(a_n) \right)$  & $\ds (\because 交換則)$\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \left( \bigvee_{i=1}^n p(a_i) \right) \lor \left( \bigvee_{i=1}^n q(a_i) \right)$&\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$&\\
 
               \end{tabular}
             \end{threeparttable}
           \end{table}
         \end{center}
 
-        \begin{flushleft}
-          {特称記号の分配則2：}
-        \end{flushleft}
+        まとめれば
+
+        \begin{equation}
+          \begin{split}
+            $\ds \exists_{x \in A} [p(x) \lor q(x)] \Longleftrightarrow \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$\label{exists:prop1}  
+          \end{split}
+        \end{equation}
+
+      \blank
+
+      \paragraph{特称記号の分配則2：}
         \begin{center}
           \begin{table}[h]
             \centering
             \begin{threeparttable}
-              \begin{tabular}{llllr}
+              \begin{tabular}{llll}
               
-                $\ds \exists_{x \in A} [p(x) \lor r]$ & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [r]$ & $\ds (\because \eqref{exists:prop1})$&\\
-                                                      & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor r$ &&\begin{equation}  \label{exists:prop2}  \end{equation}\\
+                $\ds \exists_{x \in A} [p(x) \lor r]$ & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [r]$ & $\ds (\because \eqref{exists:prop1})$\\
+                                                      & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor r$ &\\
 
               \end{tabular}
             \end{threeparttable}
           \end{table}
         \end{center}
+
+        まとめれば
+
+        \begin{equation}
+          \begin{split}
+            $\ds \exists_{x \in A} [p(x) \lor r] \Longleftrightarrow \exists_{x \in A} [p(x)] \lor r$\label{exists:prop2}
+          \end{split}
+        \end{equation}
+
+      \blank
+
+      \paragraph{全称記号の分配則1：}
+        \eqref{exists:prop1}の対偶(同値文ゆえ両辺の否定)をとれば
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \begin{tabular}{llll}
+              
+                $\ds \eqref{exists:prop1}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_{x \in A} [p(x) \lor q(x)]) \Longleftrightarrow \lnot (\exists_{x \in A} [p(x)] \lor \exists_{x \in A}[q(x)])"$  & $\ds (\because 対偶則)$\\
+                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_{x \in A} [\lnot p(x) \land \lnot q(x)]) \Longleftrightarrow (\forall_{x \in A} [\lnot p(x)] \land \forall_{x \in A}[\lnot q(x)])"$  & $\ds (\because ド・モルガン則)$\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        ここに$\ds \lnot p(x), \lnot q(x)$を$\ds p(x), q(x)$と置き換えても一般性を失わないのでまとめれば
+
+        \begin{equation}
+          \begin{split}
+            $\ds \forall_{x \in A} [p(x) \land q(x)] \Longleftrightarrow \forall_{x \in A} [p(x)] \land \forall_{x \in A}[q(x)]$\label{forall:prop1}
+          \end{split}
+        \end{equation}
+
+      \blank
+
+      \paragraph{全称記号の分配則2：}
+        全称記号の分配則1のときと同様に、\eqref{exists:prop2}の対偶をとれば
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \begin{tabular}{llll}
+              
+                $\ds \eqref{exists:prop2}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_{x \in A} [p(x) \lor r]) \Longleftrightarrow \lnot (\exists_{x \in A} [p(x)] \lor r)"$  & $\ds (\because 対偶則)$\\
+                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_{x \in A} [\lnot p(x) \land \lnot r]) \Longleftrightarrow (\forall_{x \in A} [\lnot p(x)] \land \lnot r)"$  & $\ds (\because ド・モルガン則)$\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        この場合も先ほどと同様に置き換えてまとめれば
+
+        \begin{equation}
+          \begin{split}
+            $\ds \forall_{x \in A} [p(x) \land r] \Longleftrightarrow \forall_{x \in A} [p(x)] \land r$\label{forall:prop2}
+          \end{split}
+        \end{equation}
 
         \begin{center}
           \begin{table}[h]
