@@ -250,6 +250,27 @@
             \end{tabular}
           \end{table}
         \end{center}
+
+      \paragraph{同値文の対偶}
+        同値文に対して対偶則を用いてみると
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \begin{tabular}{llll}
+              
+                $\ds "p \Longleftrightarrow q"$ & $\ds \Longleftrightarrow$ & $\ds "(p \Longrightarrow q) \land (q \Longrightarrow p)"$                         & $\ds (\because 同値文の定義)$\\
+                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot q \Longrightarrow \lnot p) \land (\lnot p \Longrightarrow \lnot q)"$  & $\ds (\because 対偶則)$\\
+                                                & $\ds \Longleftrightarrow$ & $\ds "(\lnot p \Longrightarrow \lnot q) \land (\lnot q \Longrightarrow \lnot p)"$  & $\ds (\because 交換則)$\\
+                                                & $\ds \Longleftrightarrow$ & $\ds "\lnot p \Longleftrightarrow \lnot q"$                                       &\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        として、両辺否定をとっても同値であるという意外な事実が得られた。
         
       \paragraph{ならば文の基礎定理}
         通称ならば文$\ds p \Longrightarrow q$は、真理表に与えられていることにならえば、少々感覚とずれるが次のように$\ds \land, \lor, \lnot$を用いて表現できる。
@@ -257,12 +278,12 @@
         \begin{center}
           \begin{table}[h]
             \centering
-            \begin{tabular}{lll}
+            \begin{tabular}{llll}
 
-              $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow "\lnot p \lor (p \land q)"$                    & \\
-                                          & $\ds \Longleftrightarrow "(\lnot p \lor p) \land (\lnot p \lor q)"$     & $\ds (\because 分配則)$\\
-                                          & $\ds \Longleftrightarrow "\top \land (\lnot p \lor q)"$                 & $\ds (\because \lnot p \lor p は常に真)$\\
-                                          & $\ds \Longleftrightarrow "\lnot p \lor q"$                              & 
+              $\ds "p \Longrightarrow q"$ & $\ds \Longleftrightarrow$ & $\ds"\lnot p \lor (p \land q)"$                    & \\
+                                          & $\ds \Longleftrightarrow$ & $\ds"(\lnot p \lor p) \land (\lnot p \lor q)"$     & $\ds (\because 分配則)$\\
+                                          & $\ds \Longleftrightarrow$ & $\ds"\top \land (\lnot p \lor q)"$                 & $\ds (\because \lnot p \lor p は常に真)$\\
+                                          & $\ds \Longleftrightarrow$ & $\ds"\lnot p \lor q"$                              & 
 
             \end{tabular}
           \end{table}
@@ -445,6 +466,8 @@
             \end{tabular}
           \end{table}
         \end{center}
+
+        \blank
 
         と表現できる。
         同様に全称記号の否定も
