@@ -640,36 +640,12 @@
 
       \blank
 
-      以上に見たものをすべてまとめると
-
-      \begin{center}
-        \begin{tikzpicture}
-          \node[inner sep=10pt] (equation-box) {
-            \begin{minipage}{\textwidth}
-              \begin{equation*}
-                \begin{split}
-
-                  $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow \exists_{x \in A} [p(x)] \lor \exists_{x \in A}$\\
-                  $\ds \exists_{x \in A} [p(x) \lor r]$     & $\ds \Longleftrightarrow \exists_{x \in A} [p(x)] \lor r$\\
-                  $\ds \forall_{x \in A} [p(x) \land q(x)]$ & $\ds \Longleftrightarrow \forall_{x \in A} [p(x)] \land \forall_{x \in A}[q(x)]$\\
-                  $\ds \forall_{x \in A} [p(x) \land r]$    & $\ds \Longleftrightarrow \forall_{x \in A} [p(x)] \land r$\\
-
-                \end{split}
-              \end{equation*}
-            \end{minipage}
-          };
-          \node[draw, dashed, fit=(equation-box), inner sep=5pt] {};
-        \end{tikzpicture}
-      \end{center}
-
       このように、\textbf{量化子の基本形の分配は同値変形が可能}であることがわかる。\par
       では基本形でない場合にはどうであろうか。
 
-      \blank
+      \newpage
 
       \paragraph{特称記号内の論理積の分配}
-
-        \blank
 
         \begin{center}
           \begin{table}[h]
