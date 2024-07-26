@@ -88,7 +88,7 @@
               $\ds\land$                              & and         & かつ\\
               $\ds\lor$                               & or          & または\\
               $\ds\Longrightarrow, \longrightarrow$   & if- then... & ならば\\
-              $\ds\lnot, \bar{　}$                    & not         & でない(否定)\\
+              $\ds\lnot, \bar{\quad}$                    & not         & でない(否定)\\
           \end{tabular}
         \end{table}
       \end{center}
@@ -144,8 +144,8 @@
         \begin{center}
           $\ds x =$
           \begin{cases}
-            $\ds a$   & if　$\ds a \geq 0$\\
-            $\ds -a$  & if　$\ds a < 0$\\
+            $\ds a$   & if \quad $\ds a \geq 0$\\
+            $\ds -a$  & if \quad $\ds a < 0$\\
           \end{cases}
         \end{center}
         \footnote{
@@ -328,7 +328,7 @@
       数は、自然数という概念がまず定義され、それを拡張したものが整数、有理数、実数、・・・と、数学基礎論と呼ばれる分野で議論される。
       ここに、これらを論理的に定義してゆくには先ほど述べた「かつ」「または」「否定」などでは不完全である。
       そこで$\ds x$についての条件$\ds p(x)$を用いて次の記号を導入しよう。
-
+8
       \begin{center}
         \begin{table}[h]
           \centering
@@ -638,24 +638,52 @@
           \end{split}
         \end{equation}
 
+      \blank
+
+      以上に見たものをすべてまとめると
+
+      \begin{center}
+        \begin{tikzpicture}
+          \node[inner sep=10pt] (equation-box) {
+            \begin{minipage}{\textwidth}
+              \begin{equation*}
+                \begin{split}
+
+                  $\ds \exists_{x \in A} [p(x) \lor q(x)]$  & $\ds \Longleftrightarrow \exists_{x \in A} [p(x)] \lor \exists_{x \in A}$\\
+                  $\ds \exists_{x \in A} [p(x) \lor r]$     & $\ds \Longleftrightarrow \exists_{x \in A} [p(x)] \lor r$\\
+                  $\ds \forall_{x \in A} [p(x) \land q(x)]$ & $\ds \Longleftrightarrow \forall_{x \in A} [p(x)] \land \forall_{x \in A}[q(x)]$\\
+                  $\ds \forall_{x \in A} [p(x) \land r]$    & $\ds \Longleftrightarrow \forall_{x \in A} [p(x)] \land r$\\
+
+                \end{split}
+              \end{equation*}
+            \end{minipage}
+          };
+          \node[draw, dashed, fit=(equation-box), inner sep=5pt] {};
+        \end{tikzpicture}
+      \end{center}
+
+      このように、\textbf{量化子の基本形の分配は同値変形が可能}であることがわかる。\par
+      では基本形でない場合にはどうであろうか。
+
+      \blank
+
+      \paragraph{特称記号内の論理積の分配}
+
+        \blank
+
         \begin{center}
           \begin{table}[h]
             \centering
-            \begin{tabular}{lll}
+            \begin{tabular}{llll}
   
-              $\ds \exists_{x \in A} [p(x) \land q(x)]$   & $\ds \Longleftrightarrow$ & $\ds \bigl(p(a_1) \land q(a_1)\bigr) \lor \bigl(p(a_2) \land q(a_2)\bigr) \lor \bigl(p(a_3) \land q(a_3)\bigr) \lor \bigl(p(a_4) \land q(a_4)\bigr) \lor \cdots \lor \bigl(p(a_n) \land q(a_n)\bigr)$\\
-
-              分配則\longrightarrow                       & $\ds \Longleftrightarrow$ & \begin{tabular}{ll}
-                                                            & $\ds \biggl(\Bigl(p(a_1) \lor \bigl(p(a_2) \land q(a_2)\bigr)\Bigr) \land \Bigl(q(a_1) \lor \bigl(p(a_2) \land q(a_2)\bigr)\Bigr) \biggr) \lor$\\
-                                                            & $\ds  \quad \biggl(\Bigl(p(a_3) \lor \bigl(p(a_4) \land q(a_4)\bigr)\Bigr) \land \Bigl(q(a_3) \lor \bigl(p(a_4) \land q(a_4)\bigr)\Bigr) \biggr) \lor$\\
-                                                            & $\ds  \quad \quad \cdots \lor \biggl(\Bigl(p(a_{n-1}) \lor \bigl(p(a_n) \land q(a_n)\bigr)\Bigr) \land \Bigl(q(a_{n-1}) \lor \bigl(p(a_n) \land q(a_n)\bigr)\Bigr) \biggr)$\\
-                                                          \end{tabular}\\
-
-              分配則\longrightarrow                       & $\ds \Longleftrightarrow$ & \begin{tabular}{ll}
-                                                            & $\ds \biggl(\Bigl(\bigl(p(a_1) \lor p(a_2) \bigr) \land \bigl(p(a_1) \lor q(a_2) \bigr) \Bigr) \land \Bigl(\bigl(q(a_1) \lor p(a_2) \bigr) \land \bigl(q(a_1) \lor q(a_2) \bigr) \Bigr) \biggr) \lor$\\
-                                                            & $\ds  \quad \biggl(\Bigl(\bigl(p(a_3) \lor p(a_4) \bigr) \land \bigl(p(a_3) \lor q(a_4) \bigr) \Bigr) \land \Bigl(\bigl(q(a_3) \lor p(a_4) \bigr) \land \bigl(q(a_3) \lor q(a_4) \bigr) \Bigr) \biggr) \lor$\\
-                                                            & $\ds  \quad \quad \cdots \lor \biggl(\Bigl(\bigl(p(a_{n-1}) \lor p(a_n) \bigr) \land \bigl(p(a_{n-1}) \lor q(a_n) \bigr) \Bigr) \land \Bigl(\bigl(q(a_{n-1}) \lor p(a_n) \bigr) \land \bigl(q(a_{n-1}) \lor q(a_n) \bigr) \Bigr) \biggr)$\\
-                                                          \end{tabular}\\
+              $\ds \exists_{x \in A} [ p(x) \land q(x) ]$ & $\ds \Longleftrightarrow$ & $\ds \left\{ p(a_1) \land q(a_1) \right\} \lor \left\{ p(a_2) \land q(a_2) \right\} \lor \cdots$  &\\
+                                                          & $\ds \Longleftrightarrow$ & \begin{tabular}{l}
+                                                                                            $\ds \left( \left[ p(a_1) \lor \left\{ p(a_2) \land q(a_2) \right\} \right] \land \left[ q(a_1) \lor \left\{ p(a_2) \land q(a_2) \right\} \right] \right) \lor \cdots$\\
+                                                                                        \end{tabular} & $\ds (\because 分配則)$\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \Left( \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( p(a_1) \lor q(a_2) \Right) \Right) \land \Left( \Left( q(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \Right) \Right) \lor \cdots$  & $\ds (\because 分配則)$\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \land \Left( p(a_1) \lor q(a_2) \Right) \land \Left( q(a_1) \lor p(a_2) \Right) \Right) \lor \cdots$ & $\ds (\because 交換則)$\\
+                                                          & $\ds \Longrightarrow$     & $\ds \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \Right) \lor \cdots$  & $\ds (\because \Left( p(a_1) \lor q(a_2) \Right) \land \Left( q(a_1) \lor p(a_2) \Right) を除いたので同値ではない)$\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \land \exists_{x \in A} [q(x)]$ &\\
   
             \end{tabular}
           \end{table}

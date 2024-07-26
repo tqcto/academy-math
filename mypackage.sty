@@ -1,6 +1,7 @@
 \usepackage{multicol}
 \usepackage{amsmath, amsthm, amssymb, amsfonts, mathtools} %数学系全般のパッケージ
 \usepackage{tikz}
+\usetikzlibrary{fit}
 
 \usepackage{tcolorbox}    %数式をにコメントをつけられるようにする
 \tcbuselibrary{theorems,skins}  %上同様
@@ -21,6 +22,8 @@
 
 %dashbox
 \usepackage{dashbox}
+%tableのdash
+%\usepackage{arydshln} ←これつかうとなぜかcasesがバグる
 
 %インデント追加に\spind を利用可能にする
 \usepackage{xparse}
