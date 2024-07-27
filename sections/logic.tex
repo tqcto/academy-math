@@ -555,7 +555,7 @@
 
         \begin{equation}
           \begin{split}
-            $\ds \exists_{x \in A} [p(x) \lor q(x)] \Longleftrightarrow \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [q(x)]$\label{exists:prop1}  
+            $\ds \exists_x [p(x) \lor q(x)] \Longleftrightarrow \exists_x [p(x)] \lor \exists_x [q(x)]$\label{exists:prop1}  
           \end{split}
         \end{equation}
 
@@ -568,8 +568,8 @@
             \begin{threeparttable}
               \begin{tabular}{llll}
               
-                $\ds \exists_{x \in A} [p(x) \lor r]$ & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor \exists_{x \in A} [r]$ & $\ds (\because \eqref{exists:prop1})$\\
-                                                      & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \lor r$ &\\
+                $\ds \exists_x [p(x) \lor r]$ & $\ds \Longleftrightarrow$ & $\ds \exists_x [p(x)] \lor \exists_x [r]$ & $\ds (\because \eqref{exists:prop1})$\\
+                                              & $\ds \Longleftrightarrow$ & $\ds \exists_x [p(x)] \lor r$ &\\
 
               \end{tabular}
             \end{threeparttable}
@@ -580,7 +580,7 @@
 
         \begin{equation}
           \begin{split}
-            $\ds \exists_{x \in A} [p(x) \lor r] \Longleftrightarrow \exists_{x \in A} [p(x)] \lor r$\label{exists:prop2}
+            $\ds \exists_x [p(x) \lor r] \Longleftrightarrow \exists_x [p(x)] \lor r$\label{exists:prop2}
           \end{split}
         \end{equation}
 
@@ -595,8 +595,8 @@
             \begin{threeparttable}
               \begin{tabular}{llll}
               
-                $\ds \eqref{exists:prop1}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_{x \in A} [p(x) \lor q(x)]) \Longleftrightarrow \lnot (\exists_{x \in A} [p(x)] \lor \exists_{x \in A}[q(x)])"$  & $\ds (\because 対偶則)$\\
-                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_{x \in A} [\lnot p(x) \land \lnot q(x)]) \Longleftrightarrow (\forall_{x \in A} [\lnot p(x)] \land \forall_{x \in A}[\lnot q(x)])"$  & $\ds (\because ド・モルガン則)$\\
+                $\ds \eqref{exists:prop1}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_x [p(x) \lor q(x)]) \Longleftrightarrow \lnot (\exists_x [p(x)] \lor \exists_x [q(x)])"$  & $\ds (\because 対偶則)$\\
+                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_x [\lnot p(x) \land \lnot q(x)]) \Longleftrightarrow (\forall_x [\lnot p(x)] \land \forall_x [\lnot q(x)])"$  & $\ds (\because ド・モルガン則)$\\
 
               \end{tabular}
             \end{threeparttable}
@@ -607,7 +607,7 @@
 
         \begin{equation}
           \begin{split}
-            $\ds \forall_{x \in A} [p(x) \land q(x)] \Longleftrightarrow \forall_{x \in A} [p(x)] \land \forall_{x \in A}[q(x)]$\label{forall:prop1}
+            $\ds \forall_x [p(x) \land q(x)] \Longleftrightarrow \forall_x [p(x)] \land \forall_x [q(x)]$\label{forall:prop1}
           \end{split}
         \end{equation}
 
@@ -622,8 +622,8 @@
             \begin{threeparttable}
               \begin{tabular}{llll}
               
-                $\ds \eqref{exists:prop2}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_{x \in A} [p(x) \lor r]) \Longleftrightarrow \lnot (\exists_{x \in A} [p(x)] \lor r)"$  & $\ds (\because 対偶則)$\\
-                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_{x \in A} [\lnot p(x) \land \lnot r]) \Longleftrightarrow (\forall_{x \in A} [\lnot p(x)] \land \lnot r)"$  & $\ds (\because ド・モルガン則)$\\
+                $\ds \eqref{exists:prop2}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot (\exists_x [p(x) \lor r]) \Longleftrightarrow \lnot (\exists_x [p(x)] \lor r)"$  & $\ds (\because 対偶則)$\\
+                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_x [\lnot p(x) \land \lnot r]) \Longleftrightarrow (\forall_x [\lnot p(x)] \land \lnot r)"$  & $\ds (\because ド・モルガン則)$\\
 
               \end{tabular}
             \end{threeparttable}
@@ -634,13 +634,13 @@
 
         \begin{equation}
           \begin{split}
-            $\ds \forall_{x \in A} [p(x) \land r] \Longleftrightarrow \forall_{x \in A} [p(x)] \land r$\label{forall:prop2}
+            $\ds \forall_x [p(x) \land r] \Longleftrightarrow \forall_x [p(x)] \land r$\label{forall:prop2}
           \end{split}
         \end{equation}
 
       \blank
 
-      このように、\textbf{量化子の基本形の分配は同値変形が可能}であることがわかる。\par
+      このように、\textbf{論理和の集合体$\ds \exists$は論理和について、また論理積の集合体$\ds \forall$は論理積についての分配は同値変形が可能}であることがわかる。\par
       では基本形でない場合にはどうであろうか。
 
       \newpage
@@ -653,16 +653,88 @@
             \begin{tabular}{llll}
   
               $\ds \exists_{x \in A} [ p(x) \land q(x) ]$ & $\ds \Longleftrightarrow$ & $\ds \left\{ p(a_1) \land q(a_1) \right\} \lor \left\{ p(a_2) \land q(a_2) \right\} \lor \cdots$  &\\
+                                                          &                           & &\\
                                                           & $\ds \Longleftrightarrow$ & \begin{tabular}{l}
                                                                                             $\ds \left( \left[ p(a_1) \lor \left\{ p(a_2) \land q(a_2) \right\} \right] \land \left[ q(a_1) \lor \left\{ p(a_2) \land q(a_2) \right\} \right] \right) \lor \cdots$\\
                                                                                         \end{tabular} & $\ds (\because 分配則)$\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \Left( \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( p(a_1) \lor q(a_2) \Right) \Right) \land \Left( \Left( q(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \Right) \Right) \lor \cdots$  & $\ds (\because 分配則)$\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \land \Left( p(a_1) \lor q(a_2) \Right) \land \Left( q(a_1) \lor p(a_2) \Right) \Right) \lor \cdots$ & $\ds (\because 交換則)$\\
-                                                          & $\ds \Longrightarrow$     & $\ds \Left( \Left( p(a_1) \lor p(a_2) \Right) \land \Left( q(a_1) \lor q(a_2) \Right) \Right) \lor \cdots$  & $\ds (\because \Left( p(a_1) \lor q(a_2) \Right) \land \Left( q(a_1) \lor p(a_2) \Right) を除いたので同値ではない)$\\
-                                                          & $\ds \Longleftrightarrow$ & $\ds \exists_{x \in A} [p(x)] \land \exists_{x \in A} [q(x)]$ &\\
+                                                          &                           & &\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \Left( \Left[ \left\{ p(a_1) \lor p(a_2) \right\} \land \left\{ p(a_1) \lor q(a_2) \right\} \Right] \land \Left[ \left\{ q(a_1) \lor p(a_2) \right\} \land \left\{ q(a_1) \lor q(a_2) \right\} \Right] \Right) \lor \cdots$  & $\ds (\because 分配則)$\\
+                                                          &                           & &\\
+                                                          & $\ds \Longleftrightarrow$ & \begin{tabular}{l}
+                                                                                            $\ds \Left[ \left\{ p(a_1) \lor p(a_2) \right\} \land \left\{ q(a_1) \lor q(a_2) \right\} \underline{\land \left\{ p(a_1) \lor q(a_2) \right\} \land \left\{ q(a_1) \lor p(a_2) \right\}} \Right]$\\
+                                                                                            $\ds \lor \Left[ \left\{ p(a_3) \lor p(a_4) \right\} \land \left\{ q(a_3) \lor q(a_4) \right\} \underline{\land \left\{ p(a_3) \lor q(a_4) \right\} \land \left\{ q(a_3) \lor p(a_4) \right\}} \Right] \lor \cdots$\\
+                                                                                        \end{tabular} & $\ds (\because 交換則)$\\
+                                                          &                           & &\\
+                                                          & $\ds \Longrightarrow$     & $\ds \left[ \left\{ p(a_1) \lor p(a_2) \right\} \land \left\{ q(a_1) \lor q(a_2) \right\} \right] \lor \left[ \left\{ p(a_1) \lor p(a_2) \right\} \land \left\{ q(a_1) \lor q(a_2) \right\} \right] \lor \cdots$  &\\
+                                                          &                           & &\\
+                                                          & $\ds \Longleftrightarrow$ & \begin{tabular}{l}
+                                                                                            $\ds \Left\{\Left( \left\{p(a_1) \lor p(a_2) \right\} \lor \left[ \left\{ p(a_3) \lor p(a_4) \right\} \land \left\{ q(a_3) \lor q(a_4) \right\} \right] \Right)$\\
+                                                                                            $\ds \land \Left( \left\{q(a_1) \lor q(a_2) \right\} \lor \left[ \left\{ p(a_3) \lor p(a_4) \right\} \land \left\{ q(a_3) \lor q(a_4) \right\} \right] \Right) \Right\} \lor \cdots$\\
+                                                                                        \end{tabular} & $\ds (\because 分配則)$\\
+                                                          &                           & &\\
+                                                          & $\ds \Longleftrightarrow$ & \begin{tabular}{l}
+                                                                                            $\ds \left[ \left\{p(a_1) \lor p(a_2) \right\} \lor \left\{p(a_3) \lor p(a_4) \right\} \right] \underline{\land \left[ \left\{p(a_1) \lor p(a_2) \right\} \lor \left\{q(a_3) \lor q(a_4) \right\} \right] }$\\
+                                                                                            $\ds \underline{\land \left[ \left\{q(a_1) \lor q(a_2) \right\} \lor \left\{p(a_3) \lor p(a_4) \right\} \right]} \land \left[ \left\{q(a_1) \lor q(a_2) \right\} \lor \left\{q(a_3) \lor q(a_4) \right\} \right] \lor \cdots$\\
+                                                                                        \end{tabular} & $\ds (\because 分配則)$\\
+                                                          &                           & &\\
+                                                          & $\ds \Longrightarrow$     & $\ds \left[ \left\{ p(a_1) \lor p(a_2) \lor p(a_3) \lor p(a_4) \right\} \land \left\{ q(a_1) \lor q(a_2) \lor q(a_3) \lor q(a_4) \right\} \right] \lor \cdots$ &\\
+                                                          &                           & &\\
+                                                          & $\ds \Longleftrightarrow$ & $\ds \vdots$ &\\
+                                                          &                           & &\\
+                                                          & $\ds \Longrightarrow$     & $\ds \exists_{x \in A} [p(x)] \land \exists_{x \in A} [q(x)]$ &\\
   
             \end{tabular}
           \end{table}
         \end{center}
+        \footnote{
+          3行目から4行目にかけての変形において、$\ds a_3, a_4$に関しては3行目までの$\ds a_1, a_2$と同様の変形をしたものを用いた。
+        }
+        \footnote{
+          4行目から5行目にかけての"ならば文での変形"について、
+          4行目のアンダーライン部分の$\ds \left\{ p(a_1) \lor q(a_2) \right\} \land \left\{ q(a_1) \lor p(a_2) \right\}$と
+          $\ds \left\{ p(a_3) \lor q(a_4) \right\} \land \left\{ q(a_3) \lor p(a_4) \right\}$
+          を除いたので同値ではない。(7行目から8行目も同様)
+        }
+
+        よってまとめれば
+
+        \begin{equation}
+          \begin{split}
+            $\ds (\exists_x [p(x) \land q(x)]) \Longrightarrow (\exists_x [p(x)] \land \exists_x [q(x)])$\label{exists:prop3}
+          \end{split}
+        \end{equation}
+
+        このように$\ds \exists_x$内部(に束縛された変項$\ds x$についての条件)の論理積$\ds p(x) \land q(x)$は外部に分配することはできるが、その逆は不成立であることが導かれた。\par
+        
+      \paragraph{全称記号内の論理和の分配}
+        さらに、\eqref{exists:prop3}の対偶をとると
+
+        \begin{center}
+          \begin{table}[h]
+            \centering
+            \begin{threeparttable}
+              \begin{tabular}{llll}
+              
+                $\ds \eqref{exists:prop3}$  & $\ds \Longleftrightarrow$ & $\ds "\lnot \left\{ (\exists_x [p(x) \land q(x)]) \Longrightarrow (\exists_x [p(x)] \land \exists_x [q(x)]) \right\}"$  & $\ds (\because 対偶則)$\\
+                                            & $\ds \Longleftrightarrow$ & $\ds "(\forall_x [\lnot p(x) \lor \lnot q(x)]) \Longleftarrow (\forall_x [\lnot p(x)] \lor \forall_x [\lnot q(x)])"$    & $\ds (\because ド・モルガン則)$\\
+
+              \end{tabular}
+            \end{threeparttable}
+          \end{table}
+        \end{center}
+
+        これも$\ds \lnot p(x), \lnot q(x)$を$\ds p(x), q(x)$としても一般性を失わないのでまとめると
+
+        \begin{equation}
+          \begin{split}
+            $\ds (\forall_x [p(x) \lor q(x)]) \Longleftarrow (\forall_x [p(x)] \lor \forall_x [q(x)])$\label{forall:prop3}
+          \end{split}
+        \end{equation}
+
+        今度は$\ds \forall_x$内部(に束縛された変更$\ds x$についての条件)の論理和$\ds p(x) \lor q(x)$は外部に分配することができないが、その逆は成立することが導かれた。\par
+
+      \blank
+      
+      これらは非常に間違えやすい関係なので注意しておこう。
 
 \end{document}
