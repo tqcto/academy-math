@@ -114,6 +114,230 @@
 
     \columnbreak
 
+    \subsection{論理学との関連}
+      先に見たように集合を定義する際に、内包的記法で論理記号を用いて表現することができる。
+      これについて論理学的な観点から見てみよう。\par
+
+      \subsubsection{条件の真理集合}
+        例として、$\ds x \in \mathbb{R}$についての条件$\ds p(x)$があるとき、この$\ds p(x)$が真となるような$\ds x$の集合を$\ds P$としよう。
+        つまり集合$\ds P$は次のように定義される。
+
+        \begin{equation*}
+          \begin{split}
+            $\ds P \define \{ x \in \mathbb{R} \mid p(x) \}$
+          \end{split}
+        \end{equation*}
+
+        またベン図は以下。
+
+        \begin{center}
+          \begin{tikzpicture}[auto]
+
+            %Rのベン図
+            \draw[line](0, 0)rectangle(120pt, 80pt);
+            \node[set label, text=black] at (10pt, 80pt) {$\ds \mathbb{R}$}
+
+            %Pのベン図
+            \fill[pattern=north west lines, draw=black] (60pt, 40pt) ellipse (20pt);
+            \node[set label,text=black] at (60pt, 60pt) {$\ds P$};
+
+          \end{tikzpicture}
+        \end{center}
+
+        このように、条件$\ds p(x)$に対しこれを真にしうる$\ds x$の集合$\ds P$のことを、条件$\ds p(x)$の\textbf{真理集合}という。\par
+        これにより、抽象的でやや複雑な論理関係も集合論に関係付けることでベン図等を用いて視覚化することもできるので、真理集合を用いることは論理関係の理解の助けになる。
+        
+        また最初に見た偶数全体の集合$\ds A$は、$\ds n \in \mathbb{Z}$についての条件$\ds \exists_{m \in \mathbb{Z}} [n = 2m]$の真理集合と言える。
+
+      \subsubsection{論理演算子と集合の演算子}
+        全体集合を$\ds U$とするとき、$\ds x \in U$に関する条件$\ds p(x), q(x)$があるとし、これらに関する真理集合をそれぞれ$\ds P, Q$としよう。
+        このとき集合$\ds U, P, Q$の包含関係は条件$\ds p(x), q(x)$の論理関係に依存する。\par
+
+        例えば$\ds p(x) \land q(x)$を満たす$\ds x \in U$が存在する場合、ベン図は以下のように描ける。
+
+        \begin{center}
+          \begin{tikzpicture}[auto]
+
+            %Uのベン図
+            \draw[line](0, 0)rectangle(120pt, 80pt);
+            \node[set label, text=black] at (10pt, 80pt) {$\ds U$}
+
+            \def \circleRadius{20pt}
+            \def \leftCirclePoint{(50pt, 40pt)}
+            \def \rightCirclePoint{(70pt, 40pt)}
+            \def \centerPointOfShareArea{(60pt, 40pt)}
+            \def \leftCircleNamePoint{(50pt, 60pt)}
+            \def \rightCircleNamePoint{(70pt, 60pt)}
+
+            \scope
+              %Pのベン図
+              \clip \leftCirclePoint circle (\circleRadius);
+              \fill [fill=white] \rightCirclePoint circle (\circleRadius);
+            \endscope
+
+            \scope
+              %Qのベン図
+              \clip \rightCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \leftCirclePoint circle (\circleRadius);
+            \endscope
+
+            \draw \leftCirclePoint circle (\circleRadius);
+            \draw \rightCirclePoint circle (\circleRadius);
+            \node[set label, text=black] (P) at \leftCircleNamePoint {$\ds P$};
+            \node[set label, text=black] (Q) at \rightCircleNamePoint {$\ds Q$};
+
+            %共通部分ラベル
+            \draw[semithick, -, stealth] \centerPointOfShareArea--(60pt, -10pt);
+            \node[set label, text=black] (CAP) at (60pt, -10pt) {$\ds p(x) \land q(x)$の真理集合};
+
+          \end{tikzpicture}
+        \end{center}
+
+        すなわち、($\ds p(x) \land q(x)$の真理集合) $\ds = \{ x \in U \mid p(x) \land q(x) \}= P \cap Q$であることがわかり、
+        $\ds \land$を$\ds \cap$とした実質的な論理演算子の分配則が成立しているように見える。\par
+        これ以外のベン図もまとめると以下である。
+
+        \begin{center}
+          \begin{tikzpicture}[auto]
+
+            \def \circleRadius{20pt}
+
+            %%%%%%%%%%% FIRST %%%%%%%%%%%
+            \def \firstURadius{(120pt, 80pt)}
+            \def \firstUPoint{(0, 0)}
+            \def \firstULabelPoint{(10pt, 80pt)}
+            \def \firstPCirclePoint{(60pt, 40pt)}
+            \def \firstPLabelPoint{(60pt, 60pt)}
+            \def \firstLogicPanelPoint{(60pt, -10pt)}
+
+            %Uのベン図
+            \scope
+              \fill[pattern=north west lines] \firstUPoint rectangle (\firstURadius);
+              \draw[line] \firstUPoint rectangle (\firstURadius);
+            \endscope
+            \node[set label, text=black] at \firstULabelPoint {$\ds U$}
+
+            %Pのベン図
+            \scope
+              \clip \firstPCirclePoint circle (\circleRadius);
+              \fill [fill=white] \firstPCirclePoint circle (\circleRadius);
+              \draw [line] \firstPCirclePoint circle (\circleRadius);
+            \endscope
+            \node[set label, text=black] at \firstPLabelPoint {$\ds P$};
+
+            %論理ラベル
+            \node[set label, text=black] at \firstLogicPanelPoint {$\ds \{ x \in U \mid \overline{p(x)} \} = \overline{P}$};
+            %%%%%%%%%%% FIRST %%%%%%%%%%%
+
+            %%%%%%%%%%% SECOND %%%%%%%%%%%
+            \def \secondURadius{(280pt, 80pt)}
+            \def \secondUPoint{(160pt, 0)}
+            \def \secondULabelPoint{(170pt, 80pt)}
+            \def \secondPCirclePoint{(210pt, 40pt)}
+            \def \secondPLabelPoint{(210pt, 60pt)}
+            \def \secondQCirclePoint{(230pt, 40pt)}
+            \def \secondQLabelPoint{(230pt, 60pt)}
+            \def \secondLogicPanelPoint{(220pt, -10pt)}
+            
+            %Uのベン図
+            \scope
+              \draw[line] \secondUPoint rectangle (\secondURadius);
+            \endscope
+            \node[set label, text=black] at \secondULabelPoint {$\ds U$}
+
+            %Pのベン図
+            \scope
+              \clip \secondPCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \secondPCirclePoint circle (\circleRadius);
+              \draw [line] \secondPCirclePoint circle (\circleRadius);
+            \endscope
+            \node[set label, text=black] at \secondPLabelPoint {$\ds P$};
+
+            %Qのベン図
+            \scope
+              \clip \secondQCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \secondQCirclePoint circle (\circleRadius);
+              \draw [line] \secondQCirclePoint circle (\circleRadius);
+            \endscope
+            \node[set label, text=black] at \secondQLabelPoint {$\ds Q$};
+
+            %論理ラベル
+            \node[set label, text=black] at \secondLogicPanelPoint {$\ds \{ x \in U \mid p(x) \lor q(x) \} = P \cup Q$};
+            %%%%%%%%%%% SECOND %%%%%%%%%%%
+
+            %%%%%%%%%%% THIRD %%%%%%%%%%%
+            \def \thirdURadius{(120pt, -110pt)}
+            \def \thirdUPoint{(0, -30pt)}
+            \def \thirdULabelPoint{(10pt, -30pt)}
+            \def \thirdPCirclePoint{(50pt, -70pt)}
+            \def \thirdPLabelPoint{(50pt, -50pt)}
+            \def \thirdQCirclePoint{(70pt, -70pt)}
+            \def \thirdQLabelPoint{(70pt, -50pt)}
+            \def \thirdLogicPanelPoint{(140pt, -120pt)}
+
+            %Uのベン図
+            \scope
+              \fill[pattern=north west lines] \thirdUPoint rectangle (\thirdURadius);
+              \draw[line] \thirdUPoint rectangle (\thirdURadius);
+            \endscope
+            \node[set label, text=black] at \thirdULabelPoint {$\ds U$}
+
+            %Pのベン図
+            \scope
+              \clip \thirdPCirclePoint circle (\circleRadius);
+              \fill [fill=white] \thirdPCirclePoint circle (\circleRadius);
+              \draw [line] \thirdPCirclePoint circle (\circleRadius);
+            \endscope
+            \node[set label, text=black] at \thirdPLabelPoint {$\ds P$};
+
+            %Qのベン図
+            \scope
+              \clip \thirdQCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \thirdQCirclePoint circle (\circleRadius);
+              \draw [line] \thirdQCirclePoint circle (\circleRadius);
+            \endscope
+            \node[set label, text=black] at \thirdQLabelPoint {$\ds Q$};
+
+            %論理ラベル
+            \node[set label, text=black] at \thirdLogicPanelPoint {$\ds \{ x \in U \mid p(x) \Longrightarrow q(x) \} = \overline{P} \cup Q \quad (\because ならば文の基礎定理)$};
+            %%%%%%%%%%% THIRD %%%%%%%%%%%
+
+            %%%%%%%%%%% FOURTH %%%%%%%%%%%
+            \def \fourthURadius{(280pt, -110pt)}
+            \def \fourthUPoint{(160pt, -30pt)}
+            \def \fourthULabelPoint{(170pt, -30pt)}
+            \def \fourthQCirclePoint{(220pt, -70pt)}
+            \def \fourthQLabelPoint{(220pt, -40pt)}
+            \def \fourthPCirclePoint{(220pt, -70pt)}
+            \def \fourthPLabelPoint{(220pt, -55pt)}
+
+            %Uのベン図
+            \scope
+              \fill[pattern=north west lines] \fourthUPoint rectangle (\fourthURadius);
+              \draw[line] \fourthUPoint rectangle (\fourthURadius);
+            \endscope
+            \node[set label, text=black] at \fourthULabelPoint {$\ds U$}
+
+            %Qのベン図
+            \scope
+              \clip \fourthQCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \fourthQCirclePoint circle (30pt);
+            \endscope
+            \draw [line] \fourthQCirclePoint circle (30pt);
+            \node[set label, text=black] at \fourthQLabelPoint {$\ds Q$};
+
+            %Pのベン図
+            \scope
+              \clip \fourthPCirclePoint circle (\circleRadius);
+              \fill [pattern=north west lines] \fourthPCirclePoint circle (15pt);
+              \draw [line] \fourthPCirclePoint circle (15pt);
+            \endscope
+            \node[set label, text=black] at \fourthPLabelPoint {$\ds P$};
+            %%%%%%%%%%% FOURTH %%%%%%%%%%%
+
+          \end{tikzpicture}
+        \end{center}
+
     \subsection{集合同士の積}
       実数に積という演算があるのと同じように集合間にも積の演算がある。それを\textbf{直積}、または\textbf{デカルト積}という。ここではそれについてみておこう。\par
 
