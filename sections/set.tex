@@ -727,6 +727,62 @@
       \vspace{9pt}\\
 
       今定義した$\ds \sup A, \inf A$はそれぞれ$\ds \max A, \min A$の拡張となっていることがわかり、
-      任意の$\ds A (\subset \mathbb{R})$は$\ds \max A, \min A$が存在するとは言えなかったことに対して$\ds \sup A, \inf A$は必ず存在することがわかる。
+      任意の$\ds A (\subset \mathbb{R})$は$\ds \max A, \min A$が存在するとは言えなかったことに対して$\ds \sup A, \inf A$は必ず存在することがわかる。-
+
+    \newpage
+
+    \subsection{写像}
+      集合間を関係付ける概念として\textbf{写像}がある。ここではこの写像についてみていこう。
+      
+      \subsubsection{写像の定義}
+        $\ds X, Y$を空でない集合とする。\par
+        任意の$\ds x \in X$に対し、ある$\ds y \in Y$が一意に定まるとき、このような\textbf{対応規則}$\ds f$を\textbf{$\ds X$から$\ds Y$への写像$\ds f$}と呼び、
+        $\ds f:X \mapsto Y$や、各集合の任意の要素を強調した場合には$\ds f(x) = y$と書く。\par
+        また、$\ds X$の要素$\ds x$を写像$\ds f$によって写した$\ds Y$の要素が$\ds y$であることを、\textbf{$\ds x$を写像$\ds f$によって移した像}という。\par
+        このことを強調して記す場合には、$\ds x \stackrel{f}{\mapsto} y$のように書く。
+        \footnote{
+          \textbf{$\ds X, Y$が数を要素とする集合}の場合特に\textbf{関数}と呼ぶ。
+        }
+
+        \begin{center}
+          \begin{tikzpicture}[auto]
+          
+            %Xのベン図
+            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
+            \node[set label,text=black] (X) at (0, 40pt) {$\ds X$};
+
+            %Yのベン図
+            \draw (80pt,0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label,text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            \node[set label,text=black] (Y') at (80pt, 20pt) {$\ds Y'$};
+
+            %写像f
+            \draw[->] (0, 0) to node {$\scriptstyle f$} (80pt, 0);
+
+          \end{tikzpicture}
+        \end{center}
+
+        したがって、写像$\ds f$は次のように定義される。
+
+        \begin{equation*}
+          \begin{split}
+            $\ds f:X \mapsto Y \defineProposition \forall_{x \in X} [\exists!_{y \in Y} [y = f(x)]]$
+          \end{split}
+        \end{equation*}
+
+        \paragraph{定義域・値域}
+          写像$\ds f: X \mapsto Y$について、$\ds X$を$\ds f$の\textbf{定義域}と呼び、
+          また、$\ds x \in X$を写像$\ds f$によって写した像である$\ds y \in Y$の集合を$\ds f$の\textbf{値域}と呼ぶ。
+          \footnote{
+            文面上では勘違いしやすいが、一般には$\ds fの値域 = Y$ではなく$\ds fの値域 \subset Y$である。
+          }\par
+          すなわち$\ds f$の値域$\ds R_f$とは,「$\ds x \in X \land y = f(x)$を満たす$\ds x$が存在する」ような$\ds y$の集合であるから,厳密に次のように定義される。
+          
+          \begin{center}
+            \begin{equation*}
+              $\ds R_f \define \{ y \in Y \mid \exists_x[ x \in X \land y = f(x) ] \}$
+            \end{equation*}
+          \end{center}
 
 \end{document}
