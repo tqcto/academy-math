@@ -826,10 +826,8 @@
 
           \begin{center}
             \begin{equation*}
-              \begin{split}
-                
-                &$\ds x \neq x' \Longrightarrow f(x) \neq f(x')$\\
-  
+              \begin{split}                
+                &$\ds x \neq x' \Longrightarrow f(x) \neq f(x')$\\  
               \end{split}
             \end{equation*}
           \end{center}
@@ -839,10 +837,8 @@
 
           \begin{center}
             \begin{equation*}
-              \begin{split}
-                
-                &$\ds f(x) = f(x') \Longrightarrow x = x'$\\
-  
+              \begin{split}                
+                &$\ds f(x) = f(x') \Longrightarrow x = x'$\\  
               \end{split}
             \end{equation*}
           \end{center}
@@ -945,9 +941,7 @@
         \begin{center}
           \begin{equation*}
             \begin{split}
-
               $\ds f: X \mapsto Y$が全単射である $\ds \Longleftrightarrow \forall_{y \in Y} [ \exists!_{x \in X} [ y = f(x) ] ]$
-
             \end{split}
           \end{equation*}
         \end{center}
@@ -965,14 +959,140 @@
           \begin{center}
             \begin{equation*}
               \begin{split}
-              
                 \textbf{全単射である} $\ds \Longleftrightarrow$ \textbf{逆写像が存在する}
-                
               \end{split}
             \end{equation*}
           \end{center}
 
           という事実である。
           これについては, 逆写像について論じる際に述べることにするのでそちらを参照されたい。
+
+      \subsubsection{写像の合成}
+        写像$\ds f: X \mapsto Y, g: Y \mapsto Z$としよう。
+        このとき, $\ds x in X$として2つの対応を繋げると
+
+        \begin{center}
+          \begin{equation*}
+            \begin{split}
+              $\ds x \stackrel{f}{\mapsto} f(x) \stackrel{g}{\mapsto} g(f(x))$
+            \end{split}
+          \end{equation*}
+        \end{center}
+
+        となり, これは$\ds X$から$\ds Z$への写像
+
+        \begin{center}
+          \begin{equation*}
+            \begin{split}
+              $\ds g(f(x)): X \mapsto Z$
+            \end{split}
+          \end{equation*}
+        \end{center}
+
+        であることがわかる。
+
+        \begin{center}
+          \begin{tikzpicture}[auto]
+
+            \def \circleRadius{20pt}
+            \def \xCirclePoint{(0,  0)}
+            \def \yCirclePoint{(50pt, 25pt)}
+            \def \zCirclePoint{(100pt,  0)}
+            \def \xCircleNamePoint{(0,  20pt)}
+            \def \yCircleNamePoint{(50pt,  45pt)}
+            \def \zCircleNamePoint{(100pt,  20pt)}
+            \def \xItemNamePoint{(0, 5pt)}
+            \def \yItemNamePoint{(50pt, 30pt)}
+            \def \zItemNamePoint{(100pt, 5pt)}
+
+            %Xのベン図
+            \draw \xCirclePoint circle (\circleRadius);
+            \node[set label,  text=black] (X) at \xCircleNamePoint {$\ds X$};
+
+            %Yのベン図
+            \draw \yCirclePoint circle (\circleRadius);
+            \node[set label,  text=black] (Y) at \yCircleNamePoint {$\ds Y$};
+
+            %Xのベン図
+            \draw \zCirclePoint circle (\circleRadius);
+            \node[set label,  text=black] (Z) at \zCircleNamePoint {$\ds Z$};
+
+            \node at \xItemNamePoint {$\ds x$};
+            \node at \yItemNamePoint {$\ds y$};
+            \node at \zItemNamePoint {$\ds z$};
+
+            %x->y
+            \fill[fill=black] \xCirclePoint circle (1.5pt);
+            \draw[->] (0,  0) to node {$\scriptstyle f$} (50pt,  25pt);
+
+            %y->z
+            \fill[fill=black] \yCirclePoint circle (1.5pt);
+            \draw[->] (50pt,  25pt) to node {$\scriptstyle g$} (100pt,  0);
+
+            %x->z
+            \fill[fill=black] \zCirclePoint circle (1.5pt);
+            \draw[->] (0,  0) to node{} (100pt,  0);
+            \node[text=black] at (50pt, -10pt) {$\scriptstyle g \circ f$};
+
+          \end{tikzpicture}
+        \end{center}
+
+        このような写像を$\ds f$と$\ds g$の\textbf{合成写像}といい, 
+
+        \begin{center}
+          \begin{equation*}
+            \begin{split}
+              $\ds g \circ f (x): X \mapsto Z$
+            \end{split}
+          \end{equation*}
+        \end{center}
+
+        と書く。
+
+        \paragraph{合成順序}
+          一般に, $\ds g \circ f$が定義されるとき, $\ds f \circ g$も定義可能であるとは限らず, 仮に定義可能であったとしても$\ds g \circ f$と$\ds f \circ g$は原則一致しない。\par
+          例えば, $\ds f(x) = \sin x, g(x) = \ln x$の場合を考えてみると, 
+
+          \begin{center}
+            \begin{equation*}
+              \begin{split}
+                $\ds g \circ f (x) $  & $\ds = \ln ( \sin x )$\\
+                $\ds f \circ g (x) $  & $\ds = \sin ( \ln x )$\\
+              \end{split}
+            \end{equation*}
+          \end{center}
+
+          であり, $\ds g \circ f (x) \neq f \circ g (x)$の反例であることがわかる。
+
+        \paragraph{結合則}
+          一般に, 写像の合成に関して結合則が成立する。
+          つまり, $\ds f: A \mapsto B, g: B \mapsto C, h: C \mapsto D$に対し, 
+
+          \begin{center}
+            \begin{equation*}
+              \begin{split}
+                $\ds (h \circ g) \circ f= h \circ (g \circ f)$
+              \end{split}
+            \end{equation*}
+          \end{center}
+
+          である。
+
+          \begin{proof}[\textbf{証明}]
+            $\ds f, g, h$をそれぞれ集合$\ds AからB, BからC, CからD$への写像であるとし, $\ds x \in A$とする。
+            このとき, 
+            \begin{equation*}
+              \begin{split}
+                $\ds ((h \circ g) \circ f)(x)$  & $\ds = (h \circ g)(f(x))$\\
+                                                & $\ds = h(g(f(x)))$\\
+                                                & $\ds = h((g \circ f)(x))$\\
+                                                & $\ds = h(g \circ f)(x)$\\
+                                                & $\ds = (h \circ (g \circ f))(x)$\\
+              \end{split}
+            \end{equation*}
+            である。\par
+            よって示すべき命題は示された。
+          \end{proof}
+
 
 \end{document}
