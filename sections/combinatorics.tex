@@ -1,104 +1,104 @@
-\documentclass[a4j, 9pt]{ltjsarticle}
+\documentclass[a4j,  9pt]{ltjsarticle}
 
 \usepackage{../mypackage}
 
 \begin{document}
 
   \section{組み合わせ論(場合の数)}
-    組み合わせ論は離散数学の一部で、グラフ理論などがその中核を成す。
+    組み合わせ論は離散数学の一部で, グラフ理論などがその中核を成す。
     \footnote{
       離散数学は「代数学・幾何学・解析学」の三分野のどれかに包含される分野ではない。
       それゆえ組み合わせ論は確率論に包含されるわけではない。
     }
     
-    ここでは、組み合わせ論の一分野である\textbf{数え上げ組み合わせ論}と呼ばれる分野について議論しよう。
+    ここでは, 組み合わせ論の一分野である\textbf{数え上げ組み合わせ論}と呼ばれる分野について議論しよう。
 
     \vspace{9pt}\\
 
-    数え上げ組み合わせ論の主題は、考える状況における\textbf{場合の数}を計算することである。
-    場合の数とは、ある状況における起こりうる事象の数のことをいう。\par
-    ちなみに次節でも述べる確率論とは\textbf{偶然現象}に対して数学的なモデルを与え、解析する数学分野のことである。\par
-    ただ、確率論において\textbf{確率}を考えるにあたってはまず\textbf{場合の数}についての議論ができなければ話にならない。
-    そのため確率については次節で述べることとして、ここではまず場合の数について論じよう。
+    数え上げ組み合わせ論の主題は, 考える状況における\textbf{場合の数}を計算することである。
+    場合の数とは, ある状況における起こりうる事象の数のことをいう。\par
+    ちなみに次節でも述べる確率論とは\textbf{偶然現象}に対して数学的なモデルを与え, 解析する数学分野のことである。\par
+    ただ, 確率論において\textbf{確率}を考えるにあたってはまず\textbf{場合の数}についての議論ができなければ話にならない。
+    そのため確率については次節で述べることとして, ここではまず場合の数について論じよう。
 
     \subsection{用語の定義}
-      確率論では日常生活でも使われるような用語を用いることが多いが、数学上言葉の正しい意味を説明できなければ議論できない。\par
+      確率論では日常生活でも使われるような用語を用いることが多いが, 数学上言葉の正しい意味を説明できなければ議論できない。\par
       ゆえにまずは言葉の定義を確認してゆくことにする。
 
       \subsubsection{試行と事象}
-        \textbf{試行}とは、同じ状態のもとで繰り返すことができ、その結果が\overdot{偶}\overdot{然}\overdot{に}\overdot{よ}\overdot{っ}\overdot{て}\overdot{決}\overdot{ま}\overdot{る}実験や観測などのことである。\par
-        また、\textbf{試行した結果起こる事柄}を\textbf{事象}という。
-        さらに、\textbf{事象の全体集合}を\textbf{全事象(標本空間)}といい、\textbf{要素を持たない事象}を\textbf{空事象}という。\par
-        事象は一般に集合であり、必ずしも要素を指す言葉ではない。
+        \textbf{試行}とは, 同じ状態のもとで繰り返すことができ, その結果が\overdot{偶}\overdot{然}\overdot{に}\overdot{よ}\overdot{っ}\overdot{て}\overdot{決}\overdot{ま}\overdot{る}実験や観測などのことである。\par
+        また, \textbf{試行した結果起こる事柄}を\textbf{事象}という。
+        さらに, \textbf{事象の全体集合}を\textbf{全事象(標本空間)}といい, \textbf{要素を持たない事象}を\textbf{空事象}という。\par
+        事象は一般に集合であり, 必ずしも要素を指す言葉ではない。
         \textbf{各事象における要素}のことは\textbf{根元事象}という。
 
         \begin{center}
           \begin{tikzpicture}[auto]
         
             %元のベン図
-            \draw (0,0) ellipse (15pt and 30pt);
+            \draw (0, 0) ellipse (15pt and 30pt);
 
             %全事象のベン図
-            \draw (80pt,0) ellipse (20pt and 40pt);
+            \draw (80pt, 0) ellipse (20pt and 40pt);
             %事象のベン図
-            \fill[black!50!white] (80pt,0) ellipse (10pt and 20pt);
-            \node[set label, text=black] (All) at (80pt, 40pt) {$\ds 全事象$};
+            \fill[black!50!white] (80pt, 0) ellipse (10pt and 20pt);
+            \node[set label,  text=black] (All) at (80pt,  40pt) {$\ds 全事象$};
 
             %座標の定義
-            \coordinate (S) at (0, 0); %元
-            \coordinate (A) at (80pt, 30pt);
-            \coordinate (B) at (80pt, 10pt);
-            \coordinate (C) at (80pt, -10pt);
-            \coordinate (D) at (80pt, -30pt);
+            \coordinate (S) at (0,  0); %元
+            \coordinate (A) at (80pt,  30pt);
+            \coordinate (B) at (80pt,  10pt);
+            \coordinate (C) at (80pt,  -10pt);
+            \coordinate (D) at (80pt,  -30pt);
 
             %対応矢印
-            \draw[->] (S) to node {} (78pt, 30pt);
-            \draw[->] (S) to node {} (78pt, 10pt);
-            \draw[->] (S) to node {} (78pt, -10pt);
-            \draw[->] (S) to node {} (78pt, -30pt);
+            \draw[->] (S) to node {} (78pt,  30pt);
+            \draw[->] (S) to node {} (78pt,  10pt);
+            \draw[->] (S) to node {} (78pt,  -10pt);
+            \draw[->] (S) to node {} (78pt,  -30pt);
 
             %要素の点
-            \foreach \P  in {S, A, B, C, D} \fill[black] (\P) circle (0.06);
+            \foreach \P  in {S,  A,  B,  C,  D} \fill[black] (\P) circle (0.06);
 
             %試行ラベル
-            \draw[semithick, -, stealth] (39pt, -15pt)--(39pt, -2);%(39 = 78/2, -15 = -30/2)
-            \node[set label, text=black] () at (39pt, -2) {$\ds 試行$};
+            \draw[semithick,  -,  stealth] (39pt,  -15pt)--(39pt,  -2);%(39 = 78/2,  -15 = -30/2)
+            \node[set label,  text=black] () at (39pt,  -2) {$\ds 試行$};
 
             %事象ラベル
-            \draw[semithick, -, stealth] (80pt, 0)--(120pt, 0);
-            \node[set label, text=black] () at (120pt, 0) {$\ds 事象$};
+            \draw[semithick,  -,  stealth] (80pt,  0)--(120pt,  0);
+            \node[set label,  text=black] () at (120pt,  0) {$\ds 事象$};
 
             %根元事象ラベル
-            \draw[semithick, -, stealth] (C)--(100pt, -1);
-            \draw[semithick, -, stealth] (100pt, -1)--(140pt, -1);
-            \node[set label, text=black] () at (140pt, -1) {$\ds 根元事象$};
+            \draw[semithick,  -,  stealth] (C)--(100pt,  -1);
+            \draw[semithick,  -,  stealth] (100pt,  -1)--(140pt,  -1);
+            \node[set label,  text=black] () at (140pt,  -1) {$\ds 根元事象$};
 
           \end{tikzpicture}
         \end{center}
 
         \footnote{
-          試行は元の集合と全事象間の対応関係であるが、元から向かう先が一意に定まらないため写像ではない。
+          試行は元の集合と全事象間の対応関係であるが, 元から向かう先が一意に定まらないため写像ではない。
         }
 
         \begin{center}
-          $\ds 根元事象 \subseteq 事象, $ & $\ds 事象 \subseteq 全事象$
+          $\ds 根元事象 \subseteq 事象,  $ & $\ds 事象 \subseteq 全事象$
         \end{center}
 
         \footnote{
-          $\ds A \subseteq B$の意味は、$\ds A$は$\ds B$の部分集合または$\ds A$と$\ds B$は同じ集合\par
+          $\ds A \subseteq B$の意味は, $\ds A$は$\ds B$の部分集合または$\ds A$と$\ds B$は同じ集合\par
           つまり
           \begin{equation*}
             \begin{split}
               $\ds A \subseteq B \defineProposition ( A \subset B \lor A = B )$
             \end{split}
           \end{equation*}
-          とするが、そもそも部分集合という言葉の定義が「イコールの場合」も包含しているので$\ds A = B$を論理和で組むことは論理的に無意味であり、
+          とするが, そもそも部分集合という言葉の定義が「イコールの場合」も包含しているので$\ds A = B$を論理和で組むことは論理的に無意味であり, 
           あくまでここではイコールの場合も存在することを強調するために使っている。
         }
 
       \subsubsection{場合という言葉について}
-        「場合」という言葉は非常に曖昧な単語であり、それゆえ扱いづらい。\par
-        そこで確率論では、しばしば「場合」という言葉を「これ以上分割できない場合」という意味を指すものとする。
+        「場合」という言葉は非常に曖昧な単語であり, それゆえ扱いづらい。\par
+        そこで確率論では, しばしば「場合」という言葉を「これ以上分割できない場合」という意味を指すものとする。
         つまり
 
         \begin{center}
@@ -108,8 +108,8 @@
         と定義できる。
 
     \subsection{場合の数の計算方法について}
-      考える状況における、ある場合の数を計算するには「起こりうるすべての事象」を漏れなく数え上げることが大原則である。\par
-      数え上げの具体的な方法として「辞書式配列法」、「樹形図を用いた数え上げ法」などがある。
+      考える状況における, ある場合の数を計算するには「起こりうるすべての事象」を漏れなく数え上げることが大原則である。\par
+      数え上げの具体的な方法として「辞書式配列法」, 「樹形図を用いた数え上げ法」などがある。
       しかし状況によってはすべて数え上げることが現実的でない場合も多い。\par
       そんなとき場合の数の計算法則があれば簡単に計算できるだろう。
       まずはそんな計算法則について議論する。
@@ -117,29 +117,29 @@
     \subsection{和の法則}
 
       \begin{proof}[\textbf{導出}]
-        まず事象$\ds A, B$があるとき、$\ds A, B$が同時に起こらない状況について、事象$\ds A$または$\ds B$が起こる各々の起こり方の総数を求めることをゴールに議論しよう。
-        事象$\ds A, B$の起こり方の総数とはつまり、事象$\ds A, B$の和集合$\ds =$全事象$\ds U$の「根元事象の数」である。\par
-        つまり事象$\ds A, B$の根元事象の集合をそれぞれ$\ds \mathbb{A}, \mathbb{B}$、全事象に対応する集合を$\ds \mathbb{U}$とすると、
+        まず事象$\ds A,  B$があるとき, $\ds A,  B$が同時に起こらない状況について, 事象$\ds A$または$\ds B$が起こる各々の起こり方の総数を求めることをゴールに議論しよう。
+        事象$\ds A,  B$の起こり方の総数とはつまり, 事象$\ds A,  B$の和集合$\ds =$全事象$\ds U$の「根元事象の数」である。\par
+        つまり事象$\ds A,  B$の根元事象の集合をそれぞれ$\ds \mathbb{A},  \mathbb{B}$, 全事象に対応する集合を$\ds \mathbb{U}$とすると, 
         
         \begin{equation}
           \begin{split}
-            事象$\ds A, B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$ \label{eq:not-happening-at-the-same-time}
+            事象$\ds A,  B$は同時に起こらない $\ds \Longleftrightarrow \mathbb{A} \cap \mathbb{B} = \varnothing$ \label{eq:not-happening-at-the-same-time}
           \end{split}
         \end{equation}
 
-        であるから、全根元事象数、つまり$\ds \mathbb{U}$の要素数は
+        であるから, 全根元事象数, つまり$\ds \mathbb{U}$の要素数は
 
         \begin{center}
           \centering
           \begin{tikzpicture}
           
             %四角形
-            \draw (0,0) rectangle (1,1);
-            \draw (1,0) rectangle (2,1);
+            \draw (0, 0) rectangle (1, 1);
+            \draw (1, 0) rectangle (2, 1);
 
             %ラベル
-            \node[set label, text=black] () at (0.5, 1) {$\ds \mathbb{A}$};
-            \node[set label, text=black] () at (1.5, 1) {$\ds \mathbb{B}$};
+            \node[set label,  text=black] () at (0.5,  1) {$\ds \mathbb{A}$};
+            \node[set label,  text=black] () at (1.5,  1) {$\ds \mathbb{B}$};
 
           \end{tikzpicture}
         \end{center}
@@ -157,7 +157,7 @@
         \begin{breakbox}
           \begin{equation*}
             \begin{split}
-              &事象$\ds A, B$が同時に起こらない\\
+              &事象$\ds A,  B$が同時に起こらない\\
               &\begin{split}
                 \Longrightarrow $\ds A$または & $\ds B$のどちらかが起こる場合の数\\
                 & $\ds = A$の起こり方 $\ds + B$の起こり方\\
@@ -166,18 +166,18 @@
           \end{equation*}
         \end{breakbox}
 
-        であり、これを\textbf{和の法則}という。
+        であり, これを\textbf{和の法則}という。
       \end{proof}
 
       \subsubsection{和の法則の成立する例}
         \begin{breakbox}
-          大小$\ds 2$個のさいころを投げる。このとき、出る目の和が$\ds 5$の倍数になる場合は何通りあるか求めよ。
+          大小$\ds 2$個のさいころを投げる。このとき, 出る目の和が$\ds 5$の倍数になる場合は何通りあるか求めよ。
         \end{breakbox}
 
-        さいころは$\ds 1$つにつき目の数が$\ds 6$個しかないので書き出せば求められるが、ここでは集合論的に議論しよう。\par
+        さいころは$\ds 1$つにつき目の数が$\ds 6$個しかないので書き出せば求められるが, ここでは集合論的に議論しよう。\par
         
         \begin{proof}[\textbf{解答}]
-          まず、さいころの目の集合$\ds D$は
+          まず, さいころの目の集合$\ds D$は
 
           \begin{equation*}
             \begin{split}
@@ -202,28 +202,28 @@
             \end{split}
           \end{equation*}
 
-          であるから、考えうる目の和の$\ds 5$の倍数を要素に持つ集合$\ds F$は次のように定義される。
+          であるから, 考えうる目の和の$\ds 5$の倍数を要素に持つ集合$\ds F$は次のように定義される。
 
           \begin{equation*}
             \begin{split}
               $\ds F$ & $\ds \ldef \{ f \in \mathbb{N} \mid \exists_{n \in \mathbb{N}} [ f = 5n ] \land f \leq (\max D + \max D) \}$\\
               & $\ds = \{ f \in \mathbb{N} \mid \exists_{n \in \mathbb{N}} [ f = 5n ] \land f \leq 12 \}$\\
-              & $\ds = \{ 5, 10 \}$\\
+              & $\ds = \{ 5,  10 \}$\\
             \end{split}
           \end{equation*}
 
-          ここで、和が$\ds 5$になるような各さいころの目の組を要素に持つ集合を$\ds A$、和が$\ds 10$になるような組の集合を$\ds B$とすると
+          ここで, 和が$\ds 5$になるような各さいころの目の組を要素に持つ集合を$\ds A$, 和が$\ds 10$になるような組の集合を$\ds B$とすると
 
           \begin{equation*}
             \begin{split}
-              $\ds A$ & $\ds = \{ (1, 4), (2, 3), (3, 2), (4, 1) \}$\\
-              $\ds B$ & $\ds = \{ (4, 6), (6, 4), (5, 5) \}$\\
-              & $\ds \therefore n(A) = 4, n(B) = 3$
+              $\ds A$ & $\ds = \{ (1,  4),  (2,  3),  (3,  2),  (4,  1) \}$\\
+              $\ds B$ & $\ds = \{ (4,  6),  (6,  4),  (5,  5) \}$\\
+              & $\ds \therefore n(A) = 4,  n(B) = 3$
             \end{split}
           \end{equation*}
 
           となる。\par
-          ここに$\ds A$と$\ds B$は同時に起こりえないので、和の法則より
+          ここに$\ds A$と$\ds B$は同時に起こりえないので, 和の法則より
 
           \begin{equation*}
             \begin{split}
@@ -238,23 +238,23 @@
     
     \subsection{積の法則}
       \begin{proof}[\textbf{導出}]
-        次に事象$\ds A, B$が同時に起こる状況について議論しよう。
-        事象$\ds A, B$に対応する集合は先ほど同様$\ds \mathbb{A}, \mathbb{B}$とし、全事象$\ds U$の集合を$\ds \mathbb{U}$とする。
+        次に事象$\ds A,  B$が同時に起こる状況について議論しよう。
+        事象$\ds A,  B$に対応する集合は先ほど同様$\ds \mathbb{A},  \mathbb{B}$とし, 全事象$\ds U$の集合を$\ds \mathbb{U}$とする。
         つまり$\ds \mathbb{A} \cap \mathbb{B} \ne \varnothing$の状況を考える。\par
-        先ほどの$\ds A, B$が同時に起こらない状況では$\ds \mathbb{A} \cap \mathbb{B} = \varnothing$であったために事象$\ds A$を定める情報があれば事象$\ds B$の情報は含まずとも
+        先ほどの$\ds A,  B$が同時に起こらない状況では$\ds \mathbb{A} \cap \mathbb{B} = \varnothing$であったために事象$\ds A$を定める情報があれば事象$\ds B$の情報は含まずとも
         $\ds n(\mathbb{U})$を定めることができた。
         しかし同時に起こってしまう場合両者を定める情報がなくてはならない。\par
-        具体的には$\ds \mathbb{A} \cap \mathbb{B \ne \varnothing}$ゆえ、事象$\ds A$が起こるからと言って事象$\ds B$が起こらないとは限らないということである。\par
+        具体的には$\ds \mathbb{A} \cap \mathbb{B \ne \varnothing}$ゆえ, 事象$\ds A$が起こるからと言って事象$\ds B$が起こらないとは限らないということである。\par
 
         \begin{center}
           \centering
           \begin{tikzpicture}[auto]
         
             \def \circleRadius{1}
-            \def \leftCirclePoint{(0, 0)}
-            \def \rightCirclePoint{(1, 0)}
-            \def \leftCircleNamePoint{(0, 1)}
-            \def \rightCircleNamePoint{(1, 1)}
+            \def \leftCirclePoint{(0,  0)}
+            \def \rightCirclePoint{(1,  0)}
+            \def \leftCircleNamePoint{(0,  1)}
+            \def \rightCircleNamePoint{(1,  1)}
 
             \fill[black!50!white] \leftCirclePoint circle (\circleRadius);
             \scope
@@ -268,48 +268,48 @@
             \draw \leftCirclePoint circle (\circleRadius);
             \draw \rightCirclePoint circle (\circleRadius);
 
-            \node[set label, text=black] (A) at \leftCircleNamePoint {$\ds \mathbb{A}$};
-            \node[set label, text=black] (B) at \rightCircleNamePoint {$\ds \mathbb{B}$};
+            \node[set label,  text=black] (A) at \leftCircleNamePoint {$\ds \mathbb{A}$};
+            \node[set label,  text=black] (B) at \rightCircleNamePoint {$\ds \mathbb{B}$};
 
-            \fill[black!50!white] (2.6, 0.3) rectangle (3, 0.7);
-            \node[set label, text=black] (_A) at (4.2, 0.5) {事象$\ds A$が起こる};
+            \fill[black!50!white] (2.6,  0.3) rectangle (3,  0.7);
+            \node[set label,  text=black] (_A) at (4.2,  0.5) {事象$\ds A$が起こる};
 
-            \fill[pattern=north west lines] (2.6, -0.3) rectangle (3, -0.7);
-            \node[set label, text=black] (_B) at (4.55, -0.5) {事象$\ds A$も$\ds B$も起こる};
+            \fill[pattern=north west lines] (2.6,  -0.3) rectangle (3,  -0.7);
+            \node[set label,  text=black] (_B) at (4.55,  -0.5) {事象$\ds A$も$\ds B$も起こる};
 
           \end{tikzpicture}
         \end{center}
 
-        ここで議論が行き詰ってしまった原因は、事象$\ds A, B$に対する全事象の集合$\ds \mathbb{U}$の定義の仕方が悪かったことにある。
-        つまり、試行によって$\ds A$または$\ds B$の根元事象、つまり要素が$\ds 1$つ決まることに対応するように$\ds \mathbb{U}$を定義していなかったということである。\par
+        ここで議論が行き詰ってしまった原因は, 事象$\ds A,  B$に対する全事象の集合$\ds \mathbb{U}$の定義の仕方が悪かったことにある。
+        つまり, 試行によって$\ds A$または$\ds B$の根元事象, つまり要素が$\ds 1$つ決まることに対応するように$\ds \mathbb{U}$を定義していなかったということである。\par
         そこでこの定義を改善してみよう。\par
-        先ほどまでの定義では$\ds A$または$\ds B$の根元事象\overdot{１}\overdot{つ}\overdot{１}\overdot{つ}に対応させていなかったので、次のように$\ds U$の集合$\ds \mathbb{U'}$を再定義する。
+        先ほどまでの定義では$\ds A$または$\ds B$の根元事象\overdot{１}\overdot{つ}\overdot{１}\overdot{つ}に対応させていなかったので, 次のように$\ds U$の集合$\ds \mathbb{U'}$を再定義する。
 
         \begin{breakbox}
-          $\ds a \in \mathbb{A}, b \in \mathbb{B}$とするとき$\ds (a, b) \in \mathbb{U'}$となるように定義する。\par
+          $\ds a \in \mathbb{A},  b \in \mathbb{B}$とするとき$\ds (a,  b) \in \mathbb{U'}$となるように定義する。\par
           つまり
           \begin{equation*}
             \begin{split}
-              $\ds \mathbb{U'} \ldef \{ (a, b) \mid a \in \mathbb{A}, b \in \mathbb{B} \}$
+              $\ds \mathbb{U'} \ldef \{ (a,  b) \mid a \in \mathbb{A},  b \in \mathbb{B} \}$
             \end{split}
           \end{equation*}
         \end{breakbox}
 
-        また、事象$\ds A, B$に対応する集合をこの$\ds \mathbb{U'}$を用いて表すと
+        また, 事象$\ds A,  B$に対応する集合をこの$\ds \mathbb{U'}$を用いて表すと
 
         \begin{equation*}
           \begin{split}
-            $\ds \mathbb{A'}$ & $\ds \ldef \{ (a, b) \mid (a, b) \in \mathbb{U'} \land a \ne \varnothing \}$\\
-            $\ds \mathbb{B'}$ & $\ds \ldef \{ (a, b) \mid (a, b) \in \mathbb{U'} \land b \ne \varnothing \}$\\
-            $\ds \therefore$ & $\ds \mathbb{A'} \subset \mathbb{U'}, \mathbb{B'} \subset \mathbb{U'}$
+            $\ds \mathbb{A'}$ & $\ds \ldef \{ (a,  b) \mid (a,  b) \in \mathbb{U'} \land a \ne \varnothing \}$\\
+            $\ds \mathbb{B'}$ & $\ds \ldef \{ (a,  b) \mid (a,  b) \in \mathbb{U'} \land b \ne \varnothing \}$\\
+            $\ds \therefore$ & $\ds \mathbb{A'} \subset \mathbb{U'},  \mathbb{B'} \subset \mathbb{U'}$
           \end{split}
         \end{equation*}
 
         となる。\par
-        ちなみに、事象が$\ds A$ではないとき$\ds a = \varnothing$、$\ds B$ではないとき$\ds b = \varnothing$であり、
-        それゆえどちらでもないとき$\ds (a, b) = (\varnothing, \varnothing)$と対応する。
+        ちなみに, 事象が$\ds A$ではないとき$\ds a = \varnothing$, $\ds B$ではないとき$\ds b = \varnothing$であり, 
+        それゆえどちらでもないとき$\ds (a,  b) = (\varnothing,  \varnothing)$と対応する。
 
-        ここで、事象$\ds A, B$が同時に起こる状況において、特に
+        ここで, 事象$\ds A,  B$が同時に起こる状況において, 特に
         
         \begin{eqnarray}
           \begin{split}
@@ -318,11 +318,11 @@
         \end{eqnarray}
         
         を考えてみよう。\par
-        事象$\ds B$のうち$\ds b$通りを$\ds \mathbb{B'}$の部分集合$\ds \mathbb{C}$として表すと、この条件\eqref{term:ab}の下では$\ds \mathbb{A'}$は
+        事象$\ds B$のうち$\ds b$通りを$\ds \mathbb{B'}$の部分集合$\ds \mathbb{C}$として表すと, この条件\eqref{term:ab}の下では$\ds \mathbb{A'}$は
 
         \begin{eqnarray}
           \begin{split}
-            $\ds \mathbb{A'} = \{ (a, b) \mid a \in \mathbb{A} \land a \ne \varnothing, b \in \mathbb{C} \land b \ne \varnothing \}$ \label{eq:equaltion-of-A'1}
+            $\ds \mathbb{A'} = \{ (a,  b) \mid a \in \mathbb{A} \land a \ne \varnothing,  b \in \mathbb{C} \land b \ne \varnothing \}$ \label{eq:equaltion-of-A'1}
           \end{split}
         \end{eqnarray}
 
@@ -340,16 +340,16 @@
           
             \def \circleARadius{0.7}
             \def \circleBRadius{1}
-            \def \circleAPoint{(4, -0.2)}
-            \def \circleBPoint{(4, 0)}
-            \def \circleANamePoint{(4, \circleARadius-0.2)}
-            \def \circleBNamePoint{(4, \circleBRadius)}
+            \def \circleAPoint{(4,  -0.2)}
+            \def \circleBPoint{(4,  0)}
+            \def \circleANamePoint{(4,  \circleARadius-0.2)}
+            \def \circleBNamePoint{(4,  \circleBRadius)}
 
             \fill[pattern=north west lines] \circleAPoint circle (\circleARadius);
             \draw                           \circleAPoint circle (\circleARadius);
             \draw                           \circleBPoint circle (\circleBRadius);
-            \node[set label, text=black] (A') at \circleANamePoint {$\ds \mathbb{A'}$};
-            \node[set label, text=black] (B') at \circleBNamePoint {$\ds \mathbb{B'}$};
+            \node[set label,  text=black] (A') at \circleANamePoint {$\ds \mathbb{A'}$};
+            \node[set label,  text=black] (B') at \circleBNamePoint {$\ds \mathbb{B'}$};
 
           \end{tikzpicture}
         \end{center}
@@ -369,7 +369,7 @@
             & $\ds = n(\mathbb{A} \times \mathbb{C})$ \quad (\because \eqref{eq:equaltion-of-A'2})\\
             & $\ds = n(\mathbb{A}) \times n(\mathbb{C})$\\
             & \left(\because\begin{split}
-              & 事象$\ds A, B$は有限通りゆえ\\
+              & 事象$\ds A,  B$は有限通りゆえ\\
               & \quad \quad \quad 有限集合直積の濃度\\
             \end{split}\right)\\
             & $\ds = a \times b$
@@ -382,7 +382,7 @@
         \begin{breakbox}
           \begin{equation*}
             \begin{split}
-              &事象$\ds A, B$が同時に起こって　かつ　$\ds A$のすべての場合で$\ds B$が一律に起こる\\
+              &事象$\ds A,  B$が同時に起こって　かつ　$\ds A$のすべての場合で$\ds B$が一律に起こる\\
               &\begin{split}
                 \Longrightarrow $\ds A$と$\ds B$が同時に起こる場合の数 & $\ds = A$の起こり方 $\ds \times B$の起こり方\\
               \end{split}\\
@@ -390,7 +390,7 @@
           \end{equation*}
         \end{breakbox}
 
-        であり、これを\textbf{積の法則}という。
+        であり, これを\textbf{積の法則}という。
       \end{proof}
 
 \end{document}

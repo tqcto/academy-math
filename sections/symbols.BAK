@@ -1,4 +1,4 @@
-\documentclass[a4j,  9pt]{ltjsarticle}
+\documentclass[a4j, 9pt]{ltjsarticle}
 
 \usepackage{../mypackage}
 
@@ -6,8 +6,8 @@
 
   \section{数学記号一覧}
     ここに記す記号は一般に使われる数学記号である。
-    本セクション以降, 本書では特に断りなしに用いるのでここで確認しておこう。
-    また, 各分野のより専門的な記号などに関しては各セクションで説明することにする。
+    本セクション以降,本書では特に断りなしに用いるのでここで確認しておこう。
+    また,各分野のより専門的な記号などに関しては各セクションで説明することにする。
 
     \subsection{基本演算記号}
       \subsubsection{二項関係演算子}
@@ -20,21 +20,21 @@
               
                 $\ds x + y$                                                   & $\ds \cdots$  & $\ds xとy$の加法演算\\
                 $\ds x - y$                                                   & $\ds \cdots$  & $\ds xからy$の減法演算\\
-                $\ds x \times y,  \quad x \cdot y,  \quad xy$                   & $\ds \cdots$  & $\ds xとy$の乗法\\
-                $\ds x \div y,  \quad \frac{x}{y},  \quad x / y$                & $\ds \cdots$  & $\ds xとy$の除法\\
+                $\ds x \times y, \quad x \cdot y, \quad xy$                   & $\ds \cdots$  & $\ds xとy$の乗法\\
+                $\ds x \div y, \quad \frac{x}{y}, \quad x / y$                & $\ds \cdots$  & $\ds xとy$の除法\\
                 $\ds x^n$                                                     & $\ds \cdots$  & $\ds xのn$乗\\
                 $\ds \sqrt{x}$                                                & $\ds \cdots$  & $\ds x$の根号\\
                 $\ds \sqrt[n]{x}$                                             & $\ds \cdots$  & $\ds xのn$乗根\\
                 $\ds x = y$                                                   & $\ds \cdots$  & $\ds xとy$が等しい\\
                 $\ds x \neq y$                                                & $\ds \cdots$  & $\ds xとy$が不一致\\
-                $\ds x \approx y,  \quad x \simeq y,  \quad x \fallingdotseq y$ & $\ds \cdots$  & $\ds xとy$がほぼ等しい\\
+                $\ds x \approx y, \quad x \simeq y, \quad x \fallingdotseq y$ & $\ds \cdots$  & $\ds xとy$がほぼ等しい\\
                 $\ds x > y$                                                   & $\ds \cdots$  & $\ds xはy$より大きい\\
-                $\ds x \geq y,  \quad x \geqq y$                               & $\ds \cdots$  & $\ds xはy$と等しいかそれ以上\\
+                $\ds x \geq y, \quad x \geqq y$                               & $\ds \cdots$  & $\ds xはy$と等しいかそれ以上\\
                 $\ds x < y$                                                   & $\ds \cdots$  & $\ds xはy$より小さい\\
-                $\ds x \leq y,  \quad x \leqq y$                               & $\ds \cdots$  & $\ds xはy$と等しいかそれ以下\\
+                $\ds x \leq y, \quad x \leqq y$                               & $\ds \cdots$  & $\ds xはy$と等しいかそれ以下\\
                 $\ds x \gg y$                                                 & $\ds \cdots$  & $\ds xはy$に比べ非常に大きい\\
                 $\ds x \ll y$                                                 & $\ds \cdots$  & $\ds xはy$に比べ非常に小さい\\
-                $\ds x \define y,  \quad x \coloneqq y,  \quad x \equiv y$      & $\ds \cdots$  & $\ds xをy$で定義する\\
+                $\ds x \define y, \quad x \coloneqq y, \quad x \equiv y$      & $\ds \cdots$  & $\ds xをy$で定義する\\
 
               \end{tabular}
             \end{threeparttable}
@@ -52,10 +52,10 @@
               
                 $\ds p \lor q$                                            & $\ds \cdots$  & $\ds pまたはq$\\
                 $\ds p \land q$                                           & $\ds \cdots$  & $\ds pかつq$\\
-                $\ds \lnot p,  \quad \bar{p}$                              & $\ds \cdots$  & $\ds pでない$\\
-                $\ds p \Longrightarrow q,  \quad p \Rightarrow q$          & $\ds \cdots$  & $\ds pならばq$\\
-                $\ds p \Longleftarrow q,  \quad p \Leftarrow q$            & $\ds \cdots$  & $\ds qならばp$\\
-                $\ds p \Longleftrightarrow q,  \quad p \Leftrightarrow q$  & $\ds \cdots$  & $\ds pとq$の主張が等しい・$\ds pとq$は同値\\
+                $\ds \lnot p, \quad \bar{p}$                              & $\ds \cdots$  & $\ds pでない$\\
+                $\ds p \Longrightarrow q, \quad p \Rightarrow q$          & $\ds \cdots$  & $\ds pならばq$\\
+                $\ds p \Longleftarrow q, \quad p \Leftarrow q$            & $\ds \cdots$  & $\ds qならばp$\\
+                $\ds p \Longleftrightarrow q, \quad p \Leftrightarrow q$  & $\ds \cdots$  & $\ds pとq$の主張が等しい・$\ds pとq$は同値\\
                 $\ds p \defineProposition q$                              & $\ds \cdots$  & $\ds p$の主張を$\ds q$で定義する\\
 
               \end{tabular}
@@ -71,10 +71,10 @@
             \begin{threeparttable}
               \begin{tabular}{lcl}
               
-                $\ds \exists_x [p(x)],  \quad \exists_x p(x)$    & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が存在する\\
-                $\ds \exists!_x [p(x)],  \quad \exists!_x p(x)$  & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が"ただ一つ"存在する\\
-                $\ds \nexists_x [p(x)],  \quad \nexists_x p(x)$  & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が存在しない\\
-                $\ds \forall_x [p(x)],  \quad \forall_x p(x)$    & $\ds \cdots$  & 任意の$\ds x$で$\ds p(x)$が成立する\\
+                $\ds \exists_x [p(x)], \quad \exists_x p(x)$    & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が存在する\\
+                $\ds \exists!_x [p(x)], \quad \exists!_x p(x)$  & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が"ただ一つ"存在する\\
+                $\ds \nexists_x [p(x)], \quad \nexists_x p(x)$  & $\ds \cdots$  & $\ds p(x)$を満たす$\ds x$が存在しない\\
+                $\ds \forall_x [p(x)], \quad \forall_x p(x)$    & $\ds \cdots$  & 任意の$\ds x$で$\ds p(x)$が成立する\\
 
               \end{tabular}
             \end{threeparttable}
@@ -105,14 +105,14 @@
           \centering
           \begin{tabular}{lcl}
               
-              $\ds x \in X,  \quad X \ni x$                                                    & $\ds \cdots$  & $\ds x$は$\ds X$の要素である\\
+              $\ds x \in X, \quad X \ni x$                                                    & $\ds \cdots$  & $\ds x$は$\ds X$の要素である\\
               $\ds x \notin X$                                                                & $\ds \cdots$  & $\ds x$は$\ds X$の要素でない\\
-              $\ds X \subset Y,  \quad X \subseteq Y,  \quad Y \supset X,  \quad Y \supseteq X$  & $\ds \cdots$  & $\ds X$は$\ds Y$の部分集合である\\
+              $\ds X \subset Y, \quad X \subseteq Y, \quad Y \supset X, \quad Y \supseteq X$  & $\ds \cdots$  & $\ds X$は$\ds Y$の部分集合である\\
               $\ds X \not\subset Y$                                                           & $\ds \cdots$  & $\ds X$は$\ds Y$の部分集合でない\\
               $\ds X \cap Y$                                                                  & $\ds \cdots$  & $\ds X$と$\ds Y$の共通部分\\
               $\ds X \cup Y$                                                                  & $\ds \cdots$  & $\ds X$と$\ds Y$の和集合\\
               $\ds \overline{X}$                                                              & $\ds \cdots$  & $\ds X$の補集合\\
-              $\ds | A |,  \quad \operatorname{Card}(A),  \quad n(A)$                           & $\ds \cdots$  & $\ds A$の要素数・濃度\\
+              $\ds | A |, \quad \operatorname{Card}(A), \quad n(A)$                           & $\ds \cdots$  & $\ds A$の要素数・濃度\\
               $\ds A = B$                                                                     & $\ds \cdots$  & $\ds A$と$\ds B$は同じ集合\\
               $\ds A \times B$                                                                & $\ds \cdots$  & $\ds A$と$\ds B$の直積・デカルト積\\
               $\ds A^n$                                                                       & $\ds \cdots$  & $\ds A$を自身で$\ds n$回直積をとったもの\\
@@ -128,7 +128,7 @@
             \centering
             \begin{tabular}{rcl}
               
-              $\ds \varnothing,  \quad \emptyset,  \quad \phi$  & $\ds \define$  & 空集合\\
+              $\ds \varnothing, \quad \emptyset, \quad \phi$  & $\ds \define$  & 空集合\\
               $\ds \mathbb{N}$                                & $\ds \define$  & 自然数全体の集合\\ 
               $\ds \mathbb{Z}$                                & $\ds \define$  & 整数全体の集合\\ 
               $\ds \mathbb{P}$                                & $\ds \define$  & 素数全体の集合\\ 
@@ -147,15 +147,15 @@
             \centering
             \begin{tabular}{rcll}
               
-              $\ds \Left( a,  b \Right)$             & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x < b \}$       & 開区間\\
-              $\ds \Left( -\infty,  b \Right)$       & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid x < b \}$           & \\
-              $\ds \Left( a,  \infty \Right)$        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x \}$           & \\
-              $\ds \Left( -\infty,  \infty \Right)$  & $\ds \define$ & $\ds \mathbb{R}$                                  & \\
-              $\ds \Left[ a,  b \Right]$             & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x \leq b \}$ & 閉区間\\
-              $\ds ( a,  b ]$                        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x \leq b \}$    & 半開区間\\
-              $\ds ( -\infty,  b ]$                  & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid x \leq b \}$        & \\
-              $\ds [ a,  b )$                        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x < b \}$    & \\
-              $\ds [ a,  \infty )$                   & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x \}$        & \\
+              $\ds \Left( a, b \Right)$             & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x < b \}$       & 開区間\\
+              $\ds \Left( -\infty, b \Right)$       & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid x < b \}$           & \\
+              $\ds \Left( a, \infty \Right)$        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x \}$           & \\
+              $\ds \Left( -\infty, \infty \Right)$  & $\ds \define$ & $\ds \mathbb{R}$                                  & \\
+              $\ds \Left[ a, b \Right]$             & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x \leq b \}$ & 閉区間\\
+              $\ds ( a, b ]$                        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a < x \leq b \}$    & 半開区間\\
+              $\ds ( -\infty, b ]$                  & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid x \leq b \}$        & \\
+              $\ds [ a, b )$                        & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x < b \}$    & \\
+              $\ds [ a, \infty )$                   & $\ds \define$ & $\ds \{ x \in \mathbb{R} \mid a \leq x \}$        & \\
               
             \end{tabular}
           \end{tablehere}
@@ -189,7 +189,7 @@
               $\ds f:A \mapsto B$                                                 & $\ds \cdots$  & $\ds fはAからB$への写像\\
               $\ds f:A \hookrightarrow B$                                         & $\ds \cdots$  & $\ds fはAからB$への単射\\
               $\ds f:A \twoheadrightarrow B$                                      & $\ds \cdots$  & $\ds fはAからB$への全射\\
-              $\ds g \circ f \Left(x\Right),  \quad g\Left(f\Left(x\Right)\Right)$ & $\ds \cdots$  & $\ds fとg$の合成写像\\
+              $\ds g \circ f \Left(x\Right), \quad g\Left(f\Left(x\Right)\Right)$ & $\ds \cdots$  & $\ds fとg$の合成写像\\
               $\ds f^{-1}$                                                        & $\ds \cdots$  & $\ds f$の逆写像\\
               $\ds x \stackrel{f}{\mapsto} y$                                     & $\ds \cdots$  & $\ds x$を写像$\ds f$によって写したものが$\ds y$\\
               
@@ -204,8 +204,8 @@
             \centering
             \begin{tabular}{lcl}
               
-              $\ds \lim_{x \to \infty}f(x) = a,  \quad f(x) \to a \,  (x \to \infty)$  & $\ds \cdots$  & $\ds x$を限りなく大きくしたとき$\ds f(x)$の値が$\ds a$\\ 
-              $\ds \lim_{x \to b}f(x) = a,  \quad f(x) \to a \,  (x \to b)$            & $\ds \cdots$  & $\ds x$を限りなく$\ds b$に近づけたとき$\ds f(x)$の値が$\ds a$\\ 
+              $\ds \lim_{x \to \infty}f(x) = a, \quad f(x) \to a \, (x \to \infty)$  & $\ds \cdots$  & $\ds x$を限りなく大きくしたとき$\ds f(x)$の値が$\ds a$\\ 
+              $\ds \lim_{x \to b}f(x) = a, \quad f(x) \to a \, (x \to b)$            & $\ds \cdots$  & $\ds x$を限りなく$\ds b$に近づけたとき$\ds f(x)$の値が$\ds a$\\ 
               
             \end{tabular}
           \end{tablehere}
@@ -219,20 +219,20 @@
             \begin{tabular}{lcl}
               
                                                                                                                                                   &               &\\
-              $\ds \frac{df}{dx},  \quad \frac{df(x)}{dx},  \quad \frac{d}{dx}f(x),  \quad f'(x)$                                                    & $\ds \cdots$  & $\ds f(x)$の導関数\\
+              $\ds \frac{df}{dx}, \quad \frac{df(x)}{dx}, \quad \frac{d}{dx}f(x), \quad f'(x)$                                                    & $\ds \cdots$  & $\ds f(x)$の導関数\\
                                                                                                                                                   &               &\\
-              $\ds \left. \frac{df}{dx} \right|_{x=a},  \quad \frac{df(a)}{dx},  \quad \frac{d}{dx}f(a),  \quad f'(a)$                               & $\ds \cdots$  & $\ds x = a$における$\ds f(x)$の微分係数\\
+              $\ds \left. \frac{df}{dx} \right|_{x=a}, \quad \frac{df(a)}{dx}, \quad \frac{d}{dx}f(a), \quad f'(a)$                               & $\ds \cdots$  & $\ds x = a$における$\ds f(x)$の微分係数\\
                                                                                                                                                   &               &\\
-              $\ds \frac{\partial f}{\partial x},  \quad \frac{\partial f(x,  y)}{\partial x},  \quad \frac{\partial}{\partial x}f(x,  y),  \quad f_x$ & $\ds \cdots$  & $\ds f(x)$の偏導関数\\
+              $\ds \frac{\partial f}{\partial x}, \quad \frac{\partial f(x, y)}{\partial x}, \quad \frac{\partial}{\partial x}f(x, y), \quad f_x$ & $\ds \cdots$  & $\ds f(x)$の偏導関数\\
                                                                                                                                                   &               &\\
-              $\ds \left. \frac{\partial f}{\partial x} \right|_{x=a},  \quad \left. f_x \right|_{x=a}$                                            & $\ds \cdots$  & $\ds x = a$における$\ds f(x,  y)$の偏微分係数\\
+              $\ds \left. \frac{\partial f}{\partial x} \right|_{x=a}, \quad \left. f_x \right|_{x=a}$                                            & $\ds \cdots$  & $\ds x = a$における$\ds f(x, y)$の偏微分係数\\
               
             \end{tabular}
           \end{tablehere}
         \end{center}
 
         \footnote{
-          $\ds \frac{d}{dx}$や$\ds \frac{\partial}{\partial x}$はそれぞれ\textbf{微分演算子}, \textbf{偏微分演算子}とも呼ぶ。
+          $\ds \frac{d}{dx}$や$\ds \frac{\partial}{\partial x}$はそれぞれ\textbf{微分演算子},\textbf{偏微分演算子}とも呼ぶ。
         }
 
     \subsection{代数学の記号}

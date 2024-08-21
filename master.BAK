@@ -1,4 +1,4 @@
-\documentclass[a4j,  9pt]{ltjsarticle}
+\documentclass[a4j, 9pt]{ltjsarticle}
 
 \usepackage{mypackage}
 \usepackage{subfiles}
@@ -23,6 +23,10 @@
   \subfile{sections/set.tex}
 
   \newpage
+
+  \subfile{sections/mapping.tex}
+
+  \newpage
   
   \subfile{sections/symmetry.tex}
 
@@ -33,9 +37,9 @@
   \newpage
   
 \part{発展編}
-  基礎編では数学の基礎, 使いこなせると役に立つ道具類を紹介してきた。
-  本パートでは, 少々込み入った専門的な知識を確認していくことにしよう。
-  特に代数学では, 代表的な\textbf{群論}, \textbf{環論}, \textbf{体}を主として述べることにする。
+  基礎編では数学の基礎,使いこなせると役に立つ道具類を紹介してきた。
+  本パートでは,少々込み入った専門的な知識を確認していくことにしよう。
+  特に代数学では,代表的な\textbf{群論},\textbf{環論},\textbf{体}を主として述べることにする。
 
   \section{代数学}
     

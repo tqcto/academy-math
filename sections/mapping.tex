@@ -1,16 +1,16 @@
-\documentclass[a4j, 9pt]{ltjsarticle}
+\documentclass[a4j,  9pt]{ltjsarticle}
 
 \usepackage{../mypackage}
 
 \begin{document}
 
   \section{写像}
-    前節では集合論の概要を説明した。ついでここでは集合間を関係づける概念、写像についてみておこう。
+    前節では集合論の概要を説明した。ついでここでは集合間を関係づける概念, 写像についてみておこう。
     
     \subsection{写像の定義}
-        $\ds X, Y$を空でない集合とする。\par
-        任意の$\ds x \in X$に対し、ある$\ds y \in Y$が一意に定まるとき、このような\textbf{対応規則}を\textbf{$\ds X$から$\ds Y$への写像}と呼ぶ。\par
-        また\textbf{$\ds X, Y$が数を要素とする集合}の場合特に\textbf{関数}と呼ぶ。つまり$\ds 関数 \subset 写像$である。\par
+        $\ds X,  Y$を空でない集合とする。\par
+        任意の$\ds x \in X$に対し, ある$\ds y \in Y$が一意に定まるとき, このような\textbf{対応規則}を\textbf{$\ds X$から$\ds Y$への写像}と呼ぶ。\par
+        また\textbf{$\ds X,  Y$が数を要素とする集合}の場合特に\textbf{関数}と呼ぶ。つまり$\ds 関数 \subset 写像$である。\par
         簡潔に表現すれば以下。
 
         \columnbreak
@@ -25,17 +25,17 @@
           \begin{tikzpicture}[auto]
           
             %Xのベン図
-            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-            \node[set label,text=black] (X) at (0, 40pt) {$\ds X$};
+            \fill[color=black!50!white,  draw=black] (0, 0) ellipse (20pt and 40pt);
+            \node[set label, text=black] (X) at (0,  40pt) {$\ds X$};
 
             %Yのベン図
-            \draw (80pt,0) ellipse (20pt and 40pt);
-            \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-            \node[set label,text=black] (Y) at (80pt, 40pt) {$\ds Y$};
-            \node[set label,text=black] (Y') at (80pt, 20pt) {$\ds Y'$};
+            \draw (80pt, 0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white,  draw=black] (80pt,  0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label, text=black] (Y) at (80pt,  40pt) {$\ds Y$};
+            \node[set label, text=black] (Y') at (80pt,  20pt) {$\ds Y'$};
 
             %写像f
-            \draw[->] (0, 0) to node {$\scriptstyle f$} (80pt, 0);
+            \draw[->] (0,  0) to node {$\scriptstyle f$} (80pt,  0);
 
           \end{tikzpicture}
         \end{equation*}
@@ -68,13 +68,13 @@
 
       \subsection{単射（行先がかぶらない写像）}
         写像にはいくつか特性が存在する。その特性の一つを有する写像が\textbf{単射}と呼ばれるものである。\par
-        \textbf{$\ds f:X \mapsto Y$が単射である}とは、\textbf{任意の$x,x'\in X$に対して「$\ds x \ne x' \Longrightarrow f(x) \ne f(x')$」が成立すること}である。\par
+        \textbf{$\ds f:X \mapsto Y$が単射である}とは, \textbf{任意の$x, x'\in X$に対して「$\ds x \ne x' \Longrightarrow f(x) \ne f(x')$」が成立すること}である。\par
         つまり簡潔に表せば以下。
 
         \begin{equation*}
           \begin{split}\notag
-            $\ds f:X \mapsto Yが単射$     & $\defineProposition      \forall_{x,x'\in X} [x \ne x' \Longrightarrow f(x) \ne f(x')]$\\
-                                          & $\ds \Longleftrightarrow  \forall_{x,x'\in X} [f(x) = f(x') \Longrightarrow x = x']$\\
+            $\ds f:X \mapsto Yが単射$     & $\defineProposition      \forall_{x, x'\in X} [x \ne x' \Longrightarrow f(x) \ne f(x')]$\\
+                                          & $\ds \Longleftrightarrow  \forall_{x, x'\in X} [f(x) = f(x') \Longrightarrow x = x']$\\
           \end{split}
         \end{equation*}
 
@@ -82,30 +82,30 @@
           \begin{tikzpicture}[auto]
           
             %Xのベン図
-            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+            \fill[color=black!50!white,  draw=black] (0, 0) ellipse (20pt and 40pt);
+            \node[set label,  text=black] (X) at (0,  40pt) {$\ds X$};
 
             %Yのベン図
-            \draw (80pt,0) ellipse (20pt and 40pt);
-            \fill[color=black!50!white, draw=black] (80pt, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            \draw (80pt, 0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white,  draw=black] (80pt,  0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label,  text=black] (Y) at (80pt,  40pt) {$\ds Y$};
 
             %x->y
-            \node (x) at (0, 15pt) {$\ds x$};
-            \node (y) at (80pt, 15pt) {$\ds y$};
-            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
+            \node (x) at (0,  15pt) {$\ds x$};
+            \node (y) at (80pt,  15pt) {$\ds y$};
+            \draw[->] (0,  10pt) to node {$\scriptstyle f(x)$} (80pt,  10pt);
 
             %x'->y'
-            \node (x') at (0, -3pt) {$\ds x'$};
-            \node (y') at (80pt, -3pt) {$\ds y'$};
-            \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
+            \node (x') at (0,  -3pt) {$\ds x'$};
+            \node (y') at (80pt,  -3pt) {$\ds y'$};
+            \draw[->] (0,  -10pt) to node {$\scriptstyle f(x')$} (80pt,  -10pt);
 
           \end{tikzpicture}
         \end{equation*}
 
       \subsection{全射}
         写像の特使の一つを有するものを単射と言った。他にも\textbf{全射}と呼ばれるものもある。\par
-        \textbf{$\ds f:X \mapsto Y$が全射である}とは、\textbf{任意の$y \in Y$に対して、ある$\ds x \in X$が存在し$\ds f(x)=y$となること}である。\par
+        \textbf{$\ds f:X \mapsto Y$が全射である}とは, \textbf{任意の$y \in Y$に対して, ある$\ds x \in X$が存在し$\ds f(x)=y$となること}である。\par
         つまり簡潔に表せば以下。
 
         \begin{equation*}
@@ -118,48 +118,48 @@
           \begin{tikzpicture}[auto]
           
             %Xのベン図
-            \draw (0,0) ellipse (20pt and 40pt);
-            \fill[color=black!50!white, draw=black] (0, 0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
-            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+            \draw (0, 0) ellipse (20pt and 40pt);
+            \fill[color=black!50!white,  draw=black] (0,  0) ellipse (10pt and 20pt); % black!50!white で黒と白50%
+            \node[set label,  text=black] (X) at (0,  40pt) {$\ds X$};
 
             %Yのベン図
-            \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
-            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            \fill[color=black!50!white,  draw=black] (80pt, 0) ellipse (20pt and 40pt);
+            \node[set label,  text=black] (Y) at (80pt,  40pt) {$\ds Y$};
 
             %x->y
-            \node (x) at (0, 15pt) {$\ds x$};
-            \node (y) at (80pt, 15pt) {$\ds y$};
+            \node (x) at (0,  15pt) {$\ds x$};
+            \node (y) at (80pt,  15pt) {$\ds y$};
 
             %x'->y'
-            \node (x') at (0, 5pt) {$\ds x'$};
-            \node (y') at (80pt, -3pt) {$\ds y'$};
+            \node (x') at (0,  5pt) {$\ds x'$};
+            \node (y') at (80pt,  -3pt) {$\ds y'$};
 
             %x''->y'
-            \node (x'') at (0, -13pt) {$\ds x''$};
+            \node (x'') at (0,  -13pt) {$\ds x''$};
 
-            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
-            \draw[->] (0, 0) to node {$\scriptstyle f(x')$} (80pt, -10pt);
-            \draw[->] (0, -20pt) to node {$\scriptstyle f(x'')$} (80pt, -10pt);
+            \draw[->] (0,  10pt) to node {$\scriptstyle f(x)$} (80pt,  10pt);
+            \draw[->] (0,  0) to node {$\scriptstyle f(x')$} (80pt,  -10pt);
+            \draw[->] (0,  -20pt) to node {$\scriptstyle f(x'')$} (80pt,  -10pt);
 
           \end{tikzpicture}
         \end{center}
 
-        \subsection{全単射（1対1対応、変換）}
-        既に写像の特性を持つものを2つ紹介したが、これらの特性を同時に有するものも存在する。それを\textbf{全単射}といい、\textbf{単射と全射それぞれの定義から成る合成命題}で定義される。\par
+        \subsection{全単射（1対1対応, 変換）}
+        既に写像の特性を持つものを2つ紹介したが, これらの特性を同時に有するものも存在する。それを\textbf{全単射}といい, \textbf{単射と全射それぞれの定義から成る合成命題}で定義される。\par
         つまり
 
         \begin{equation*}
           \begin{split}
-            \textbf{$\ds f:X \mapsto Y$が全単射である}とは、\textbf{$\ds f$が単射かつ全射であるとき}をいう。
+            \textbf{$\ds f:X \mapsto Y$が全単射である}とは, \textbf{$\ds f$が単射かつ全射であるとき}をいう。
           \end{split}
         \end{equation*}
         
-        また、\textbf{定義域と値域が等しい}ことよりこの対応を\textbf{1対1対応}とも呼び、さらに\textbf{互いの集合間をすべての要素が行き来できる}ことより\textbf{変換}とも呼ぶ。(ただし変換に関しては必ずしも1対1対応でなくてもよい。)\par
+        また, \textbf{定義域と値域が等しい}ことよりこの対応を\textbf{1対1対応}とも呼び, さらに\textbf{互いの集合間をすべての要素が行き来できる}ことより\textbf{変換}とも呼ぶ。(ただし変換に関しては必ずしも1対1対応でなくてもよい。)\par
         つまり簡潔に表せば以下。
 
         \begin{equation*}
           \begin{split}
-            $\ds f:X \mapsto Yが全単射 \defineProposition \forall_{x,x'\in X} [f(x) = f(x') \Longrightarrow x = x'] \land \forall_{y\in Y} [\exists_{x\in X} [f(x) = y]]$
+            $\ds f:X \mapsto Yが全単射 \defineProposition \forall_{x, x'\in X} [f(x) = f(x') \Longrightarrow x = x'] \land \forall_{y\in Y} [\exists_{x\in X} [f(x) = y]]$
           \end{split}
         \end{equation*}
 
@@ -167,22 +167,22 @@
           \begin{tikzpicture}[auto]
           
             %Xのベン図
-            \fill[color=black!50!white, draw=black] (0,0) ellipse (20pt and 40pt);
-            \node[set label, text=black] (X) at (0, 40pt) {$\ds X$};
+            \fill[color=black!50!white,  draw=black] (0, 0) ellipse (20pt and 40pt);
+            \node[set label,  text=black] (X) at (0,  40pt) {$\ds X$};
 
             %Yのベン図
-            \fill[color=black!50!white, draw=black] (80pt,0) ellipse (20pt and 40pt);
-            \node[set label, text=black] (Y) at (80pt, 40pt) {$\ds Y$};
+            \fill[color=black!50!white,  draw=black] (80pt, 0) ellipse (20pt and 40pt);
+            \node[set label,  text=black] (Y) at (80pt,  40pt) {$\ds Y$};
 
             %x->y
-            \node (x) at (0, 15pt) {$\ds x$};
-            \node (y) at (80pt, 15pt) {$\ds y$};
-            \draw[->] (0, 10pt) to node {$\scriptstyle f(x)$} (80pt, 10pt);
+            \node (x) at (0,  15pt) {$\ds x$};
+            \node (y) at (80pt,  15pt) {$\ds y$};
+            \draw[->] (0,  10pt) to node {$\scriptstyle f(x)$} (80pt,  10pt);
 
             %x'->y'
-            \node (x') at (0, -3pt) {$\ds x'$};
-            \node (y') at (80pt, -3pt) {$\ds y'$};
-            \draw[->] (0, -10pt) to node {$\scriptstyle f(x')$} (80pt, -10pt);
+            \node (x') at (0,  -3pt) {$\ds x'$};
+            \node (y') at (80pt,  -3pt) {$\ds y'$};
+            \draw[->] (0,  -10pt) to node {$\scriptstyle f(x')$} (80pt,  -10pt);
 
           \end{tikzpicture}
         \end{equation*}
