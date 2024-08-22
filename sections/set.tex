@@ -786,6 +786,21 @@
               \end{split}
             \end{equation*}
           \end{center}
+
+      \subsubsection{恒等写像}
+        写像$\ds f: X \mapsto Y$について, $\ds X = Y$であるとき, すなわち
+        
+        \begin{center}
+          \begin{equation*}
+            \begin{split}
+              $\ds \forall_{x \in X} [ f(x) = x ]$
+            \end{split}
+          \end{equation*}
+        \end{center}
+        
+        が成立するような写像$\ds f$を\textbf{恒等写像}という。
+        つまり, すべての元をそっくりそのまま写すような写像のことである。\par
+        例えば, 写像$\ds f(x) = x$は恒等写像である。
         
       \subsubsection{単射と全射}
         写像$\ds f: X \mapsto Y$があるとする。\par
@@ -858,6 +873,14 @@
             $\ds f:X \hookrightarrow Y \Longleftrightarrow \forall_{x \in X} [\exists!_{y \in Y} [y = f(x)] \land \forall_{x' \in X} [x \neq x' \Longrightarrow f(x) \neq f(x')] ]$
           }
 
+          例えば, $\ds x \in \mathbb{R}$とするとき, 写像$\ds f(x) = e^x$は$\ds f: \mathbb{R} \mapsto \{ y \in \mathbb{R} \mid y > 0 \}$であり, 
+          任意の値域の要素は定義域の要素と一対一に対応するので単射である。
+          \footnote{
+            ただし, 任意の$\ds y \in \mathbb{R}$は$\ds y \leq 0$を含むためこの区間の要素は原像と対応せず, 全体としては一対一に対応していないことがわかる。これが単射と全単射の違いである。\par
+            では, $\ds \{ x \in \mathbb{R} \mid x > 0 \}$を定義域とするとどうだろうか。
+            この場合, $\ds y$全体の集合も$\ds \{ y \in \mathbb{R} \mid y > 0 \}$であるから$\ds f$は全射性も持つため全単射であると言える。
+          }
+
         \blank
 
         \paragraph{全射}
@@ -906,6 +929,14 @@
               \end{split}
             \end{equation*}
           \end{center}
+
+          例えば, $\ds x \in \mathbb{R}$とするとき, $\ds f(x) = x^2$は$\ds \forall_{y \in Y} [ \exists_{x \in X} [ f(x) = y ] ]$が成立するので全射である。
+          \footnote{
+            しかし, 任意の$\ds x_1, x_2 \in \mathbb{R} \land x_1 \neq x_2$に対し必ずしも$\ds f(x_1) \neq f(x_2)$が成立するわけではないので, これは単射性を持たず全単射ではない。
+            反例の一つとして, $\ds x_1 = -1 \land x_2 = 1$のとき$\ds f(x_1) = f(x_2) = 1$であることである。\par
+            これは, 例えば定義域が$\ds \{ x \in \mathbb{R} \mid x \geq 0 \} (\eqqcolon X')$ならば$\ds \forall_{x_1, x_2 \in X'} [ x_1 \neq x_2 \Longrightarrow f(x_1) \neq f(x_2) ]$
+            が言え, 単射性を持つため全単射である。
+          }
 
       \subsubsection{全単射(一対一対応)}
         単射かつ全射であるような写像を, \textbf{全単射}という。
@@ -967,9 +998,15 @@
           という事実である。
           これについては, 逆写像について論じる際に述べることにするのでそちらを参照されたい。
 
+        \blank
+
+        例えば, $\ds x \in \mathbb{R}$の下で$\ds f(x) = x^3$は, $\ds \forall_{x_1, x_2 \in \mathbb{R}}[ x_1 \neq x_2 \Longrightarrow f(x_1) \neq f(x_2) ]$を満たすので単射性を持ち, 
+        またこの写像$\ds f$の値域を$\ds Y$としたとき, $\ds \forall_{y \in Y}[ \exists_{x \in \mathbb{R}}[ y = f(x) ] ]$を満たすので全射性も持つ。
+        したがって, 写像$\ds f$は全単射であることがわかる。
+
       \subsubsection{写像の合成}
         写像$\ds f: X \mapsto Y, g: Y \mapsto Z$としよう。
-        このとき, $\ds x in X$として2つの対応を繋げると
+        このとき, $\ds x \in X$として2つの対応を繋げると
 
         \begin{center}
           \begin{equation*}
